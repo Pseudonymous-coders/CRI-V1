@@ -1,0 +1,6 @@
+libebluez 1 libedbus1 (>= 1.0.0~)
+libeconnman 1 libedbus1 (>= 1.0.0~)
+libedbus 1 libedbus1 (>= 1.0.0~)
+libehal 1 libedbus1 (>= 1.0.0~)
+libenotify 1 libedbus1 (>= 1.0.0~)
+libeukit 1 libedbus1 (>= 1.0.0~)

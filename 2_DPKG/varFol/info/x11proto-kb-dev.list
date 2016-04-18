@@ -1,0 +1,17 @@
+/.
+/usr
+/usr/share
+/usr/share/doc
+/usr/share/doc/x11proto-kb-dev
+/usr/share/doc/x11proto-kb-dev/copyright
+/usr/share/doc/x11proto-kb-dev/changelog.Debian.gz
+/usr/share/pkgconfig
+/usr/share/pkgconfig/kbproto.pc
+/usr/include
+/usr/include/X11
+/usr/include/X11/extensions
+/usr/include/X11/extensions/XKB.h
+/usr/include/X11/extensions/XKBgeom.h
+/usr/include/X11/extensions/XKBproto.h
+/usr/include/X11/extensions/XKBsrv.h
+/usr/include/X11/extensions/XKBstr.h

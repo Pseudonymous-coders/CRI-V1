@@ -1,0 +1,6 @@
+af687f0a79a596eff88f87ca5bd39204  usr/bin/X
+c43ea5f67b6ec8b2583a07fb16775831  usr/share/bug/xorg/control
+a53bb2c9ffb680291848543b019bfc32  usr/share/doc/xserver-xorg-lts-trusty/NEWS.Debian.gz
+fbdf45d0ba08000b8b73b54dee77a9ed  usr/share/doc/xserver-xorg-lts-trusty/TODO
+d61715a706a95b7c222b5caebd8ce7f8  usr/share/doc/xserver-xorg-lts-trusty/copyright
+8542f9f7c29274f1b1ce2e9796a07e36  usr/share/lintian/overrides/xserver-xorg-lts-trusty

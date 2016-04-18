@@ -1,0 +1,12 @@
+/.
+/usr
+/usr/share
+/usr/share/doc
+/usr/share/doc/libxcb-keysyms1
+/usr/share/doc/libxcb-keysyms1/README
+/usr/share/doc/libxcb-keysyms1/copyright
+/usr/share/doc/libxcb-keysyms1/NEWS.gz
+/usr/share/doc/libxcb-keysyms1/changelog.Debian.gz
+/usr/lib
+/usr/lib/libxcb-keysyms.so.1.0.0
+/usr/lib/libxcb-keysyms.so.1

@@ -1,0 +1,10 @@
+71df9b2593b5709527030b43dc1e3c76  usr/share/doc/python-apt-common/changelog.gz
+139dec8821e002784a9dab90acbc4850  usr/share/doc/python-apt-common/copyright
+9222fc2add9c5ce9010fb48034ca9ea5  usr/share/lintian/overrides/python-apt-common
+7fe5bc0a38d7802e1efe591ea4e2c4bf  usr/share/python-apt/migrate-0.8.py
+78154844367fb8a83d1f4c8f4ce96270  usr/share/python-apt/templates/Debian.info
+1c49db582c9b08ae495a49c7f427a8e4  usr/share/python-apt/templates/Debian.mirrors
+f3300a35ff8b52de2ffd27e6f7d41222  usr/share/python-apt/templates/Ubuntu.info
+ea9686d5d38c971832ff68e304b7cfde  usr/share/python-apt/templates/Ubuntu.mirrors
+71ade2e0167410d6b2dc82dad09259a6  usr/share/python-apt/templates/gNewSense.info
+2a550c541cd5b33dc8a46cd30d4abfce  usr/share/python-apt/templates/gNewSense.mirrors

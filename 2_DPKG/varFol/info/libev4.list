@@ -1,0 +1,10 @@
+/.
+/usr
+/usr/share
+/usr/share/doc
+/usr/share/doc/libev4
+/usr/share/doc/libev4/copyright
+/usr/share/doc/libev4/changelog.Debian.gz
+/usr/lib
+/usr/lib/libev.so.4.0.0
+/usr/lib/libev.so.4

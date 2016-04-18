@@ -1,0 +1,11 @@
+9cbf35fa0cd54a753bf04aa8cf8e0ed6  usr/share/GConf/gsettings/gvfs-dns-sd.convert
+1b496b292b6a6d7dab2dd2735d340639  usr/share/GConf/gsettings/gvfs-smb.convert
+355218e0db119e15d271a773ca9033af  usr/share/doc/gvfs-common/AUTHORS
+4158a87d458b0af36b9975a50eb5a0e4  usr/share/doc/gvfs-common/NEWS.gz
+53285e73360285d5c8557444c918d0f0  usr/share/doc/gvfs-common/README
+d17de82c9a85d7dad9bf743c374d3fc3  usr/share/doc/gvfs-common/TODO
+4c0dc0009f083ab3468e549ec75bdfc2  usr/share/doc/gvfs-common/changelog.Debian.gz
+334978aba9b1a12476f5620e5826b4ad  usr/share/doc/gvfs-common/copyright
+6112ac37e61b88bf795bbebc8befa4db  usr/share/glib-2.0/schemas/org.gnome.system.dns_sd.gschema.xml
+ea013fa14d61341799313c1069e84d41  usr/share/glib-2.0/schemas/org.gnome.system.gvfs.enums.xml
+709d0e19c2ec95f0976607712aa83ad7  usr/share/glib-2.0/schemas/org.gnome.system.smb.gschema.xml

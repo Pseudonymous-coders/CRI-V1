@@ -1,0 +1,14 @@
+/.
+/usr
+/usr/share
+/usr/share/doc
+/usr/share/doc/xserver-common-lts-trusty
+/usr/share/doc/xserver-common-lts-trusty/changelog.Debian.gz
+/usr/share/doc/xserver-common-lts-trusty/copyright
+/usr/lib
+/usr/lib/xorg
+/usr/lib/xorg/protocol.txt
+/var
+/var/lib
+/var/lib/xkb
+/var/lib/xkb/README.compiled

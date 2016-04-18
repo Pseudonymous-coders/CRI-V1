@@ -1,0 +1,4 @@
+9d32925da2a9c456eeb6fd5113850a33  usr/lib/xorg/modules/drivers/s3_drv.so
+d89b9191c6be13796c9f4cd09628b395  usr/share/doc/xserver-xorg-video-s3-lts-trusty/changelog.Debian.gz
+6b2bea29522da7cbb81cadde3235024d  usr/share/doc/xserver-xorg-video-s3-lts-trusty/copyright
+60af73ee31628dcc9f85de7647c4731d  usr/share/man/man4/s3.4.gz

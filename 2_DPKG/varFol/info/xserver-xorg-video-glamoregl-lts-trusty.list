@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/xorg
+/usr/lib/xorg/modules
+/usr/lib/xorg/modules/libglamoregl.so
+/usr/share
+/usr/share/doc
+/usr/share/doc/xserver-xorg-video-glamoregl-lts-trusty
+/usr/share/doc/xserver-xorg-video-glamoregl-lts-trusty/copyright
+/usr/share/doc/xserver-xorg-video-glamoregl-lts-trusty/changelog.Debian.gz

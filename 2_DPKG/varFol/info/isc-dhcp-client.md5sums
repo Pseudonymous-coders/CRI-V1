@@ -1,0 +1,10 @@
+235a092905f0dbc4abf61ec7422104b0  sbin/dhclient
+49be84bbe8afceae5c479b696c3fcc1f  sbin/dhclient-script
+d7099ccd5b2223cc5c5ed50dcf599ac2  usr/share/apport/package-hooks/isc-dhcp-client.py
+1d31badf7b6130987b9cbf529ab421fc  usr/share/doc/isc-dhcp-client/NEWS.Debian.gz
+6fa20b8ad86e433a76968e90d6809a51  usr/share/doc/isc-dhcp-client/copyright
+8e433bcdaa53131d333ec8765e803623  usr/share/lintian/overrides/isc-dhcp-client
+05c09a8ce02b1469150bd06bcba252cf  usr/share/man/man5/dhclient.conf.5.gz
+83da05d62a23331df5cbdabcec007bd5  usr/share/man/man5/dhclient.leases.5.gz
+8d60d9d058a7b97776aed413128c9ad7  usr/share/man/man8/dhclient-script.8.gz
+dfa4c1e64e2e6cb92a51a345aa5206a5  usr/share/man/man8/dhclient.8.gz

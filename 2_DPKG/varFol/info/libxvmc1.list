@@ -1,0 +1,14 @@
+/.
+/usr
+/usr/lib
+/usr/lib/libXvMC.so.1.0.0
+/usr/lib/xvmcconfig-standard
+/usr/lib/xvmcconfig-standard/XvMCConfig
+/usr/lib/libXvMCW.so.1.0.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libxvmc1
+/usr/share/doc/libxvmc1/changelog.Debian.gz
+/usr/share/doc/libxvmc1/copyright
+/usr/lib/libXvMCW.so.1
+/usr/lib/libXvMC.so.1

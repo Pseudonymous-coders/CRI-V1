@@ -1,0 +1,13 @@
+#!/bin/sh
+set -e
+# Automatically added by dh_installudev
+if [ "$1" = configure ]; then
+	if [ -e "/etc/udev/rules.d/69_xserver-xorg-input-wacom-lts-trusty.rules" ]; then
+		echo "Preserving user changes to /etc/udev/rules.d/69-xserver-xorg-input-wacom-lts-trusty.rules ..."
+		if [ -e "/etc/udev/rules.d/69-xserver-xorg-input-wacom-lts-trusty.rules" ]; then
+			mv -f "/etc/udev/rules.d/69-xserver-xorg-input-wacom-lts-trusty.rules" "/etc/udev/rules.d/69-xserver-xorg-input-wacom-lts-trusty.rules.dpkg-new"
+		fi
+		mv -f "/etc/udev/rules.d/69_xserver-xorg-input-wacom-lts-trusty.rules" "/etc/udev/rules.d/69-xserver-xorg-input-wacom-lts-trusty.rules"
+	fi
+fi
+# End automatically added section

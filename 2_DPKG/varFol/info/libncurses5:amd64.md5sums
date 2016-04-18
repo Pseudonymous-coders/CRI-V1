@@ -1,0 +1,7 @@
+7463dded7bf1c5a813b299d0564ed383  lib/x86_64-linux-gnu/libncurses.so.5.9
+10881afc77dbe5209030680590bb899a  usr/lib/x86_64-linux-gnu/libform.so.5.9
+a143fb88377890c569f8308a047845bf  usr/lib/x86_64-linux-gnu/libmenu.so.5.9
+c51578f5bd3a8aa661a1eaa1c97e9150  usr/lib/x86_64-linux-gnu/libpanel.so.5.9
+586cfecb826012a923f1461544f029c7  usr/share/doc/libncurses5/FAQ
+aae5e7dfa0e953a72ea18a0afed45e83  usr/share/doc/libncurses5/TODO.Debian
+a4f75f78c81ac9c15be4d8ce23ab0c4e  usr/share/doc/libncurses5/copyright

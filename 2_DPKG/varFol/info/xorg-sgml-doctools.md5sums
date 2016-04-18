@@ -1,0 +1,11 @@
+df9662acce9c0f45c230275625d04652  usr/share/doc/xorg-sgml-doctools/changelog.Debian.gz
+c8c6c808cd3c797a07b24e443af1c449  usr/share/doc/xorg-sgml-doctools/copyright
+c3469e4f6a5325ea08319616a430f324  usr/share/pkgconfig/xorg-sgml-doctools.pc
+5168589d4d0fc7bbfdf3b16101c03148  usr/share/sgml/X11/dbs/masterdb.html.xml
+297c9f4a60e72536e25cbb1d9bdcf119  usr/share/sgml/X11/dbs/masterdb.pdf.xml
+5d21caf65ddc539928f14b97226bcc1d  usr/share/sgml/X11/defs.ent
+f517c053878f4da363838f14f8b7fb3e  usr/share/sgml/X11/xorg-chunk.xsl
+85c7e3a03f22fc239121cd77630248c0  usr/share/sgml/X11/xorg-fo.xsl
+d1330634e52e7f0344b77344d5fb2e90  usr/share/sgml/X11/xorg-xhtml.xsl
+7d02862efc34a6f170182adaf5e7f555  usr/share/sgml/X11/xorg.css
+e2a7d9ee26721cc39a9a946c0a478f8e  usr/share/sgml/X11/xorg.xsl

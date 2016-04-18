@@ -1,0 +1,12 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libdconf.so.0.0.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libdconf0
+/usr/share/doc/libdconf0/changelog.Debian.gz
+/usr/share/doc/libdconf0/copyright
+/usr/share/doc/libdconf0/NEWS.gz
+/usr/lib/x86_64-linux-gnu/libdconf.so.0

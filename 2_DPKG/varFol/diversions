@@ -1,0 +1,15 @@
+/usr/lib/xorg/protocol.txt
+/usr/lib/xorg/protocol-precise.txt
+xserver-common-lts-trusty
+/usr/share/man/man8/update-icon-caches.8.gz
+/usr/share/man/man8/update-icon-caches.gtk2.8.gz
+libgtk-3-bin
+/usr/share/man/man1/sh.1.gz
+/usr/share/man/man1/sh.distrib.1.gz
+dash
+/bin/sh
+/bin/sh.distrib
+dash
+/usr/sbin/update-icon-caches
+/usr/sbin/update-icon-caches.gtk2
+libgtk-3-bin

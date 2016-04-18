@@ -1,0 +1,10 @@
+44c95013589c1f6deef8416276b58fe7  usr/lib/libI810XvMC.so.1.0.0
+b6ad53f052578f7e7fc5c353bcf7f52e  usr/lib/libIntelXvMC.so.1.0.0
+19d9accc57c5709b4e4e98dc16f8faaa  usr/lib/xorg/modules/drivers/intel_drv.so
+cb4a44465e3901a58f86e542b11feae2  usr/share/doc/xserver-xorg-video-intel-lts-trusty/NEWS.gz
+b07e0ef587692aa91f5a4861c82b86c1  usr/share/doc/xserver-xorg-video-intel-lts-trusty/README
+238112d3c9d2e3d6226c83f5cc570352  usr/share/doc/xserver-xorg-video-intel-lts-trusty/README.Debian
+0c8f442870db4241cc4a16c08d5bd93a  usr/share/doc/xserver-xorg-video-intel-lts-trusty/changelog.Debian.gz
+b3f9a301026a40105cd6e7170671851c  usr/share/doc/xserver-xorg-video-intel-lts-trusty/copyright
+c978eead6751d25c1607405fa3598146  usr/share/lintian/overrides/xserver-xorg-video-intel-lts-trusty
+3385f07369151b60052912a492fe00cc  usr/share/man/man4/intel.4.gz

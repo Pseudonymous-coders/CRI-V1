@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -e
+
+case $1 in
+    (upgrade|install)
+        if dpkg --compare-versions "$2" lt "2.13-23ubuntu1"; then
+            if [ -f /etc/ld.so.conf.d/biarch-compat.conf ]; then
+                mv /etc/ld.so.conf.d/biarch-compat.conf \
+                  /etc/ld.so.conf.d/zz_${DPKG_MAINTSCRIPT_PACKAGE#*-}-biarch-compat.conf
+            fi
+        fi
+    ;;
+esac

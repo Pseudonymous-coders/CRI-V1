@@ -1,0 +1,17 @@
+6017f73f5954af0c408887914badfd91  usr/bin/pat2ppm
+0687e826600cf79f27bb322af123f52c  usr/bin/patextract
+fa264326068fe955486c5bb66d0d883a  usr/bin/png2pat
+8aa3c192cae2046c1012614adc096602  usr/bin/rgb2pat
+be19fc85869bc6049c629af2f3971f02  usr/bin/visgrep
+f8ca2c10bfe5114552cd962130f9db62  usr/bin/xmousepos
+460978a5624425e50341717f66a24fea  usr/bin/xte
+c3d4dd54d955f79af63eeea67d301018  usr/share/doc/xautomation/changelog.Debian.gz
+652404bd2ab6702f8d24389aa9069c98  usr/share/doc/xautomation/copyright
+f2233d1ba1ac029d46a3093e980fc9b5  usr/share/man/man1/pat2ppm.1.gz
+cca0a4f6ad871f9e51489304a6acc9de  usr/share/man/man1/patextract.1.gz
+f472ec42fd6cc6c4519093d479162db1  usr/share/man/man1/png2pat.1.gz
+606eeb3f1d00ef73cc2e2faa5fbfe5fe  usr/share/man/man1/rgb2pat.1.gz
+bf975e463b66eb14b89780808fb21e09  usr/share/man/man1/visgrep.1.gz
+d5f12546af252765224d682d93907182  usr/share/man/man1/xmousepos.1.gz
+4c8ebf7019b78dddb235cc72ddf13f20  usr/share/man/man1/xte.1.gz
+6ab845b535541c78195dcc8ea7f668b1  usr/share/man/man7/xautomation.7.gz

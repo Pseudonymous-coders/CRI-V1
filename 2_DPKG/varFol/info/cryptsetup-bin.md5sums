@@ -1,0 +1,5 @@
+5436ffe367022fc1a2b83a1a9db47c81  sbin/cryptsetup
+2b598802d654dd19f2981ce8195397c8  usr/sbin/luksformat
+4f2eaf2ea1063a2073705d85152c3b40  usr/share/doc/cryptsetup-bin/copyright
+0f75e6a05c4a2cbd2a99756673d610e6  usr/share/man/man8/cryptsetup.8.gz
+c850dcdcf3f8930c4338cb8e4258ea2a  usr/share/man/man8/luksformat.8.gz

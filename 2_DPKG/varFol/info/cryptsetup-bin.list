@@ -1,0 +1,17 @@
+/.
+/sbin
+/sbin/cryptsetup
+/usr
+/usr/sbin
+/usr/sbin/luksformat
+/usr/share
+/usr/share/man
+/usr/share/man/man8
+/usr/share/man/man8/cryptsetup.8.gz
+/usr/share/man/man8/luksformat.8.gz
+/usr/share/doc
+/usr/share/doc/cryptsetup-bin
+/usr/share/doc/cryptsetup-bin/copyright
+/lib
+/usr/share/doc/cryptsetup-bin/NEWS.Debian.gz
+/usr/share/doc/cryptsetup-bin/changelog.Debian.gz

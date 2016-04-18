@@ -1,0 +1,10 @@
+cb1df7190cc66b6cc3e91656dbba440a  usr/lib/libebluez.so.1.0.0
+cb8c23ed078e60143749cc4dd9883708  usr/lib/libeconnman.so.1.0.0
+a0cd9abdf3d96a5b94f6cc7da407823d  usr/lib/libedbus.so.1.0.0
+157ef524cf343750e89e1f15a7b3fa57  usr/lib/libehal.so.1.0.0
+d6f7640755d20620749ac4960fee0472  usr/lib/libenotify.so.1.0.0
+76dd2360db22839a61733fdf218413e3  usr/lib/libeukit.so.1.0.0
+8712f0477305eed24600aaaf9b25396f  usr/share/doc/libedbus1/AUTHORS
+5e791791eff9b6c01466c93f718c02fd  usr/share/doc/libedbus1/README
+6a7d0d678a294db63ee0282cf119fd39  usr/share/doc/libedbus1/changelog.Debian.gz
+2bfd69cf5386172e250d5d501147dc90  usr/share/doc/libedbus1/copyright

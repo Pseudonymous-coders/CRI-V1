@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libwayland_ltst-client.so.0.2.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libwayland-ltst-client0
+/usr/share/doc/libwayland-ltst-client0/copyright
+/usr/share/doc/libwayland-ltst-client0/changelog.Debian.gz
+/usr/lib/x86_64-linux-gnu/libwayland_ltst-client.so.0

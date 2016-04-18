@@ -1,0 +1,10 @@
+3a2548cfff7a01a4136a2d765d87ca6f  lib/resolvconf/list-records
+58bee644da52f198cbe9a29cd680f420  sbin/resolvconf
+4c577231882f2941b378b1c68cd2ae9c  usr/share/doc/resolvconf/NEWS.Debian.gz
+fd15d6ed076164bc480cad759673854a  usr/share/doc/resolvconf/README.gz
+8d9651df8941bf42c5d10fea3a6a9696  usr/share/doc/resolvconf/changelog.gz
+96ca7c12a3350f153e2fa47ecc3b933d  usr/share/doc/resolvconf/copyright
+6805aa19d854f0d6ff1156f221a5f022  usr/share/doc/resolvconf/resolvconf-update-bind
+d2c864498d75e975fa2c9724af940450  usr/share/lintian/overrides/resolvconf
+d6d50ad6f32859c6175414cb110f19c6  usr/share/man/man5/interface-order.5.gz
+faa03e450c6a53687a01e67cbb74b445  usr/share/man/man8/resolvconf.8.gz

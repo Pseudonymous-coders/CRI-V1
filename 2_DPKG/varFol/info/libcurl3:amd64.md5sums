@@ -1,0 +1,13 @@
+3d5d6ae7807ae08fa2d765fe534690f3  usr/lib/x86_64-linux-gnu/libcurl.so.4.2.0
+dcb8996959e6f8ccd14204fcf08938c9  usr/share/doc/libcurl3/BINDINGS.gz
+bd275a75adb2ad4809ede9b5f622e416  usr/share/doc/libcurl3/BUGS.gz
+0de43da8fdc1a23784dec2da8b6529de  usr/share/doc/libcurl3/FAQ.gz
+edf86557882693725e5ee8726da988a6  usr/share/doc/libcurl3/FEATURES
+e1d38c3d87edb7128dbbb9bead8a9ec6  usr/share/doc/libcurl3/KNOWN_BUGS.gz
+d21e01329a2ba92ff8e7a6ed534d6ed6  usr/share/doc/libcurl3/README
+d0245525aad4041c001037e62a19669a  usr/share/doc/libcurl3/THANKS.gz
+08ef1b47aecf63e14fdcc8c123433dde  usr/share/doc/libcurl3/TODO.gz
+78f4048896098d2760bf1dd3442983dd  usr/share/doc/libcurl3/VERSIONS
+e51dd8a7378845fa045d32af83f3e9ad  usr/share/doc/libcurl3/changelog.Debian.gz
+ef5b4f8f0bf10dfd8bffd4a8605d85a5  usr/share/doc/libcurl3/copyright
+3a20d059820eff05613a7fe30cbe6357  usr/share/lintian/overrides/libcurl3

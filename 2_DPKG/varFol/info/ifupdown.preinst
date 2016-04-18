@@ -1,0 +1,49 @@
+#!/bin/sh
+set -e
+
+# Replacing a non-conffile config file with a conffile.  If the config file
+# is unmodified, remove it and it will be replaced on unpack.  If it's
+# modified, leave it in place and let the usual conffile handling take
+# care of it.
+config_to_conffile() {
+    CONFFILE="$1"
+    old_md5sum="$2"
+
+    if [ -e "$CONFFILE" ]; then
+        md5sum="`md5sum \"$CONFFILE\" | sed -e \"s/ .*//\"`"
+        if [ "$md5sum" = "$old_md5sum" ]; then
+            echo "Transitioning $CONFFILE to be a conffile ..."
+            rm -f "$CONFFILE"
+        fi
+    fi
+}
+
+
+if dpkg --compare-versions "$2" lt 0.6.8ubuntu29.1; then
+	config_to_conffile /etc/network/if-up.d/upstart \
+		4edc4267af9a0bb5aebff50ee4671513
+	config_to_conffile /etc/init/network-interface.conf \
+		e1f786e36cfe970812604b86ba03a9f0
+elif dpkg --compare-versions "$2" lt 0.6.9; then
+	config_to_conffile /etc/network/if-up.d/upstart \
+		1508668168bca783524789c4c87e28e2
+	config_to_conffile /etc/init/network-interface.conf \
+		af7f31fee8f6192cae0518454ac2154b
+fi
+
+if dpkg --compare-versions "$2" lt 0.6.9; then
+	config_to_conffile /etc/init/networking.conf \
+		8af8451b188d626e6e7ea92c90d7d64f
+	config_to_conffile /etc/init/network-interface-security.conf \
+		04449b8f4a377f06cab083dce987ae95
+fi
+
+# Try to cleanup bogus dns-* fields added by old netcfg
+# the regexp will match any non-commented dns-nameservers line that contains
+# a character that's invalid for both IPv4 and IPv6 and comment the line
+# FIXME: This code can be dropped in Ubuntu 12.10
+if dpkg --compare-versions "$2" lt 0.7~beta2ubuntu7 && [ -w /etc/network/interfaces ]; then
+	sed -i '/^[[:space:]]*dns[-_]nameservers[[:space:]]\+/ !b; /^[[:space:]]*dns[-_]nameservers[[:space:]]\+[0-9A-Fa-f.:[:space:]]\+[[:space:]]*\(#.*\)\?$/ b; s/^/#/;s/$/ # disabled by ifupdown/' /etc/network/interfaces
+fi
+
+
