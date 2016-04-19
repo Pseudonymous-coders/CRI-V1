@@ -1,6 +1,6 @@
 AUTHORS=["Eli Smith","David Smerkous"]
 VERSION="0.0.1"
-URL="https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/"
+URL="https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master"
 USER=$(whoami)
 ARCH=$(uname -m)
 
