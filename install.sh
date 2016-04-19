@@ -49,6 +49,8 @@ NUMBERS=1
 
 cd $DEST_DIR
 
+echo "$NAMES"
+
 for NAME in $NAMES; do #Downloads all nessisary files from github to /usr/local/bin
     clean
     echo "File $NUMBERS/$LINES... ${NAME##*/}"
