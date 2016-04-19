@@ -1,9 +1,0 @@
-auto
-/usr/bin/netsurf
-netsurf-manual
-/usr/share/man/man1/netsurf.1.gz
-
-/usr/bin/netsurf-gtk
-80
-/usr/share/man/man1/netsurf-gtk.1.gz
-

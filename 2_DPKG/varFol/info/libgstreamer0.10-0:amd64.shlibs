@@ -1,6 +1,0 @@
-libgstreamer-0.10 0 libgstreamer0.10-0 (>= 0.10.36)
-libgstbase-0.10 0 libgstreamer0.10-0 (>= 0.10.36)
-libgstcheck-0.10 0 libgstreamer0.10-0 (>= 0.10.36)
-libgstcontroller-0.10 0 libgstreamer0.10-0 (>= 0.10.36)
-libgstdataprotocol-0.10 0 libgstreamer0.10-0 (>= 0.10.36)
-libgstnet-0.10 0 libgstreamer0.10-0 (>= 0.10.36)

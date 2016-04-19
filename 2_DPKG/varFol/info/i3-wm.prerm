@@ -1,7 +1,0 @@
-#!/bin/sh
-set -e
-# Automatically added by dh_installwm
-if [ "$1" = "remove" ]; then
-	update-alternatives --remove x-window-manager /usr/bin/i3
-fi
-# End automatically added section

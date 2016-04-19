@@ -1,6 +1,0 @@
-438d252ad924b41ec2ea53aa09c576e5  usr/lib/x86_64-linux-gnu/mesa/ld.so.conf
-489ffd2417bed8a2f22505cea4b1ab64  usr/lib/x86_64-linux-gnu/mesa/libGL.so.1.2.0
-7f0d95ab544ef194372363bb93229ede  usr/share/bug/libgl1-mesa-glx-lts-trusty/control
-114f277e413ffae0a725cc024a955b47  usr/share/bug/libgl1-mesa-glx-lts-trusty/script
-241ed682eeb4973b7b7ac9131624f31f  usr/share/doc/libgl1-mesa-glx-lts-trusty/copyright
-c529caf84844de5058c322b71ddc3703  usr/share/lintian/overrides/libgl1-mesa-glx-lts-trusty
