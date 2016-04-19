@@ -26,6 +26,10 @@ lineCount() #Same function called earlier in the previous script to use in the c
     wc -l < installLIST.txt	
 }
 
+clean() {
+    tput cuu 1 && tput el
+}
+
 if [ $ARCH != "i686" ] && [ $ARCH != "x86_64" ] # Check if chromebook is compatible
 then
   printf "Your device doesn't support CRI yet\nExiting..."
