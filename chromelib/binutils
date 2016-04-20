@@ -17,4 +17,5 @@ unpacker "binutils.tar.gz" $CBUILD
 
 cd $CBUILD
 sudo cp -r usr/local/ /usr/  # Move all of the files
+cleaner $CBUILD # Clean up files
 echo "Done"
