@@ -1,20 +1,3 @@
-AUTHORS=["Eli Smith","David Smerkous"]
-VERSION="0.0.1"
-export URL="https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master"
-export USER=$(whoami)
-export ARCH=$(uname -m)
-
-export PREF=/usr/local
-export LIB_PATH=$PREF/lib/CRI/
-export CONFIG_PATH=$PREF/etc/CRI/
-export CRI_DIR=$PREF/tmp/CRI/
-export DEST_DIR=$CRI_DIR/dest
-export PKG_PATH=$LIB_PATH/packages
-export CTEMP=~/Downloads/.tmp #Keep this set to the .tmp so that nothing gets deleted
-export CPKG=$CTEMP/pkg
-export CBUILD=$CTEMP/build
-export CDOWNLOAD=~/Downloads
-
 echo "Welcome to the CRI installer
 Created By: $AUTHORS
 Version: $VERSION
@@ -24,6 +7,17 @@ SYSTEM:
 User: $USER
 Arch: $ARCH
 "
+
+printf "Getting vars..."
+export $CGLOBS=~/Downloads/.tmp/globs
+export URL="https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master"
+sudo mkdir -p $CGLOBS
+cd $CGLOBS
+sudo wget -q --no-check-certificate "$URL/globvar" -O $CGLOBS/globvar
+suod chmod 755 *
+printf "Done\n"
+
+source $CGLOBS/globvar
 
 lineCount() #Same function called earlier in the previous script to use in the counting of lines in commands.txt
 {
