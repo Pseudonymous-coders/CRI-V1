@@ -14,4 +14,4 @@ export CTEMP=~/Downloads/.tmp #Keep this set to the .tmp so that nothing gets de
 export CPKG=$CTEMP/pkg
 export CBUILD=$CTEMP/build
 export CDOWNLOAD=~/Downloads
-$CGLOBS=$CTEMP/globs
+export CGLOBS=$CTEMP/globs
