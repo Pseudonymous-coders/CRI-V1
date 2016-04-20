@@ -15,6 +15,6 @@ unpacker "gcc.tar.gz" $CBUILD
 
 cd $CBUILD
 sudo cp -r usr/local/ /usr/  # Move all of the files
-ln -s /usr/local/bin/gcc /usr/local/bin/cc
+sudo ln -s /usr/local/bin/gcc /usr/local/bin/cc
 cleaner $CBUILD # Clean up files
 echo "Done"
