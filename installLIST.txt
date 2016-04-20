@@ -5,4 +5,4 @@
 /mpc
 /mpfr
 /gcc
-/cmake
+/bz2
