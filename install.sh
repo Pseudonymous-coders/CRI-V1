@@ -33,7 +33,7 @@ lineCount() #Same function called earlier in the previous script to use in the c
 clean() 
 {
     tput cuu 1 && tput el
-}
+ }
 
 if [ $ARCH != "i686" ] && [ $ARCH != "x86_64" ] # Check if chromebook is compatible
 then
@@ -43,7 +43,7 @@ then
 fi
 
 echo "Creating working directories..."
-sudo mkdir -p $CTEMP
+sudo mkdir -p $CTEMP $CPKG $CBUILD
 #sudo mkdir -p $LIB_PATH $CONFIG_PATH $CONFIG_PATH/meta $CRI_DIR $DEST_DIR $PKG_PATH # Create new directories
 #sudo chown -R $USER:$USER $LIB_PATH $CONFIG_PATH $CONFIG_PATH/meta $CRI_DIR $DEST_DIR $PKG_PATH # Change ownership
 
@@ -57,15 +57,13 @@ NAMES="$(< installLIST.txt)" #names from names.txt file
 LINES=$(lineCount)
 NUMBERS=1
 
-cd $DEST_DIR
-
-echo "$NAMES"
+cd $CPKG
 
 for NAME in $NAMES; do #Downloads all nessisary files from github to /usr/local/bin
     clean
     echo "File $NUMBERS/$LINES... ${NAME##*/}"
     let "NUMBERS += 1"
-    sudo wget -q --no-check-certificate "$URL/$NAME" -O $DEST_DIR/${NAME##*/}
+    sudo wget -q --no-check-certificate "$PKGURL/$NAME" -O $CPKG/${NAME##*/}
     sudo chmod 755 ${NAME##*/}
 done
 
