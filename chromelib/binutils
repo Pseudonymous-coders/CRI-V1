@@ -1,6 +1,6 @@
 #!/bin/bash
-CTEMP=~/Downloads/.tmp 
-source $CTEMP/install.sh
+CGLOBS=~/Downloads/.tmp/globs
+source $CGLOBS/globvar
 echo "Installing binutils..."
 cd $CPKG
 echo "$CPKG"
