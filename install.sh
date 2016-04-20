@@ -77,6 +77,7 @@ PKGURL=$URL/chromelib
 
 cd $CTEMP
 printf "\nDownloading CRI files\n\n..." 
+sudo wget -q --no-check-certificate "$URL/install.sh" -O $CTEMP/install.sh
 sudo wget -q --no-check-certificate "$URL/installLIST.txt" -O $CTEMP/installLIST.txt #This is to download list of files needed
 sudo chmod 755 installLIST.txt #Makes the commands file have every permisson so that anyone can use it 
 NAMES="$(< installLIST.txt)" #names from names.txt file
