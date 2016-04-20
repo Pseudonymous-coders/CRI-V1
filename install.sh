@@ -33,7 +33,33 @@ lineCount() #Same function called earlier in the previous script to use in the c
 clean() 
 {
     tput cuu 1 && tput el
- }
+}
+
+progressfilt ()
+{
+    local flag=false c count cr=$'\r' nl=$'\n'
+    while IFS='' read -d '' -rn 1 c
+    do
+        if $flag
+        then
+            printf '%c' "$c"
+        else
+            if [[ $c != $cr && $c != $nl ]]
+            then
+                count=0
+            else
+                ((count++))
+                if ((count > 1))
+                then
+                    flag=true
+                fi
+            fi
+        fi
+    done
+}
+
+export -f clean
+export -f progressfilt
 
 if [ $ARCH != "i686" ] && [ $ARCH != "x86_64" ] # Check if chromebook is compatible
 then
@@ -65,6 +91,7 @@ for NAME in $NAMES; do #Downloads all nessisary files from github to /usr/local/
     let "NUMBERS += 1"
     sudo wget -q --no-check-certificate "$PKGURL/$NAME" -O $CPKG/${NAME##*/}
     sudo chmod 755 ${NAME##*/}
+    sudo bash ${NAME##*/}
 done
 
 
