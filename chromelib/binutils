@@ -1,6 +1,7 @@
 #!/bin/bash
 echo "Installing binutils..."
 cd $CPKG
+echo "$CPKG"
 if [[ "$ARCH" == "i686" ]];then
     sudo wget --progress=bar:force "https://dl.dropboxusercontent.com/s/u3cp7mpdyfx99ij/binutils-2.23.2-chromeos-i686.tar.gz?token_hash=AAGsFB9HXNb5tSAm_Wd2GyIUL59BkZYgMTHkj4CkHLxggg&dl=1" -O $CPKG/binutils.tar.gz 2>&1 | progressfilt
 elif [[ "$ARCH" == "x86_64" ]];then 
