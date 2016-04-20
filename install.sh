@@ -9,7 +9,7 @@ Arch: $ARCH
 "
 
 printf "Getting vars..."
-export $CGLOBS=~/Downloads/.tmp/globs
+export CGLOBS=~/Downloads/.tmp/globs
 export URL="https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master"
 sudo mkdir -p $CGLOBS
 cd $CGLOBS
