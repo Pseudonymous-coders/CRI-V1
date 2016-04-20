@@ -3,6 +3,16 @@ lineCount() #Same function called earlier in the previous script to use in the c
     wc -l < installLIST.txt	
 }
 
+installer() 
+{
+sudo wget --progress=bar:force "$1" -O "$2" 2>&1 | progressfilt
+}
+
+unpacker() 
+{
+sudo tar -zxf "$1" -C "$2" | pv -s `du -sb . | grep -o '[0-9]\+'` -N tar 
+}
+
 clean() 
 {
     tput cuu 1 && tput el
@@ -34,3 +44,5 @@ progressfilt ()
 export -f clean
 export -f progressfilt
 export -f lineCount
+export -f installer
+export -f unpacker
