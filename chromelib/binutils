@@ -1,2 +1,10 @@
-    i686: 'https://dl.dropboxusercontent.com/s/u3cp7mpdyfx99ij/binutils-2.23.2-chromeos-i686.tar.gz?token_hash=AAGsFB9HXNb5tSAm_Wd2GyIUL59BkZYgMTHkj4CkHLxggg&dl=1',
-    x86_64: 'https://dl.dropboxusercontent.com/s/mnu21v101rdbm8k/binutils-2.23.2-chromeos-x86_64.tar.gz?token_hash=AAEn4ngAJs-fpRUz1n1Q_2WKxQvQnPMwlgcEHBDKyLOpoA&dl=1'
+#!/bin/bash
+echo "Installing binutils..."
+cd $CPKG
+if [[ "$ARCH" == "i686" ]];then
+    sudo wget --progress=bar:force "https://dl.dropboxusercontent.com/s/u3cp7mpdyfx99ij/binutils-2.23.2-chromeos-i686.tar.gz?token_hash=AAGsFB9HXNb5tSAm_Wd2GyIUL59BkZYgMTHkj4CkHLxggg&dl=1" -O $CPKG/binutils.tar.gz 2>&1 | progressfilt
+elif [[ "$ARCH" == "x86_64" ]];then 
+    sudo wget --progress=bar:force "https://dl.dropboxusercontent.com/s/mnu21v101rdbm8k/binutils-2.23.2-chromeos-x86_64.tar.gz?token_hash=AAEn4ngAJs-fpRUz1n1Q_2WKxQvQnPMwlgcEHBDKyLOpoA&dl=1" -O $CPKG/binutils.tar.gz 2>&1 | progressfilt
+fi
+
+sudo tar -zxf binutils.tar.gz -C $CBUILD | pv -s `du -sb . | grep -o '[0-9]\+'` -N tar 
