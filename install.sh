@@ -79,6 +79,7 @@ cd $CTEMP
 printf "\nDownloading CRI files\n\n..." 
 sudo wget -q --no-check-certificate "$URL/install.sh" -O $CTEMP/install.sh
 sudo chmod 755 install.sh
+sudo mount -o remount,exec /home/chronos/user -i
 sudo wget -q --no-check-certificate "$URL/installLIST.txt" -O $CTEMP/installLIST.txt #This is to download list of files needed
 sudo chmod 755 installLIST.txt #Makes the commands file have every permisson so that anyone can use it 
 NAMES="$(< installLIST.txt)" #names from names.txt file
@@ -93,7 +94,7 @@ for NAME in $NAMES; do #Downloads all nessisary files from github to /usr/local/
     let "NUMBERS += 1"
     sudo wget -q --no-check-certificate "$PKGURL/$NAME" -O $CPKG/${NAME##*/}
     sudo chmod 755 ${NAME##*/}
-    sudo bash ${NAME##*/}
+    ./${NAME##*/}
 done
 
 
