@@ -4,10 +4,12 @@ URL="https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master"
 sudo mkdir -p $CGLOBS ~/Downloads/.tmp
 cd $CGLOBS
 sudo wget -q --no-check-certificate "$URL/globs/globvar" -O $CGLOBS/globvar
+sudo wget -q --no-check-certificate "$URL/globs/globvar" -O $CGLOBS/globfun
 sudo chmod 755 *
 printf "Done\n\n\n"
 clear
-source $CGLOBS/globvar
+source globvar
+source globfun
 
 echo "Welcome to the CRI installer
 Created By: $AUTHORS
@@ -18,42 +20,6 @@ SYSTEM:
 User: $USER
 Arch: $ARCH
 "
-
-lineCount() #Same function called earlier in the previous script to use in the counting of lines in commands.txt
-{
-    wc -l < installLIST.txt	
-}
-
-clean() 
-{
-    tput cuu 1 && tput el
-}
-
-progressfilt ()
-{
-    local flag=false c count cr=$'\r' nl=$'\n'
-    while IFS='' read -d '' -rn 1 c
-    do
-        if $flag
-        then
-            printf '%c' "$c"
-        else
-            if [[ $c != $cr && $c != $nl ]]
-            then
-                count=0
-            else
-                ((count++))
-                if ((count > 1))
-                then
-                    flag=true
-                fi
-            fi
-        fi
-    done
-}
-
-export -f clean
-export -f progressfilt
 
 if [ $ARCH != "i686" ] && [ $ARCH != "x86_64" ] # Check if chromebook is compatible
 then
@@ -88,8 +54,9 @@ for NAME in $NAMES; do #Downloads all nessisary files from github to /usr/local/
     let "NUMBERS += 1"
     sudo wget -q --no-check-certificate "$PKGURL/$NAME" -O $CPKG/${NAME##*/}
     sudo chmod 755 ${NAME##*/}
-    ./${NAME##*/}
+    ./${NAME##*/} # Run setup
 done
 
+echo "Thanks for installing CRI, now you can open up the extension to run it..."
 
 
