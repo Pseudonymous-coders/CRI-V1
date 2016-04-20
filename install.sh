@@ -10,15 +10,10 @@ Arch: $ARCH
 
 printf "Getting vars..."
 CGLOBS=~/Downloads/.tmp/globs
-echo "one"
 URL="https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master"
-echo "two"
 sudo mkdir -p $CGLOBS ~/Downloads/.tmp
-echo "three"
 cd $CGLOBS
-echo "four"
-sudo wget -q --no-check-certificate "$URL/globvar" -O $CGLOBS/globvar
-echo "five"
+sudo wget --no-check-certificate "$URL/globvar" -O $CGLOBS/globvar
 sudo chmod 755 *
 printf "Done\n"
 
