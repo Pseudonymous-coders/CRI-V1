@@ -2,8 +2,9 @@
 CGLOBS=~/Downloads/.tmp/globs
 source $CGLOBS/globvar
 source $CGLOBS/globfun
+echo "
 
-echo "Installing binutils..."
+Installing binutils..."
 cd $CPKG
 echo "$CPKG"
 if [[ "$ARCH" == "i686" ]];then
@@ -13,3 +14,5 @@ elif [[ "$ARCH" == "x86_64" ]];then
 fi
 
 unpacker "binutils.tar.gz" $CBUILD
+
+echo "Done"
