@@ -1,1 +1,3 @@
 /binutils
+/glibc
+/make
