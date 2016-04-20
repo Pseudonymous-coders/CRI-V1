@@ -14,3 +14,4 @@ sudo ./configure --prefix=/usr/local
 sudo make
 sudo make install
 cleaner $CBUILD # Clean up files
+echo "Done"
