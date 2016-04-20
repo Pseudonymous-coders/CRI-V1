@@ -47,6 +47,7 @@ progressfilt ()
 }
 
 export -f clean
+export -f cleaner
 export -f progressfilt
 export -f lineCount
 export -f installer
