@@ -5,7 +5,6 @@ source $CGLOBS/globfun
 echo "
 Installing gmp..."
 cd $CPKG
-echo "$CPKG"
 if [[ "$ARCH" == "i686" ]];then
     installer "https://dl.dropboxusercontent.com/s/9cwila1kaomsyl2/gmp-5.1.2-chromeos-i686.tar.gz?token_hash=AAHO9VxBpvXU2GPWBwimsp4hL8DADIItfNnIaFbfcyynMg&dl=1" $CPKG/gmp.tar.gz
 elif [[ "$ARCH" == "x86_64" ]];then 
