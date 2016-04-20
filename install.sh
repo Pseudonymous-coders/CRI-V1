@@ -1,3 +1,14 @@
+printf "Getting vars..."
+CGLOBS=~/Downloads/.tmp/globs
+URL="https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master"
+sudo mkdir -p $CGLOBS ~/Downloads/.tmp
+cd $CGLOBS
+sudo wget -q --no-check-certificate "$URL/globs/globvar" -O $CGLOBS/globvar
+sudo chmod 755 *
+printf "Done\n"
+
+source $CGLOBS/globvar
+
 echo "Welcome to the CRI installer
 Created By: $AUTHORS
 Version: $VERSION
@@ -7,17 +18,6 @@ SYSTEM:
 User: $USER
 Arch: $ARCH
 "
-
-printf "Getting vars..."
-CGLOBS=~/Downloads/.tmp/globs
-URL="https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master"
-sudo mkdir -p $CGLOBS ~/Downloads/.tmp
-cd $CGLOBS
-sudo wget --no-check-certificate "$URL/globs/globvar" -O $CGLOBS/globvar
-sudo chmod 755 *
-printf "Done\n"
-
-source $CGLOBS/globvar
 
 lineCount() #Same function called earlier in the previous script to use in the counting of lines in commands.txt
 {
