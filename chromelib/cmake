@@ -8,10 +8,10 @@ cd $CPKG
 echo "$CPKG"
 installer "http://www.cmake.org/files/v3.0/cmake-3.0.2.tar.gz" $CPKG/cmake.tar.gz
 unpacker "cmake.tar.gz" $CBUILD
-cd $CBUILD
+cd "$CBUILD/cmake-3.0.2"
 #sudo cp -r usr/local/ /usr/  # Move all of the files
 ./configure --prefix=/usr/local
 make
 make install
-#cleaner $CBUILD # Clean up files
+cleaner $CBUILD # Clean up files
 echo "Done"
