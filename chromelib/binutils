@@ -1,4 +1,6 @@
 #!/bin/bash
+CTEMP=~/Downloads/.tmp 
+source $CTEMP/install.sh
 echo "Installing binutils..."
 cd $CPKG
 echo "$CPKG"
