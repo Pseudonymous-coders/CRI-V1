@@ -1,12 +1,12 @@
-printf "Getting vars..."
+printf "Getting vars...\n\n"
 CGLOBS=~/Downloads/.tmp/globs
 URL="https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master"
 sudo mkdir -p $CGLOBS ~/Downloads/.tmp
 cd $CGLOBS
 sudo wget -q --no-check-certificate "$URL/globs/globvar" -O $CGLOBS/globvar
 sudo chmod 755 *
-printf "Done\n"
-
+printf "Done\n\n\n"
+clear
 source $CGLOBS/globvar
 
 echo "Welcome to the CRI installer
