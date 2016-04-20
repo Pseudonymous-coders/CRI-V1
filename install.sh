@@ -10,6 +10,10 @@ CONFIG_PATH=$PREF/etc/CRI/
 CRI_DIR=$PREF/tmp/CRI/
 DEST_DIR=$CRI_DIR/dest
 PKG_PATH=$LIB_PATH/packages
+CTEMP=~/Downloads/.tmp #Keep this set to the .tmp so that nothing gets deleted
+CPKG=$CTEMP/pkg
+CBUILD=$CTEMP/build
+CDOWNLOAD=~/Downloads
 
 echo "Welcome to the CRI installer
 Created By: $AUTHORS
@@ -26,7 +30,8 @@ lineCount() #Same function called earlier in the previous script to use in the c
     wc -l < installLIST.txt	
 }
 
-clean() {
+clean() 
+{
     tput cuu 1 && tput el
 }
 
@@ -38,14 +43,15 @@ then
 fi
 
 echo "Creating working directories..."
-sudo mkdir -p $LIB_PATH $CONFIG_PATH $CONFIG_PATH/meta $CRI_DIR $DEST_DIR $PKG_PATH # Create new directories
-sudo chown -R $USER:$USER $LIB_PATH $CONFIG_PATH $CONFIG_PATH/meta $CRI_DIR $DEST_DIR $PKG_PATH # Change ownership
+sudo mkdir -p $CTEMP
+#sudo mkdir -p $LIB_PATH $CONFIG_PATH $CONFIG_PATH/meta $CRI_DIR $DEST_DIR $PKG_PATH # Create new directories
+#sudo chown -R $USER:$USER $LIB_PATH $CONFIG_PATH $CONFIG_PATH/meta $CRI_DIR $DEST_DIR $PKG_PATH # Change ownership
 
 PKGURL=$URL/chromelib
 
-cd $CRI_DIR
+cd $CTEMP
 printf "\nDownloading CRI files\n\n..." 
-sudo wget -q --no-check-certificate "$URL/installLIST.txt" -O $CRI_DIR/installLIST.txt #This is to download list of files needed
+sudo wget -q --no-check-certificate "$URL/installLIST.txt" -O $CTEMP/installLIST.txt #This is to download list of files needed
 sudo chmod 755 installLIST.txt #Makes the commands file have every permisson so that anyone can use it 
 NAMES="$(< installLIST.txt)" #names from names.txt file
 LINES=$(lineCount)
