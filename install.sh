@@ -4,7 +4,7 @@ URL="https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master"
 sudo mkdir -p $CGLOBS ~/Downloads/.tmp
 cd $CGLOBS
 sudo wget -q --no-check-certificate "$URL/globs/globvar" -O $CGLOBS/globvar
-sudo wget -q --no-check-certificate "$URL/globs/globvar" -O $CGLOBS/globfun
+sudo wget -q --no-check-certificate "$URL/globs/globfun" -O $CGLOBS/globfun
 sudo chmod 755 *
 printf "Done\n\n\n"
 clear
