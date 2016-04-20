@@ -13,7 +13,7 @@ CGLOBS=~/Downloads/.tmp/globs
 URL="https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master"
 sudo mkdir -p $CGLOBS ~/Downloads/.tmp
 cd $CGLOBS
-sudo wget --no-check-certificate "$URL/globvar" -O $CGLOBS/globvar
+sudo wget --no-check-certificate "$URL/globs/globvar" -O $CGLOBS/globvar
 sudo chmod 755 *
 printf "Done\n"
 
