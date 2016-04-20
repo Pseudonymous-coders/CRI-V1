@@ -1,4 +1,8 @@
 /binutils
 /glibc
 /make
+/gmp
+/mpc
+/mpfr
+/gcc
 /cmake
