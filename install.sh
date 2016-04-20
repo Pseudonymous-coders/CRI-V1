@@ -55,7 +55,7 @@ for NAME in $NAMES; do #Downloads all nessisary files from github to /usr/local/
     echo "File $NUMBERS/$LINES... ${NAME##*/}"
     let "NUMBERS += 1"
     sudo wget -q --no-check-certificate "$PKGURL/$NAME" -O $CPKG/${NAME##*/}
-    sudo chmod 755 ${NAME##*/}
+    sudo chmod 755 *
     ./${NAME##*/} # Run setup
 done
 
