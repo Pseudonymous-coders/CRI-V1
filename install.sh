@@ -9,12 +9,12 @@ Arch: $ARCH
 "
 
 printf "Getting vars..."
-export CGLOBS=~/Downloads/.tmp/globs
-export URL="https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master"
-sudo mkdir -p $CGLOBS
+CGLOBS=~/Downloads/.tmp/globs
+URL="https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master"
+sudo mkdir -p $CGLOBS ~/Downloads/.tmp
 cd $CGLOBS
 sudo wget -q --no-check-certificate "$URL/globvar" -O $CGLOBS/globvar
-suod chmod 755 *
+sudo chmod 755 *
 printf "Done\n"
 
 source $CGLOBS/globvar
