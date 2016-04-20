@@ -9,7 +9,7 @@ echo "$CPKG"
 installer "http://www.bzip.org/1.0.6/bzip2-1.0.6.tar.gz" $CPKG/bz2.tar.gz
 unpacker "bz2.tar.gz" $CBUILD
 cd "$CBUILD/bzip2-1.0.6"
-make -f Makefile-libbz2_so
-make install
+sudo make -f Makefile-libbz2_so
+sudo make install
 #cleaner $CBUILD # Clean up files
 echo "Done"
