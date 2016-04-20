@@ -1,19 +1,19 @@
 AUTHORS=["Eli Smith","David Smerkous"]
 VERSION="0.0.1"
-URL="https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master"
-USER=$(whoami)
-ARCH=$(uname -m)
+export URL="https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master"
+export USER=$(whoami)
+export ARCH=$(uname -m)
 
-PREF=/usr/local
-LIB_PATH=$PREF/lib/CRI/
-CONFIG_PATH=$PREF/etc/CRI/
-CRI_DIR=$PREF/tmp/CRI/
-DEST_DIR=$CRI_DIR/dest
-PKG_PATH=$LIB_PATH/packages
-CTEMP=~/Downloads/.tmp #Keep this set to the .tmp so that nothing gets deleted
-CPKG=$CTEMP/pkg
-CBUILD=$CTEMP/build
-CDOWNLOAD=~/Downloads
+export PREF=/usr/local
+export LIB_PATH=$PREF/lib/CRI/
+export CONFIG_PATH=$PREF/etc/CRI/
+export CRI_DIR=$PREF/tmp/CRI/
+export DEST_DIR=$CRI_DIR/dest
+export PKG_PATH=$LIB_PATH/packages
+export CTEMP=~/Downloads/.tmp #Keep this set to the .tmp so that nothing gets deleted
+export CPKG=$CTEMP/pkg
+export CBUILD=$CTEMP/build
+export CDOWNLOAD=~/Downloads
 
 echo "Welcome to the CRI installer
 Created By: $AUTHORS
