@@ -8,11 +8,12 @@ cd $CPKG
 installer "ftp://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.10.tar.gz" $CPKG/libsigsegv.tar.gz
 unpacker "libsigsegv.tar.gz" $CPKG
 cd "libsigsegv-2.10"
-if [[ "$ARCH" == "i686" ]];then
-  sudo ./configure --libdir=/usr/local/lib32/ CC="gcc -m32" CFLAGS=" -fPIC"
-elif [[ "$ARCH" == "x86_64" ]];then 
-  sudo ./configure --libdir=/usr/local/lib64/ CC="gcc -m64" CFLAGS=" -fPIC"
-fi
+#if [[ "$ARCH" == "i686" ]];then
+ # sudo ./configure --libdir=/usr/local/lib32/ CC="gcc -m32" CFLAGS=" -fPIC"
+#elif [[ "$ARCH" == "x86_64" ]];then 
+ # sudo ./configure --libdir=/usr/local/lib64/ CC="gcc -m64" CFLAGS=" -fPIC"
+#fi
+./configure
 make
 make check
 make install
