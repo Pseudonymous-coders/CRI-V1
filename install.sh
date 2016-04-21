@@ -23,11 +23,25 @@ Arch: $ARCH
 
 sleep 1
 
+
 if [ $ARCH != "i686" ] && [ $ARCH != "x86_64" ] # Check if chromebook is compatible
 then
   printf "Your device doesn't support CRI yet\nExiting..."
   sleep 0.5
   exit 1
+fi
+
+if ask "This installation will take up to 25 minutes (Depending on connection) do you want to continue"; then
+    echo "Continuing"
+else
+    echo "Exiting..."
+    exit 1
+fi
+
+if ask "Do you want full debugging on"; then
+    DEBUG=1
+else
+    DEBUG=0
 fi
 
 echo "Creating working directories..."
@@ -58,7 +72,7 @@ for NAME in $NAMES; do #Downloads all nessisary files from github to /usr/local/
     sudo wget -q --no-check-certificate "$PKGURL/$NAME" -O $CPKG/${NAME##*/}
     sudo chmod 755 *
     sudo chown $USER:$USER ${NAME##*/}
-    ./${NAME##*/} # Run setup in seperate thread 
+    ./${NAME##*/} $DEBUG # Run setup in seperate thread 
     fixowner
 done
 
