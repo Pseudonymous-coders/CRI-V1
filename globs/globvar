@@ -15,3 +15,6 @@ export CPKG=$CTEMP/pkg
 export CBUILD=$CTEMP/build
 export CDOWNLOAD=~/Downloads
 export CGLOBS=$CTEMP/globs
+export CROUTON=/mnt/stateful_partition/crouton
+export URLCROUTON="https://raw.githubusercontent.com/dnschneid/crouton/master/installer/crouton"
+export EXTENSION=/home/chronos/user/Extensions/nhbmpbdladcchdhkemlojfjdknjadhmh
