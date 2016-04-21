@@ -5,7 +5,7 @@ lineCount() #Same function called earlier in the previous script to use in the c
 
 fixowner()
 {
-sudo chown $USER:$USER /usr/local/lib /usr/local/bin /usr/local/lib64 /usr/local/ /usr/local/* /usr/local/include
+sudo chown $USER:$USER /usr/local/lib /usr/local/bin /usr/local/lib64 /usr/local/ /usr/local/* /usr/local/include /usr/local/lib/pkgconfig/ /usr/local/share/man/man1/
 sudo chmod 755 /usr/local/* /usr/local/bin/* /usr/local/lib/* /usr/local/lib64/* 2&>/dev/null
 }
 
