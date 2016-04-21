@@ -15,3 +15,5 @@
 /expat
 /git
 /gawk
+/libsigsegv
+/python27
