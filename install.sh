@@ -42,7 +42,7 @@ if ask "Do you want full debugging on"; then
     DEBUGCONF=-q
     DEBUGMAKE=--debug=v
 else
-    DEBUGCONF=
+    DEBUGCONF=--
     DEBUGMAKE=--debug=n
 fi
 
