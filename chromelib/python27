@@ -12,10 +12,10 @@ cd "Python-2.7.10"
 sudo chown $USER:$USER *
 sudo chmod 755 *
 fixowner
-./configure --prefix=/usr/local CPPFLAGS="-I/usr/local/include -I/usr/local/include/ncurses" LDFLAGS="-L/usr/local/lib" CFLAGS=" -fPIC" $1
-make $2
-make check $2
-make install $2
+./configure --prefix=/usr/local CPPFLAGS="-I/usr/local/include -I/usr/local/include/ncurses" LDFLAGS="-L/usr/local/lib" CFLAGS=" -fPIC"
+make
+make check
+make install
 #sudo mv python python27
 #sudo cp -r python27 /usr/local/bin
 #sudo mv "Python-2.7.10/" "python2.7"
