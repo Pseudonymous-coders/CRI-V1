@@ -1,13 +1,15 @@
-  source_url 'ftp://ftp.gnu.org/pub/gnu/ncurses/ncurses-5.9.tar.gz'
-  source_sha1 '3e042e5f2c7223bffdaac9646a533b8c758b65b5'
-
-  depends_on "diffutils"
-
-  def self.build
-    system "./configure CFLAGS=\" -fPIC\" --without-debug --prefix=/usr/local"
-    system "make"
-  end
-
-  def self.install
-    system "make", "DESTDIR=#{CREW_DEST_DIR}", "install"
-  end
+#!/bin/bash
+CGLOBS=~/Downloads/.tmp/globs
+source $CGLOBS/globvar
+source $CGLOBS/globfun
+echo "
+Installing ncurses..."
+cd $CPKG
+installer "ftp://ftp.gnu.org/pub/gnu/ncurses/ncurses-5.9.tar.gz" $CPKG/ncurses.tar.gz
+unpacker "ncurses.tar.gz" $CBUILD
+cd "$CBUILD/ncurses-5.9"
+./configure CFLAGS=\" -fPIC\" --without-debug --prefix=/usr/local
+make
+make install
+cleaner $CBUILD # Clean up files
+echo "Done"
