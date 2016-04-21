@@ -14,6 +14,7 @@
 /gettext
 /expat
 /git
-/gawk
 /libsigsegv
+/gawk
+/bz2
 /python27
