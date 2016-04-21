@@ -38,14 +38,6 @@ else
     exit 1
 fi
 
-if ask "Do you want full debugging on"; then
-    DEBUGCONF=-q
-    DEBUGMAKE=--debug=v
-else
-    DEBUGCONF=--
-    DEBUGMAKE=--debug=n
-fi
-
 echo "Creating working directories..."
 sudo mkdir -p $CTEMP $CPKG $CBUILD
 sudo chown $USER:$USER $CTEMP $CPKG $CBUILD
@@ -74,7 +66,7 @@ for NAME in $NAMES; do #Downloads all nessisary files from github to /usr/local/
     sudo wget -q --no-check-certificate "$PKGURL/$NAME" -O $CPKG/${NAME##*/}
     sudo chmod 755 *
     sudo chown $USER:$USER ${NAME##*/}
-    ./${NAME##*/} $DEBUGCONF $DEBUGMAKE # Run setup in seperate thread 
+    ./${NAME##*/} # Run setup in seperate thread 
     fixowner 2&>/dev/null
 done
 
