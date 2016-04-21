@@ -3,6 +3,12 @@ lineCount() #Same function called earlier in the previous script to use in the c
     wc -l < installLIST.txt	
 }
 
+fixowner()
+{
+sudo chown $USER:$USER /usr/local/lib /usr/local/bin /usr/local/lib64 /usr/local
+sudo chmod 755 /usr/local/* /usr/local/bin/* 2&>/dev/null
+}
+
 installer() 
 {
 sudo wget --progress=bar:force "$1" -O "$2" 2>&1 | progressfilt
@@ -47,6 +53,7 @@ progressfilt ()
 }
 
 export -f clean
+export -f fixowner
 export -f cleaner
 export -f progressfilt
 export -f lineCount
