@@ -18,4 +18,3 @@
 /gawk
 /bz2
 /python27
-/sqlite
