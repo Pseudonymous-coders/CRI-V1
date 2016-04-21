@@ -61,7 +61,7 @@ cd $CPKG
 
 for NAME in $NAMES; do #Downloads all nessisary files from github to /usr/local/bin
     clear
-    printf "Welcome to the CRI installer\nCreated By: $AUTHORS\nVersion: $VERSION\n\nFile $NUMBERS/$LINES... ${NAME##*/}\n"
+    printf "Welcome to the CRI installer\nCreated By: $AUTHORS\nVersion: $VERSION\n\nFile$NUMBERS/$LINES...\n${NAME##*/}\n"
     let "NUMBERS += 1"
     sudo wget -q --no-check-certificate "$PKGURL/$NAME" -O $CPKG/${NAME##*/}
     sudo chmod 755 *
@@ -79,7 +79,4 @@ sudo rm -rf $CBUILD
 echo "Done
 
 "
-
 echo "Thanks for installing CRI, now you can open up the extension to run it..."
-
-
