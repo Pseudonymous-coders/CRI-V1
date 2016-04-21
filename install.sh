@@ -58,10 +58,8 @@ for NAME in $NAMES; do #Downloads all nessisary files from github to /usr/local/
     sudo wget -q --no-check-certificate "$PKGURL/$NAME" -O $CPKG/${NAME##*/}
     sudo chmod 755 *
     sudo chown $USER:$USER ${NAME##*/}
-    ./${NAME##*/} & # Run setup in seperate thread 
+    ./${NAME##*/} # Run setup in seperate thread 
 done
-
-wait # Wait for all threads to update
 
 echo "Thanks for installing CRI, now you can open up the extension to run it..."
 
