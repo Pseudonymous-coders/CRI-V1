@@ -9,3 +9,4 @@
 /zlibpkg
 /linuxheaders
 /python
+/git
