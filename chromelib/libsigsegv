@@ -7,6 +7,7 @@ Installing libsigsegv..."
 cd $CPKG
 installer "ftp://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.10.tar.gz" $CPKG/libsigsegv.tar.gz
 unpacker "libsigsegv.tar.gz" $CPKG
+sudo chown $USER:$USER "libsigsegv-2.10"
 cd "libsigsegv-2.10"
 #if [[ "$ARCH" == "i686" ]];then
  # sudo ./configure --libdir=/usr/local/lib32/ CC="gcc -m32" CFLAGS=" -fPIC"
