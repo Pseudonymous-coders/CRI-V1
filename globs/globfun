@@ -1,3 +1,4 @@
+USER=$(whoami)
 lineCount() #Same function called earlier in the previous script to use in the counting of lines in commands.txt
 {
     wc -l < installLIST.txt	
@@ -6,6 +7,7 @@ lineCount() #Same function called earlier in the previous script to use in the c
 fixowner()
 {
 sudo chown $USER:$USER /usr/local/lib /usr/local/bin /usr/local/lib64 /usr/local/ /usr/local/* /usr/local/include /usr/local/lib/pkgconfig/ /usr/local/share/man/man1/
+sudo chown -R $USER:$USER /usr/local
 sudo chmod 755 /usr/local/* /usr/local/bin/* /usr/local/lib/* /usr/local/lib64/* 2&>/dev/null
 }
 
