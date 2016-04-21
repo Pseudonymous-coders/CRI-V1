@@ -8,4 +8,4 @@
 /libssh2
 /zlibpkg
 /linuxheaders
-/libsigsegv
+/python
