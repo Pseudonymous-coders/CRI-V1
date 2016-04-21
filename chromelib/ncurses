@@ -6,9 +6,11 @@ echo "
 Installing ncurses..."
 cd $CPKG
 installer "ftp://ftp.gnu.org/pub/gnu/ncurses/ncurses-5.9.tar.gz" $CPKG/ncurses.tar.gz
-unpacker "ncurses.tar.gz" $CBUILD
-cd "$CBUILD/ncurses-5.9"
-./configure CFLAGS=\" -fPIC\" --without-debug --prefix=/usr/local
+unpacker "ncurses.tar.gz" $CPKG
+sudo chown chronos:chronos "ncurses-5.9/"
+cd "ncurses-5.9"
+sudo chmod 755 *
+./configure CFLAGS=" -fPIC" --without-debug --prefix=/usr/local
 make
 make install
 cleaner $CBUILD # Clean up files
