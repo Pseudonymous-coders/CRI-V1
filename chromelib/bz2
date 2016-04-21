@@ -11,7 +11,7 @@ unpacker "bz2.tar.gz" $CPKG
 sudo chown $USER:$USER bzip2-1.0.6
 cd "bzip2-1.0.6"
 sudo chmod 755 *
-sudo make -f Makefile-libbz2_so
-sudo make install
+make -f Makefile-libbz2_so
+make install
 cleaner $CBUILD # Clean up files
 echo "Done"
