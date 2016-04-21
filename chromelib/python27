@@ -11,10 +11,13 @@ sudo chown $USER:$USER "Python-2.7.10"
 cd "Python-2.7.10"
 sudo chown $USER:$USER *
 sudo chmod 755 *
+fixowner
 ./configure --prefix=/usr/local CPPFLAGS="-I/usr/local/include -I/usr/local/include/ncurses" LDFLAGS="-L/usr/local/lib" CFLAGS=" -fPIC"
 make
 make check
-sudo mv python python27
-sudo cp -r python /usr/local/bin
+make install
+#sudo mv python python27
+#sudo cp -r python27 /usr/local/bin
+#sudo mv "Python-2.7.10/" "python2.7"
 cleaner $CBUILD # Clean up files
 echo "Done"
