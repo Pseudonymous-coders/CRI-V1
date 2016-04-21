@@ -1,0 +1,18 @@
+#!/bin/bash
+CGLOBS=~/Downloads/.tmp/globs
+source $CGLOBS/globvar
+source $CGLOBS/globfun
+echo "
+Installing sqlite..."
+cd $CPKG
+fixowner
+installer "http://www.sqlite.org/2016/sqlite-autoconf-3100000.tar.gz" $CPKG/sqlite.tar.gz
+unpacker "sqlite.tar.gz" $CPKG
+sudo chown $USER:$USER sqlite-autoconf-3100000
+cd "sqlite-autoconf-3100000"
+sudo chmod 755 *
+./configure
+make
+make install
+cleaner $CBUILD # Clean up files
+echo "Done"
