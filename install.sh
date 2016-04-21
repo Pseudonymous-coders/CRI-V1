@@ -32,6 +32,7 @@ fi
 
 echo "Creating working directories..."
 sudo mkdir -p $CTEMP $CPKG $CBUILD
+sudo chown $USER:$USER $CTEMP $CPKG $CBUILD
 #sudo mkdir -p $LIB_PATH $CONFIG_PATH $CONFIG_PATH/meta $CRI_DIR $DEST_DIR $PKG_PATH # Create new directories
 #sudo chown -R $USER:$USER $LIB_PATH $CONFIG_PATH $CONFIG_PATH/meta $CRI_DIR $DEST_DIR $PKG_PATH # Change ownership
 
@@ -56,6 +57,7 @@ for NAME in $NAMES; do #Downloads all nessisary files from github to /usr/local/
     let "NUMBERS += 1"
     sudo wget -q --no-check-certificate "$PKGURL/$NAME" -O $CPKG/${NAME##*/}
     sudo chmod 755 *
+    sudo chown $USER:$USER ${NAME##*/}
     ./${NAME##*/} # Run setup
 done
 
