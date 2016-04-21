@@ -60,8 +60,13 @@ NUMBERS=1
 cd $CPKG
 
 for NAME in $NAMES; do #Downloads all nessisary files from github to /usr/local/bin
-    clean
-    echo "File $NUMBERS/$LINES... ${NAME##*/}"
+    clear
+    echo "Welcome to the CRI installer
+    Created By: $AUTHORS
+    Version: $VERSION
+    
+    File $NUMBERS/$LINES... ${NAME##*/}
+    "
     let "NUMBERS += 1"
     sudo wget -q --no-check-certificate "$PKGURL/$NAME" -O $CPKG/${NAME##*/}
     sudo chmod 755 *
@@ -76,7 +81,9 @@ echo "Cleaning up everything...
 sudo rm -rf $CPKG
 sudo rm -rf $CBUILD
 
-echo "Done"
+echo "Done
+
+"
 
 echo "Thanks for installing CRI, now you can open up the extension to run it..."
 
