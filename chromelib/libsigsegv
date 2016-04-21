@@ -12,12 +12,12 @@ cd "libsigsegv-2.10"
 sudo chown $USER:$USER *
 sudo chmod 755 *
 if [[ "$ARCH" == "i686" ]];then
- ./configure --libdir=/usr/local/lib32/ CC="gcc -m32" CFLAGS=" -fPIC" $1
+ ./configure --libdir=/usr/local/lib32/ CC="gcc -m32" CFLAGS=" -fPIC"
 elif [[ "$ARCH" == "x86_64" ]];then 
- ./configure --libdir=/usr/local/lib64/ CC="gcc -m64" CFLAGS=" -fPIC" $1
+ ./configure --libdir=/usr/local/lib64/ CC="gcc -m64" CFLAGS=" -fPIC"
 fi
-make $2
-make check $2
+make
+make check
 sudo cp -r libtool /usr/local/bin
 #cleaner $CBUILD # Clean up files
 echo "Done"
