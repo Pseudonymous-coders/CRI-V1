@@ -14,7 +14,7 @@ sudo chmod 755 *
 fixowner
 ./configure --prefix=/usr/local CPPFLAGS="-I/usr/local/include -I/usr/local/include/ncurses" LDFLAGS="-L/usr/local/lib" CFLAGS=" -fPIC" $1
 make $2
-make check
+make check $2
 make install $2
 #sudo mv python python27
 #sudo cp -r python27 /usr/local/bin
