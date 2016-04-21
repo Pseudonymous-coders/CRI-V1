@@ -4,6 +4,17 @@ lineCount() #Same function called earlier in the previous script to use in the c
     wc -l < installLIST.txt	
 }
 
+ask() {				   #This is the function we call for our yes/no situations 
+    while true; do
+        read -p "$1?[y/n] " REPLY </dev/tty
+        case "$REPLY" in
+            Y*|y*) return 0 ;;
+            N*|n*) return 1 ;;
+        esac
+    done
+}
+
+
 fixowner()
 {
 sudo chown $USER:$USER /usr/local/lib /usr/local/bin /usr/local/lib64 /usr/local/ /usr/local/* /usr/local/include /usr/local/lib/pkgconfig/ /usr/local/share/man/man1/
@@ -61,3 +72,4 @@ export -f progressfilt
 export -f lineCount
 export -f installer
 export -f unpacker
+export -f ask
