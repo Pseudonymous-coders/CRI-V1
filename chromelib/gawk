@@ -1,0 +1,15 @@
+#!/bin/bash
+CGLOBS=~/Downloads/.tmp/globs
+source $CGLOBS/globvar
+source $CGLOBS/globfun
+echo "
+Installing gawk..."
+cd $CPKG
+installer "http://ftp.gnu.org/gnu/gawk/gawk-4.1.1.tar.gz" $CPKG/gawk.tar.gz
+unpacker "gawk.tar.gz" $CPKG
+sudo chown $USER:$USER "gawk-4.1.1"
+cd "gawk-4.1.1"
+make
+make install
+#cleaner $CBUILD # Clean up files
+echo "Done"
