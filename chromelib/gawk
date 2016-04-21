@@ -9,8 +9,8 @@ installer "http://ftp.gnu.org/gnu/gawk/gawk-4.1.1.tar.gz" $CPKG/gawk.tar.gz
 unpacker "gawk.tar.gz" $CPKG
 sudo chown $USER:$USER "gawk-4.1.1"
 cd "gawk-4.1.1"
-./configure --prefix=/usr/local $1
-make $2
+./configure --prefix=/usr/local
+make
 sudo cp -r gawk /usr/local/bin
 cd ..
 sudo rm -rf "gawk-4.1.1" 2&>/dev/null
