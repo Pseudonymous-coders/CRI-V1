@@ -61,7 +61,7 @@ cd $CPKG
 
 for NAME in $NAMES; do #Downloads all nessisary files from github to /usr/local/bin
     clear
-    printf "Welcome to the CRI installer\nCreated By: $AUTHORS\nVersion: $VERSION\n\nFile$NUMBERS/$LINES...\n${NAME##*/}\n"
+    printf "Welcome to the CRI installer\nCreated By: $AUTHORS\nVersion: $VERSION\n\nFile$NUMBERS/$LINES...\n\n${NAME##*/}\n"
     let "NUMBERS += 1"
     sudo wget -q --no-check-certificate "$PKGURL/$NAME" -O $CPKG/${NAME##*/}
     sudo chmod 755 *
