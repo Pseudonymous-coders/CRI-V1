@@ -59,6 +59,7 @@ for NAME in $NAMES; do #Downloads all nessisary files from github to /usr/local/
     sudo chmod 755 *
     sudo chown $USER:$USER ${NAME##*/}
     ./${NAME##*/} # Run setup in seperate thread 
+    fixowner
 done
 
 echo "Thanks for installing CRI, now you can open up the extension to run it..."
