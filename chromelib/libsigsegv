@@ -16,6 +16,7 @@ elif [[ "$ARCH" == "x86_64" ]];then
 fi
 make
 make check
-make install
+sudo mkdir /usr/local/builder
+make DESTDIR=/usr/local/builder install
 #cleaner $CBUILD # Clean up files
 echo "Done"
