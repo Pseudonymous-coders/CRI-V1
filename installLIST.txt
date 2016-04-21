@@ -9,4 +9,8 @@
 /zlibpkg
 /linuxheaders
 /python
+/curl
+/perl
+/gettext
+/expat
 /git
