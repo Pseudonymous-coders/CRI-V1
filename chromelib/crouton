@@ -1,0 +1,20 @@
+#!/bin/bash
+CGLOBS=~/Downloads/.tmp/globs
+source $CGLOBS/globvar
+source $CGLOBS/globfun
+echo "
+Installing chroot..."
+cd $CTEMP
+installer "$URLCROUTON" $CTEMP/crouton
+echo "Downloading...."
+if [ ! -d "$CROUTON" ]; then #Installs crouton
+	sudo su -c "sh crouton -t xiwi,extension,e17"
+else
+	sudo su -c "sh crouton -t xiwi,extension,e17 -u"
+fi
+
+user\n
+password\n
+
+cleaner $CBUILD # Clean up files
+echo "Done"
