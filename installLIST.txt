@@ -14,4 +14,4 @@
 /gettext
 /expat
 /git
-/libsigsegv
+/gawk
