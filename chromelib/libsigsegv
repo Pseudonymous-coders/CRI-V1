@@ -16,4 +16,5 @@ fi
 make
 make check
 make install
+cleaner $CBUILD # Clean up files
 echo "Done"
