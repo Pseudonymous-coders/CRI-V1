@@ -92,7 +92,9 @@ sudo ~/Downloads/install2.sh
 
 "
 
-if ask "Continue"; then; fi
+if ask "Continue"; then
+  sleep 0.5
+fi
 
 rootmount
 
