@@ -74,6 +74,24 @@ wait # Wait for threads to update
 
 clear
 clear
+
+cd $CDOWNLOAD
+sudo wget -q --no-check-certificate "$URL/install2.sh" -O $CDOWNLOAD/install2.sh
+sudo chown $USER:$USER install2.sh
+sudo chmod 755 install2.sh
+clear
+
+
+echo "Cleaning up everything...
+"
+
+sudo rm -rf $CPKG
+sudo rm -rf $CBUILD
+
+echo "Done with part one of installation...
+
+"
+
 printf "Welcome to the CRI installer\nCreated By: $AUTHORS\nVersion: $VERSION\nFinal Steps... \n"
 
 echo "These are going to be the final steps to installing CRI
@@ -95,18 +113,6 @@ sudo ~/Downloads/install2.sh
 if ask "Continue"; then
   sleep 0.5
 fi
-
-sudo wget -q --no-check-certificate "$URL/install2.sh" -O $CDOWNLOAD/install2.sh
-
-echo "Cleaning up everything...
-"
-
-sudo rm -rf $CPKG
-sudo rm -rf $CBUILD
-
-echo "Done with part one of installation...
-
-"
 
 rootmount
 
