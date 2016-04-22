@@ -106,7 +106,7 @@ REMOUNTING AS ROOT >
 rootmount
 
 INSTALLATION PART TWO>
-sudo ~/Downloads/install2.sh
+~/Downloads/install2.sh
 
 "
 
