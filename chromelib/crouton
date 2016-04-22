@@ -12,7 +12,6 @@ if [ ! -d "$CROUTON" ]; then #Installs crouton
 else
 	sudo su -c "sh crouton -r trusty -t xiwi,extension,e17 -u"
 fi
-
 user\n
 password\n
 
