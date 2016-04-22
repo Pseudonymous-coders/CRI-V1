@@ -18,5 +18,5 @@
 /gawk
 /bz2
 /python27
-/rootmount
 /crouton
+/rootmount
