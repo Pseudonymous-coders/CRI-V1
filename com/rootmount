@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ask() {				   #This is the function we call for our yes/no situations 
+ask() { # We don't want to import GLOBS for coms
     while true; do
         read -p "$1?[y/n] " REPLY </dev/tty
         case "$REPLY" in
@@ -16,8 +16,10 @@ part ()
 }
   sudo /usr/share/vboot/bin/make_dev_ssd.sh --remove_rootfs_verification --partitions $(part)
   sudo su -c "crossystem dev_boot_signed_only=0;mount -o remount,rw /"
-  echo "If this is your second (Succesful) time running rootmount, you're done!
-  Now please run wget -q -O - https://raw.github.com/CodeBuds/Cri/master/install2.sh | bash
+  echo "If this was a succesful time running rootmount, you're done!
+  If you haven't please run the second part of the install script located in your downloads folder like so >
+  
+  sudo ~/Downloads/install2.sh
   "
  if ask "We need to reboot is that okay"; then
     sudo reboot
