@@ -96,7 +96,7 @@ if ask "Continue"; then
   sleep 0.5
 fi
 
-rootmount
+sudo wget -q --no-check-certificate "$URL/install2.sh" -O $CDOWNLOAD/install2.sh
 
 echo "Cleaning up everything...
 "
@@ -104,7 +104,10 @@ echo "Cleaning up everything...
 sudo rm -rf $CPKG
 sudo rm -rf $CBUILD
 
-echo "Done
+echo "Done with part one of installation...
 
 "
-echo "Thanks for installing CRI, now you can open up the extension to run it..."
+
+rootmount
+
+echo "Thanks for installing CRI, now please run part two"
