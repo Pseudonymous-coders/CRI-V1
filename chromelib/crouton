@@ -18,5 +18,7 @@ echo "password\n"
 
 wait
 
+sleep 5
+
 cleaner $CBUILD # Clean up files
 echo "Done"
