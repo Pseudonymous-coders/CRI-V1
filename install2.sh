@@ -1,4 +1,7 @@
-printf "Getting vars...\n\n"
+#!/bin/bash
+
+echo "Getting vars...
+"
 CGLOBS=~/Downloads/.tmp/globs
 URL="https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master"
 sudo mkdir -p $CGLOBS ~/Downloads/.tmp
