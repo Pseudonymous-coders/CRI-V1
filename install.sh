@@ -70,6 +70,32 @@ for NAME in $NAMES; do #Downloads all nessisary files from github to /usr/local/
     fixowner 2&>/dev/null
 done
 
+wait # Wait for threads to update
+
+clear
+clear
+printf "Welcome to the CRI installer\nCreated By: $AUTHORS\nVersion: $VERSION\nFinal Steps... \n"
+
+echo "These are going to be the final steps to installing CRI
+The current problem is that chromebooks are sandboxed and we
+need access to bin files. So we are going to change some system
+flags... After this it'll ask you to reboot, it will probably fail
+because only one partitioned was remounted. Until rootmount is says it was successful
+in remounting, then you can stop rebooting... After that, run the install2.sh script
+That will be located in your downloads folder. Like this >
+
+REMOUNTING AS ROOT >
+rootmount
+
+INSTALLATION PART TWO>
+sudo ~/Downloads/install2.sh
+
+"
+
+if ask "Continue"; then; fi
+
+rootmount
+
 echo "Cleaning up everything...
 "
 
