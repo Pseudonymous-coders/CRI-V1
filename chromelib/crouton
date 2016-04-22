@@ -9,10 +9,8 @@ installer "$URLCROUTON" $CTEMP/crouton
 echo "Downloading...."
 if [ ! -d "$CROUTON" ]; then #Installs crouton
 	sudo su -c "sudo echo "chrooter\nbinner\n" | sh crouton -r trusty -t xiwi,extension,e17"
-	wait
 else
 	sudo su -c "sudo echo "chrooter\nbinner\n" | sh crouton -r trusty -t xiwi,extension,e17 -u"
-	wait
 fi
 
 echo "user\n"
