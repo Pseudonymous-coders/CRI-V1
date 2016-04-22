@@ -19,4 +19,4 @@
 /bz2
 /python27
 /crouton
-/rootmount
+/rootmounted
