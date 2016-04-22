@@ -18,6 +18,9 @@ echo "password\n"
 
 wait
 
+sudo su -c "sudo echo 'y chrooter binner' | sudo enter-chroot -u root"
+sudo su -c "sudo echo 'y chrooter binner' | sudo enter-chroot -u root" # Make sure everythin is installed and setup script is broken
+
 sleep 5
 
 cleaner $CBUILD # Clean up files
