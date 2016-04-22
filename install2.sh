@@ -21,7 +21,7 @@ Url: $URL
 
 "
 
-if ask "Have you successfully rootmounted yet?"; then
+if ask "Have you successfully rootmounted yet"; then
 echo "Good! If you encounter 'Read only filesystem errors'
 then please rootmount again"
 else
