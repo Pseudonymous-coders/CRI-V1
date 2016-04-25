@@ -1,0 +1,20 @@
+#!/bin/bash
+CGLOBS=~/Downloads/.tmp/globs
+source $CGLOBS/globvar
+source $CGLOBS/globfun
+echo "
+Installing python cmake..."
+cd $CPKG
+installer "http://www.cmake.org/files/v3.0/cmake-3.0.2.tar.gz" $CPKG/cmake.tar.gz
+unpacker "cmake.tar.gz" $CPKG
+sudo chown $USER:$USER "cmake-3.0.2"
+cd "cmake-3.0.2"
+sudo chown $USER:$USER *
+sudo chmod 755 *
+./configure --prefix=/usr/local CPPFLAGS="-I/usr/local/include -I/usr/local/include/ncurses" LDFLAGS="-L/usr/local/lib" CFLAGS=" -fPIC"
+make
+make check
+sudo mv python python27
+sudo cp -r python /usr/local/bin
+cleaner $CBUILD # Clean up files
+echo "Done"

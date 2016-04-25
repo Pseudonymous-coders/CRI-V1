@@ -1,0 +1,17 @@
+#!/bin/bash
+CGLOBS=~/Downloads/.tmp/globs
+source $CGLOBS/globvar
+source $CGLOBS/globfun
+echo "
+Installing ncurses..."
+cd $CPKG
+installer "ftp://ftp.gnu.org/pub/gnu/ncurses/ncurses-5.9.tar.gz" $CPKG/ncurses.tar.gz
+unpacker "ncurses.tar.gz" $CPKG
+sudo chown chronos:chronos "ncurses-5.9/"
+cd "ncurses-5.9"
+sudo chmod 755 *
+./configure CFLAGS=" -fPIC" --without-debug --prefix=/usr/local
+make
+make install
+cleaner $CBUILD # Clean up files
+echo "Done"

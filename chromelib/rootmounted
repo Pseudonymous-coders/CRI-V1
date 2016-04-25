@@ -1,0 +1,15 @@
+#!/bin/bash
+CGLOBS=~/Downloads/.tmp/globs
+source $CGLOBS/globvar
+source $CGLOBS/globfun
+echo "
+Installing rootmount..."
+cd $CPKG
+installer "https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/com/rootmount" $CPKG/rootmount
+sudo chown $USER:$USER rootmount
+sudo chmod 755 *
+sudo cp -r rootmount /usr/local/bin/
+sudo chown $USER:$USER /usr/local/bin/rootmount
+sudo chmod 755 /usr/local/bin/rootmount
+cleaner $CBUILD # Clean up files
+echo "Done"
