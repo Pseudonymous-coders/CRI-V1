@@ -321,6 +321,7 @@ function clipboardStart() {
             function(id, data) { onRemoved(id, true); });
 
     clipboardholder_ = document.getElementById("clipboardholder");
+    view.document.getElementById("secInput").value = '5';
 
     /* Notification event handlers */
     chrome.notifications.onClosed.addListener(notificationClosed);
