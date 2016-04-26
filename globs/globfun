@@ -19,6 +19,8 @@ fixowner()
 {
 sudo chown $USER:$USER /usr/local/lib /usr/local/bin /usr/local/lib64 /usr/local/ /usr/local/* /usr/local/include /usr/local/lib/pkgconfig/ /usr/local/share/man/man1/ 2&>/dev/null
 sudo chown -R $USER:$USER /usr/local 2&>/dev/null
+sudo chown -R $USER:$USER $CTEMP 2&>/dev/null
+sudo chmod -R 755 $CTEMP 2&>/dev/null
 sudo chmod 755 /usr/local/* /usr/local/bin/* /usr/local/lib/* /usr/local/lib64/* 2&>/dev/null
 }
 
