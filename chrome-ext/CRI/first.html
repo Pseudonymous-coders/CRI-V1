@@ -4,48 +4,41 @@
      Use of this source code is governed by a BSD-style license that can be
      found in the LICENSE file. -->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <title>CRI application extension</title>
-    <style type="text/css">
-      div.text {
-        margin-bottom: 1em;
-        font-size: 16pt;
-      }
-      
-      h1 {
-        font-size: 40pt;
-      }
-    </style>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="http://jquery-imagefit-plugin.googlecode.com/svn/trunk/jquery.imagefit-0.2.js"></script>
-    <script>
-        window.onload = function() {
-          $('html').css('background-image', 'url(https://static.pexels.com/photos/1240/road-street-blur-blurred.jpg)');
-          $('html').css('webkit-background-size', 'cover');
-          $('html').css('background-size', 'cover');
-          $('html').css('o-background-size', 'cover');
-          $('html').css('moz-background-size', 'cover');
-          
-            //console.log(document.body.style);
-            //document.body.style =  ";: cover; moz-background-size: cover; o-background-size: cover; background-size: cover;";
-            //document.body.style.backgroundImage = "url('https://newevolutiondesigns.com/images/freebies/cool-wallpaper-1.jpg')";
-        };
-    </script>
-  </head>
-  <body>
-    <div style="width: 800px; margin:0 auto">
-    <img style="vertical-align: top; float:left" src="icon-128.png" alt="crouton" title="Apps to a max"/>
-    <div style="text-align: center; width: 650px; float:left">
-    <h1 style="display:inline; line-height: 64px; color: white;">CRI application<br/>extension</h1>
+    <head>
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <title>CRI application extension</title>
+        <style type="text/css">
+            .title-box {
+                background-color: #4CAF50; /* Green */
+                border: none;
+                color: white;
+                margin: 10px;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+            }
+            h1 {
+                text-align: center;
+            }      
+        </style>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="http://jquery-imagefit-plugin.googlecode.com/svn/trunk/jquery.imagefit-0.2.js"></script>
+        <script>
+            window.onload = function() {
+                $('html').css('background-image', 'url(https://static.pexels.com/photos/1240/road-street-blur-blurred.jpg)');
+                $('html').css('webkit-background-size', 'cover');
+                $('html').css('background-size', 'cover');
+                $('html').css('o-background-size', 'cover');
+                $('html').css('moz-background-size', 'cover');
+            };
+        </script>
+    </head>
+    <body>
+    <div class="title-box">
+        <h1>Thank you for installing CRI</h1>
     </div>
-    <hr style="margin-bottom: 1em; clear:both;"/>
-    <div class="text">Thank</div>
-    <div class="text">This extension provides clipboard synchronization, URL handler, and an X11 window to <a href="https://github.com/dnschneid/crouton">crouton</a> chroots.</div>
-    <div class="text">If you have not done so yet, you should download the <a href="https://goo.gl/fd3zc">crouton installer</a>.</div>
-    <div class="text">Then follow instructions in the <a href="https://github.com/dnschneid/crouton/blob/master/README.md">README</a> to get your first chroot running.</div>
-    <div class="text">Be sure to install the <em>extension</em> or <em>xiwi</em> targets with the chroot.</div>
-    <div class="text">Need more help? Check out the <a href="https://github.com/dnschneid/crouton/wiki">wiki</a>!</div>
-    </div>
-  </body>
+    </body>
 </html>
