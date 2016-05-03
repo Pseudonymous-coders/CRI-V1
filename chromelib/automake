@@ -1,0 +1,31 @@
+#!/bin/bash
+CGLOBS=~/Downloads/.tmp/globs
+source $CGLOBS/globvar
+source $CGLOBS/globfun
+echo "
+Installing automake..."
+cd $CPKG
+installer "ftp://ftp.gnu.org/gnu/automake/automake-1.14.tar.xz" $CPKG/automake.tar.xz
+sudo tar xf automake.tar.xz
+sudo chown $USER:$USER "automake-1.14"
+cd "automake-1.14"
+sudo chmod 755 *
+sudo chown $USER:$USER *
+./configure
+make
+make install
+make install # Weird bug sometimes
+cd ..
+sleep 0.5 # Again bug
+cd "automake-1.14"
+make install
+cd ..
+sudo cp -r "automake-1.14" ~/auto/
+cleaner $CBUILD
+sudo chown chronos:chronos ~/auto ~/auto/*
+cd ~/auto/
+sudo mount -o remount,exec /home/chronos/user -i
+sudo chmod 755 *
+sleep 0.5
+make install # Update configure.ac three times
+echo "Done"
