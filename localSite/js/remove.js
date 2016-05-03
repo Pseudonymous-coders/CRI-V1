@@ -13,7 +13,9 @@ ws.onopen = function() {
 }
 
 function progClicked(id) {
-    ws.send("RUN"+id);
+    if (confirm("Are you sure you want to uninstall "+id+"?")) {
+        ws.send("REMOVE"+id);
+    }
 }
 
 ws.onmessage = function(str) {
