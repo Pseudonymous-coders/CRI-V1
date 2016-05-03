@@ -9,8 +9,11 @@ installer "ftp://ftp.gnu.org/gnu/m4/m4-1.4.17.tar.xz" $CPKG/m4.tar.xz
 sudo tar -xf m4.tar.xz
 sudo chown $USER:$USER "m4-1.4.17"
 cd "m4-1.4.17"
+sudo chmod 755 *
+sudo chown $USER:$USER *
 ./configure
 make
+make install
 cd ..
 sudo rm -rf "m4-1.4.17" 2&>/dev/null
 cleaner $CBUILD # Clean up files
