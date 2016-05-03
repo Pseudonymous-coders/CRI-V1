@@ -58,7 +58,6 @@ ws.onclose = function() {
     connected = 0;
 }
 
-
 function cmdRun() {
     ws.send("RUN");
     ws.close()
