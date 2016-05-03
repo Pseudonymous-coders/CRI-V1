@@ -21,6 +21,9 @@
 /m4
 /autoconf
 /automake
+/gpatch
+/texinfo
+/help2man
 /crouton
 /writed
 /rootmounted
