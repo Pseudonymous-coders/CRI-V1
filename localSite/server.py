@@ -53,14 +53,12 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 
         if message[:7] == "INSTALL":
             print "installing: "+message[7:]
+            os.system("sudo apt-get install "+message[7:])
+            self.write_message("DONEINSTALL")
 
         if message[:6] == "SEARCH":
             toSearch = 'apt-cache search '+message[6:]
             searches = str(Popen('apt-cache search '+message[6:], stdout=PIPE, shell=True, executable="/bin/bash").communicate()[0])
-            searches.replace("\n", "")
-            if "\n" in searches:
-                print True
-            
             self.write_message(searches)
 
         if message[:6] == "REMOVE":
