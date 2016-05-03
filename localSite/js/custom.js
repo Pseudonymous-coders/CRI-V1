@@ -9,21 +9,21 @@ $('#siteNav').affix({
 var connected = 0;
 
 var coms = '<div class="row promo">' +
-'    <a id="com" href="run.html">'+
+'    <a id="com" onclick="cmdRun()">'+
 '	    <div class="col-md-4 promo-item item-1">'+
 '		    <h3 id="run-btn">'+
 '    		    Run'+
 '    		</h3>'+
 '        </div>'+
 '    </a>'+
-'    <a id="com" href="install.html">'+
+'    <a id="com" onclick="cmdInstall()">'+
 '		<div class="col-md-4 promo-item item-2">'+
 '			<h3 id="ins-btn">'+
 '				Install'+
 '			</h3>'+
 '		</div>'+
 '    </a>'+
-'    <a id="com" href="remove.html">'+
+'    <a id="com" onclick="cmdRemove()">'+
 '		<div class="col-md-4 promo-item item-3">'+
 '			<h3 id="rem-btn">'+
 '				Remove'+
@@ -60,14 +60,13 @@ ws.onclose = function() {
 
 
 function cmdRun() {
-    ws.send("RUN");
-    ws.close()
+    window.location = "run.html";
 }
 
 function cmdInstall() {
-    ws.send("INSTALL");
+    window.location = "install.html";
 }
 
 function cmdRemove() {
-    ws.send("REMOVE");
+    window.location = "remove.html";
 }
