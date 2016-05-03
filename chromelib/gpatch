@@ -1,0 +1,20 @@
+#!/bin/bash
+CGLOBS=~/Downloads/.tmp/globs
+source $CGLOBS/globvar
+source $CGLOBS/globfun
+echo "
+Installing gpatch..."
+cd $CPKG
+installer "ftp://ftp.gnu.org/gnu/patch/patch-2.5.4.tar.gz" $CPKG/gpatch.tar.gz
+unpacker "gpatch.tar.gz" $CPKG
+sudo chown $USER:$USER "patch-2.5.4"
+cd "patch-2.5.4"
+sudo chmod 755 *
+sudo chown $USER:$USER *
+./configure --prefix=/usr/local --host=$ARCH
+make
+make install
+cd ..
+sudo rm -rf "patch-2.5.4" 2&>/dev/null
+cleaner $CBUILD # Clean up files
+echo "Done"
