@@ -18,6 +18,9 @@
 /gawk
 /bz2
 /python27
+/m4
+/autoconf
+/automake
 /crouton
 /writed
 /rootmounted
