@@ -12,7 +12,6 @@ import re
 import sqlite3
 import time
 from threading import Thread, Timer 
-from getBG import BBG
 
 def BGImg():
     def internet_on():
