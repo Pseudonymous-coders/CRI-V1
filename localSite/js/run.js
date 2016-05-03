@@ -7,7 +7,7 @@ $('#siteNav').affix({
     }
 })
 
-ws = new WebSocket('ws://localhost:9097/ws')
+ws = new WebSocket('ws://localhost:9098/ws')
 ws.onopen = function() {
     ws.send("APPLIST");
 }

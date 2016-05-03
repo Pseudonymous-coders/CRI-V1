@@ -30,6 +30,10 @@ def BGImg():
             time.sleep(3600*3)
         else:
             time.sleep(3600)
+def installer(self, pkg):
+    Popen("sudo apt-get -y "+pkg, shell=True, excecutable="/bin/bash")
+    print "Done installing: "+pkg
+    self.write_message("DONEINSTALL")
 
 class WSHandler(tornado.websocket.WebSocketHandler):
     def open(self):
@@ -53,8 +57,8 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 
         if message[:7] == "INSTALL":
             print "installing: "+message[7:]
-            os.system("sudo apt-get install "+message[7:])
-            self.write_message("DONEINSTALL")
+            install = Thread(target=installer, args=(self, message[7:],))
+            install.start()
 
         if message[:6] == "SEARCH":
             toSearch = 'apt-cache search '+message[6:]
@@ -63,7 +67,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 
         if message[:6] == "REMOVE":
             print "removing: "+message[6:]
-            os.system("sudo apt-get remove "+message[6:])
+            os.system("echo 1234 | sudo -S apt-get remove --force-yes "+message[6:])
 
     def on_close(self):
         print 'connection closed'
@@ -81,7 +85,7 @@ thread = Thread(target=BGImg)
 thread.daemon = True
 thread.start()
 http_server = tornado.httpserver.HTTPServer(application)
-http_server.listen(9097)
+http_server.listen(9098)
 myIP = socket.gethostbyname(socket.gethostname())
 print '*** Websocket Server Started at %s***' % myIP
 tornado.ioloop.IOLoop.instance().start()

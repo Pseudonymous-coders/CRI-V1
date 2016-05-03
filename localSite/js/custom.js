@@ -32,7 +32,7 @@ var coms = '<div class="row promo">' +
 '    </a>'+
 '</div>'
 
-ws = new WebSocket('ws://localhost:9097/ws');
+ws = new WebSocket('ws://localhost:9098/ws');
 
 ws.onopen = function() {
     document.getElementById("mainText").innerHTML = "CRI";

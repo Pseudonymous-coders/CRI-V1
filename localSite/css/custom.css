@@ -225,7 +225,9 @@ header button {
 .navbar-default .navbar-header .navbar-brand:focus {
     color: #eb3812;
 }
-
+.nav {
+    font-weight: bold;
+}
 .navbar-default .nav > li>a,
 .navbar-default .nav>li>a:focus {
     color: #222;
@@ -238,6 +240,7 @@ header button {
 
 .navbar-default .nav > li.active>a,
 .navbar-default .nav>li.active>a:focus {
+    font-weight: bold;
     color: yellowgreen!important;
     background-color: transparent;
 }
