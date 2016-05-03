@@ -25,6 +25,7 @@
 /texinfo
 /help2man
 /libtoolize
+/openssl
 /crouton
 /writed
 /rootmounted
