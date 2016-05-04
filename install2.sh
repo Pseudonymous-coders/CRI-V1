@@ -63,5 +63,52 @@ for NAME in $NAMES; do #Downloads all nessisary files from github to /usr/local/
     sleep 0.5
 done
 
+echo "Done installing chroot files
+Installing new items
+"
+sudo mkdir $CTEMP 2&>/dev/null;
+echo "" > $CTEMP/coms;
+sudo chown $USER:$USER $CTEMP/coms 2&>/dev/null
+
+echo "Installing icons for file manager..."
+sudo writer "printf 'y\ny\ny\n' % apt-get install dialog thunar gnome-icon-theme-extras gnome-icon-theme-full git"
+sleep 0.5 # Wait for file update
+sudo enter-chroot -u root runner # Run the above multi command
+printf "\n\n\nDone\n\nInstalling mysql...\n"
+
+
+sudo writer "printf 'y\ny\n' % apt-get install mysql-client"
+
+echo "
+Done
+
+Installing webserver items...
+"
+sudo writer "service apache2 stop 2&>/dev/null+update-rc.d -f apache2 remove 2&>/dev/null+printf 'y\ny\n' % apt-get remove apache2"
+sleep 0.5
+sudo enter-chroot -u root runner
+
+echo "Part 2..."
+
+sudo writer "printf 'y\ny\ny\n' % apt-get install lighttpd+service lighttpd start 2&>/dev/null+service lighttpd force-reload+sudo rm -rf /var/www/index.lighttpd.html"
+sleep 0.5
+sudo enter-chroot -u root runner
+
+cd $CROUTON/var/www
+
+sudo git init
+sudo git remote add -f origin "https://github.com/Pseudonymous-coders/CRI.git"
+sudo git config core.sparseCheckout true
+sudo chown -R $USER:$USER ../
+sudo chmod -R 755 ../
+sudo echo "localSite/" >> .git/info/sparse-checkout
+git pull --depth=1 origin master
+sudo mv localSite/* .
+sudo rm -rf localSite
+
+echo "
+Finished setting up local server, installing webpysock Server...
+"
+
 echo "Thanks for installing CRI MATES!"
 
