@@ -110,5 +110,18 @@ echo "
 Finished setting up local server, installing webpysock Server...
 "
 
+sudo writer "printf 'y\ny\ny\n' % apt-get install python python-dev python-pycurl python-simplejson sqlite3 python-pip build-essential python-tornado"
+sleep 0.5
+sudo enter-chroot -u root runner
+sleep 0.5
+sudo writer "pip install --upgrade pip+pip install --upgrade virtualenv+"
+
+# Since we want http://cri/ we need to add them to the hosts
+if [[ ! -z $(grep 'cri' '/etc/hosts') ]];  then echo "cri already in host file"; else sudo su -c "sudo echo '127.0.0.1       cri' >> /etc/hosts"; fi
+if [[ ! -z $(grep 'cri' "$CROUTON/etc/hosts") ]];  then echo "cri already in chroot host file"; else sudo su -c "sudo echo '127.0.0.1       cri' >> $CROUTON/etc/hosts"; fi
+#sudo writer 'if '+"[["+' ! -z $(grep "cri" "/etc/hosts") '+"]]"+'+  then echo "cri already in host file"+ else echo "127.0.0.1       cri" >> /etc/hosts"+ fi'
+sleep 0.5
+sudo enter-chroot -u root runner
+
 echo "Thanks for installing CRI MATES!"
 
