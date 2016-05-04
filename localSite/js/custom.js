@@ -70,3 +70,11 @@ function cmdInstall() {
 function cmdRemove() {
     window.location = "remove.html";
 }
+
+$('#up').on('click', function(e){
+        e.preventDefault();
+            var target= $(this).get(0).id == 'down' ? $('#up') : $('#down');
+                $('html, body').stop().animate({
+                           scrollTop: target.offset().top
+                        }, 1500);
+});
