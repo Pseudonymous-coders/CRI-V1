@@ -8,7 +8,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
-    <link href="css/run.css" rel="stylesheet">
+    <link href="css/install.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -57,8 +57,8 @@
 
 	<!-- Header -->
     <header id="header">
-        <button id="btn-search" onclick="search()">Search</button>
-        <input id="text-search" type="text" style="color: black">
+        <input id="btn-search" value="Search" type="submit" onclick="search()">
+        <input id="text-search" type="text" onkeypress="return enterPress(event)" style="color: black">
         <div id="items">
 
         </div>

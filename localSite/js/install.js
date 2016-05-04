@@ -62,3 +62,11 @@ function install(name) {
         console.log("Not installing "+name);
     }
 }
+function enterPress(keypress) {
+    // look for window.event in case event isn't passed in
+    e = e || window.event;
+    if (e.keyCode == 13)
+    {
+        document.getElementById('btn-search').click();
+    }
+}
