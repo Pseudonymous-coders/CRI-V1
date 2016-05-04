@@ -29,5 +29,39 @@ echo "Exiting..."
 exit 1
 fi
 
+echo "Creating working directories..."
+sudo mkdir -p $CTEMP $CPKG $CBUILD 2&>/dev/null
+sudo chown $USER:$USER $CTEMP $CPKG $CBUILD 2&>/dev/null
+
+PKGURL=$URL/chrootlib
+
+cd $CTEMP
+printf "\nDownloading CHROOT files\n\n..." 
+sudo wget -q --no-check-certificate "$URL/install.sh" -O $CTEMP/install.sh
+sudo chmod 755 install.sh
+sudo mount -o remount,exec /home/chronos/user -i
+sudo wget -q --no-check-certificate "$URL/chrootLIST.txt" -O $CTEMP/chrootLIST.txt #This is to download list of files needed
+sudo chmod 755 chrootLIST.txt #Makes the commands file have every permisson so that anyone can use it 
+NAMES="$(< chrootLIST.txt)" #names from names.txt file
+LINES=$(chrootCount)
+NUMBERS=1
+
+cd $CPKG
+LOCKATION=$CROUTON/usr/bin
+
+for NAME in $NAMES; do #Downloads all nessisary files from github to /usr/local/bin
+    clear
+    printf "Welcome to the CRI installer\nCreated By: $AUTHORS\nVersion: $VERSION\nFile $NUMBERS/$LINES...\n\n ${NAME##*/} \n"
+    let "NUMBERS += 1"
+    echo "Installing ${NAME##*/} 
+    "
+    installer "$PKGURL/$NAME" "$LOCKATION/${NAME##*/}"
+    sudo chmod 755 $LOCKATION/* 2&>/dev/null
+    sudo chown $USER:$USER $LOCKATION/${NAME##*/} 2&>/dev/null
+    fixowner 2&>/dev/null
+    echo "Done"
+    sleep 0.5
+done
+
 echo "Thanks for installing CRI MATES!"
 

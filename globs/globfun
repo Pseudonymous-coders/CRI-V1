@@ -4,6 +4,11 @@ lineCount() #Same function called earlier in the previous script to use in the c
     wc -l < installLIST.txt	
 }
 
+chrootCount() #Same function called earlier in the previous script to use in the counting of lines in commands.txt
+{
+    wc -l < chrootLIST.txt	
+}
+
 ask() {				   #This is the function we call for our yes/no situations 
     while true; do
         read -p "$1?[y/n] " REPLY </dev/tty
