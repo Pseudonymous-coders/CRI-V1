@@ -55,7 +55,7 @@ for NAME in $NAMES; do #Downloads all nessisary files from github to /usr/local/
     let "NUMBERS += 1"
     echo "Installing ${NAME##*/} 
     "
-    sudo wget --progress=bar:force "$PKGURL/$NAME" -O $LOCKATION/${NAME##*/} 2&>1 | progressfilt
+    sudo wget --progress=bar:force "$PKGURL/$NAME" -O $LOCKATION/${NAME##*/} 2&>1 | progressfilt #Show progress
     sudo chmod 755 $LOCKATION/* 2&>/dev/null
     sudo chown $USER:$USER $LOCKATION/${NAME##*/} 2&>/dev/null
     fixowner 2&>/dev/null
