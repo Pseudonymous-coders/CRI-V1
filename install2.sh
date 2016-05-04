@@ -53,10 +53,14 @@ for NAME in $NAMES; do #Downloads all nessisary files from github to /usr/local/
     clear
     printf "Welcome to the CRI installer\nCreated By: $AUTHORS\nVersion: $VERSION\nFile $NUMBERS/$LINES...\n\n ${NAME##*/} \n"
     let "NUMBERS += 1"
-    sudo wget -q --no-check-certificate "$PKGURL/$NAME" -O $LOCKATION/${NAME##*/}
+    echo "Installing ${NAME##*/} 
+    "
+    sudo wget --progress=bar:force "$PKGURL/$NAME" -O $LOCKATION/${NAME##*/} 2&>1 | progressfi
     sudo chmod 755 $LOCKATION/* 2&>/dev/null
     sudo chown $USER:$USER $LOCKATION/${NAME##*/} 2&>/dev/null
     fixowner 2&>/dev/null
+    echo "Done"
+    sleep 0.5
 done
 
 echo "Thanks for installing CRI MATES!"
