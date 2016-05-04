@@ -48,8 +48,8 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 
         if message[:3] == "RUN":
             print "running: "+message[3:]
-            Popen("gtk-launch "+message[3:]+".desktop", shell=True, executable="/bin/bash")
-
+            #Popen("gtk-launch "+message[3:]+".desktop", shell=True, executable="/bin/bash")
+            Popen("xiwi "+message[3:], shell=True, executable="/bin/bash")
         if message[:7] == "INSTALL":
             print "installing: "+message[7:]
             install = Thread(target=installer, args=(self, message[7:],))
