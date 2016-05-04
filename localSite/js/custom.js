@@ -6,6 +6,8 @@ $('#siteNav').affix({
     }
 })
 
+document.getElementById('up-btn').style.visibility = "hidden";
+
 var connected = 0;
 
 var coms = '<div class="row promo">' +
@@ -37,6 +39,7 @@ ws = new WebSocket('ws://localhost:9098/ws');
 ws.onopen = function() {
     document.getElementById("mainText").innerHTML = "CRI";
     document.getElementById("subText").innerHTML = "Your new best friend";
+    document.getElementById('up-btn').style.visibility = "visible";
     ws.send("connected");
     connected = 1;
     document.getElementById('coms').innerHTML = coms;
@@ -55,6 +58,7 @@ ws.onclose = function() {
     document.getElementById('mainText').innerHTML = "CRI is down, please restart";
     document.getElementById('subText').innerHTML = "We're sorry :(";
     document.getElementById('coms').innerHTML = "";
+    document.getElementById('up-btn').style.visibility = "hidden";
     connected = 0;
 }
 
@@ -71,9 +75,9 @@ function cmdRemove() {
     window.location = "remove.html";
 }
 
-$('#up').on('click', function(e){
+$('#up-btn').on('click', function(e){
         e.preventDefault();
-            var target= $(this).get(0).id == 'down' ? $('#up') : $('#down');
+            var target= $(this).get(0).id == 'down' ? $('#up-btn') : $('#down');
                 $('html, body').stop().animate({
                            scrollTop: target.offset().top
                         }, 1500);

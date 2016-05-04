@@ -18,8 +18,8 @@ function progClicked(id) {
 
 ws.onmessage = function(str) {
     progs = str.data;
-    nameProgs = progs.split("%%SP%%");
+    nameProgs = progs.split("\n");
     for (i=0;i<nameProgs.length;i++) {
-        document.getElementById('apps').innerHTML += "<button onclick='progClicked(this.id)' id='"+nameProgs[i]+"'>"+nameProgs[i]+"</button>";
+        document.getElementById('apps').innerHTML += "<button onclick='progClicked(this.id)' class='item' id='"+nameProgs[i]+"'>"+nameProgs[i]+"</button>";
     }
 } 

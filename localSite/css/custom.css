@@ -69,9 +69,28 @@ header button {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    float: left;
+    
 }
 
+header #items {
+    position: absolute;
+    top: 20%;
+    left: 0%;
+    right: 0%;
+    overflow: auto;
+    max-height: 80%;
+}
+
+header .item {
+    background-color: #45b754;
+    padding: 5px 5px;
+    margin 25px;
+    border: none;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+}
 
 @media(min-width:768px) {
     header {

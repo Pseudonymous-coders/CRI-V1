@@ -49,12 +49,16 @@ function search() {
     document.getElementById('items').innerHTML = "";
     toSearch = document.getElementById('text-search').value;
     if (toSearch != "") {
-        console.log(toSearch);
         ws.send("SEARCH"+toSearch);
+        console.log(toSearch);
     }
 }
 
 function install(name) {
-    ws.send("INSTALL"+name);
-    document.getElementById('items').innerHTML = "<h2>Installing "+name+"</h2>";
+    if (confirm("Are you sure if you want to install "+name+"?")) {
+        ws.send("INSTALL"+name);
+        document.getElementById('items').innerHTML = "<h2>Installing "+name+"</h2>";
+    }else{
+        console.log("Not installing "+name);
+    }
 }

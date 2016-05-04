@@ -31,7 +31,7 @@ def BGImg():
         else:
             time.sleep(3600)
 def installer(self, pkg):
-    Popen("sudo apt-get -y "+pkg, shell=True, excecutable="/bin/bash")
+    Popen("echo y | sudo apt-get install "+pkg, shell=True, executable="/bin/bash")
     print "Done installing: "+pkg
     self.write_message("DONEINSTALL")
 
@@ -43,13 +43,8 @@ class WSHandler(tornado.websocket.WebSocketHandler):
         print 'message received:  %s' % message
         if message == "APPLIST":
             print "Sending APPLIST"
-            con = sqlite3.connect("/home/eli/.local/share/zeitgeist/activity.sqlite")
-            cur = con.cursor()
-            cur.execute("SELECT * FROM actor")
-            apps = cur.fetchall()
-            for i in range(len(apps)):
-                apps[i] = apps[i][1][14:][:-8]
-            self.write_message("%%SP%%".join(apps)) 
+            apps = Popen('for app in /usr/share/applications/*.desktop; do echo "${app:24:-8}"; done', stdout=PIPE, shell=True, executable="/bin/bash").communicate()[0]
+            self.write_message(apps) 
 
         if message[:3] == "RUN":
             print "running: "+message[3:]
@@ -67,7 +62,8 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 
         if message[:6] == "REMOVE":
             print "removing: "+message[6:]
-            os.system("echo 1234 | sudo -S apt-get remove --force-yes "+message[6:])
+            os.system("echo y| sudo -S apt-get remove "+message[6:])
+            print "Done removing "+message[6:]
 
     def on_close(self):
         print 'connection closed'
