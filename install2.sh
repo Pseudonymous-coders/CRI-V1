@@ -63,6 +63,8 @@ for NAME in $NAMES; do #Downloads all nessisary files from github to /usr/local/
     sleep 0.5
 done
 
+clear
+
 echo "Done installing chroot files
 Installing new items
 "
@@ -70,14 +72,19 @@ sudo mkdir $CTEMP 2&>/dev/null;
 echo "" > $CTEMP/coms;
 sudo chown $USER:$USER $CTEMP/coms 2&>/dev/null
 
+clear
+
 echo "Installing icons for file manager..."
 sudo writer "printf 'y\ny\ny\n' % apt-get install dialog thunar gnome-icon-theme-extras gnome-icon-theme-full git"
 sleep 0.5 # Wait for file update
 sudo enter-chroot -u root runner # Run the above multi command
 printf "\n\n\nDone\n\nInstalling mysql...\n"
 
+clear
 
 sudo writer "printf 'y\ny\n' % apt-get install mysql-client"
+sleep 0.5
+sudo enter-chroot -u root runner
 
 echo "
 Done
@@ -96,6 +103,8 @@ sudo enter-chroot -u root runner
 
 cd $CROUTON/var/www
 
+sudo git config --global user.email "pseudonymous.coders@gmail.com"
+sudo git config --global user.name "Pseudonymous_Coders"
 sudo git init
 sudo git remote add -f origin "https://github.com/Pseudonymous-coders/CRI.git"
 sudo git config core.sparseCheckout true
@@ -115,13 +124,12 @@ sleep 0.5
 sudo enter-chroot -u root runner
 sleep 0.5
 sudo writer "pip install --upgrade pip+pip install --upgrade virtualenv+"
-
+sleep 0.5
+sudo enter-chroot -u root runner
 # Since we want http://cri/ we need to add them to the hosts
 if [[ ! -z $(grep 'cri' '/etc/hosts') ]];  then echo "cri already in host file"; else sudo su -c "sudo echo '127.0.0.1       cri' >> /etc/hosts"; fi
 if [[ ! -z $(grep 'cri' "$CROUTON/etc/hosts") ]];  then echo "cri already in chroot host file"; else sudo su -c "sudo echo '127.0.0.1       cri' >> $CROUTON/etc/hosts"; fi
 #sudo writer 'if '+"[["+' ! -z $(grep "cri" "/etc/hosts") '+"]]"+'+  then echo "cri already in host file"+ else echo "127.0.0.1       cri" >> /etc/hosts"+ fi'
-sleep 0.5
-sudo enter-chroot -u root runner
 
 echo "Thanks for installing CRI MATES!"
 
