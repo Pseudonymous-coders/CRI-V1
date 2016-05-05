@@ -1,0 +1,55 @@
+#!/bin/bash
+UPFOLDER=~/cridate
+CFGFILE=$UPFOLDER/cri.cfg
+VERSIONURL="https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/globs/cri.cfg"
+CURRENTVERSION="VERSION: 0.0"
+
+ask() {				   #This is the function we call for our yes/no situations 
+    while true; do
+        read -p "$1?[y/n] " REPLY </dev/tty
+        case "$REPLY" in
+            Y*|y*) return 0 ;;
+            N*|n*) return 1 ;;
+        esac
+    done
+}
+
+clear
+
+echo "Welcome to the CRI update suiter
+Created by: David Smerkous and Eli Smith
+
+Starting...
+"
+
+if [ ! -d "$UPFOLDER" ]; then
+	sudo su -c "mkdir -p $UPFOLDER"
+else
+	echo "Update path found!"
+fi
+
+if [ ! -a "$CFGFILE" ]; then
+  echo "Version file not found!!!"
+  if ask "Do you still want to overwrite all current data with the new update"; then
+    echo "Continue..."
+  else
+    echo "Exiting..!"
+    exit 1
+  fi
+fi
+
+echo "Checking version"
+VARR=$(wget "$VERSIONURL" --no-check-certificate -q -O -)
+VERR=$(echo "$VARR" | sed -e 1b -e '$!d') # Pull current version
+
+if [ "$VERR" == "$CURRENTVERSION" ]; then
+  echo "You already have the newest version of CRI..."
+  exit 1
+else
+  echo "Found a newer version of CRI
+  Current Version: $CURRENTVERSION
+  New Version: $VERR
+  "
+fi
+cat file 
+echo "Downloading update file..."
