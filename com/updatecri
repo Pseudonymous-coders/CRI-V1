@@ -28,8 +28,11 @@ Starting...
 
 if [ ! -d "$UPFOLDER" ]; then
 	sudo su -c "mkdir -p $UPFOLDER" 2&>/dev/null
-	sudo chown -R $USER:$USER $UPFOLDER
-	sudo chmod -R 755 $UPFOLDER
+	sleep 0.1
+	sudo su -c "mkdir -p $UPFOLDER" 2&>/dev/null
+	sleep 0.5
+	sudo chown -R $USER:$USER $UPFOLDER 2&>/dev/null
+	sudo chmod -R 755 $UPFOLDER 2&>/dev/null
 	echo "Update path found! Fixed..."
 fi
 
