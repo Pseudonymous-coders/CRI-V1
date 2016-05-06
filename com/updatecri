@@ -2,7 +2,8 @@
 UPFOLDER=~/cridate
 CFGFILE=$UPFOLDER/cri.cfg
 VERSIONURL="https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/globs/cri.cfg"
-CURRENTVERSION="VERSION: 0.0"
+CURVERR="0.0"
+USER=$(whoami)
 
 ask() {				   #This is the function we call for our yes/no situations 
     while true; do
@@ -23,15 +24,20 @@ Starting...
 "
 
 if [ ! -d "$UPFOLDER" ]; then
-	sudo su -c "mkdir -p $UPFOLDER"
-else
-	echo "Update path found!"
+	sudo su -c "mkdir -p $UPFOLDER" 2&>/dev/null
+	sudo chown -R $USER:$USER $UPFOLDER
+	sudo chmod -R 755 $UPFOLDER
+	echo "Update path found! Fixed..."
 fi
 
-if [ ! -a "$CFGFILE" ]; then
+if [ ! -e "$CFGFILE" ]
+then
   echo "Version file not found!!!"
+  sleep 0.4
   if ask "Do you still want to overwrite all current data with the new update"; then
     echo "Continue..."
+    sudo touch $CFGFILE
+    sudo echo "VERSION0.0ENDVERSION...NAMEnoneENDNAME...DATE1/1/16ENDDATE" > $CFGFILE
   else
     echo "Exiting..!"
     exit 1
@@ -39,17 +45,45 @@ if [ ! -a "$CFGFILE" ]; then
 fi
 
 echo "Checking version"
+CURVARR="$(< $CFGFILE)"
 VARR=$(wget "$VERSIONURL" --no-check-certificate -q -O -)
-VERR=$(echo "$VARR" | sed -e 1b -e '$!d') # Pull current version
+VERR=$(echo "$VARR" | sed -e 's/.*VERSION\(.*\)ENDVERSION.*/\1/')
+NAMERR=$(echo "$VARR" | sed -e 's/.*NAME\(.*\)ENDNAME.*/\1/')
+DATERR=$(echo "$VARR" | sed -e 's/.*DATE\(.*\)ENDDATE.*/\1/')
 
-if [ "$VERR" == "$CURRENTVERSION" ]; then
-  echo "You already have the newest version of CRI..."
+CURVERR=$(echo "$CURVARR" | sed -e 's/.*VERSION\(.*\)ENDVERSION.*/\1/')
+CURNAMERR=$(echo "$CURVARR" | sed -e 's/.*NAME\(.*\)ENDNAME.*/\1/')
+CURDATERR=$(echo "$CURVARR" | sed -e 's/.*DATE\(.*\)ENDDATE.*/\1/')
+
+if [ "$VERR" == "$CURVERR" ]; then
+  echo "You already have the newest version of CRI...
+Version: $CURVERR
+Release: $CURNAMERR
+Date: $CURDATERR"
   exit 1
 else
   echo "Found a newer version of CRI
-  Current Version: $CURRENTVERSION
-  New Version: $VERR
+Current:
+  Version: $CURVERR
+  Release: $CURNAMERR
+  Date: $CURDATERR
+New:  
+  Version: $VERR
+  Release: $NAMERR
+  Date: $DATERR
+  
+Installing...
   "
 fi
-cat file 
-echo "Downloading update file..."
+
+sleep 4
+wait # Double check threads (Weird bug)
+
+cd $UPFOLDER
+sudo chmod 755 *
+
+#Add update stuff here
+
+echo "Updating version file"
+sudo echo $VARR > $CFGFILE # Reset version to the current version
+echo "Done thanks for updating CRI"
