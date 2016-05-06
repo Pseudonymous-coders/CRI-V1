@@ -2,8 +2,11 @@
 UPFOLDER=~/cridate
 CFGFILE=$UPFOLDER/cri.cfg
 VERSIONURL="https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/globs/cri.cfg"
+COMURL="https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/com"
+LOCBIN=/usr/local/bin
 CURVERR="0.0"
 USER=$(whoami)
+CURDIR=$(pwd)
 
 ask() {				   #This is the function we call for our yes/no situations 
     while true; do
@@ -62,6 +65,7 @@ Release: $CURNAMERR
 Date: $CURDATERR"
   exit 1
 else
+clear
   echo "Found a newer version of CRI
 Current:
   Version: $CURVERR
@@ -79,6 +83,7 @@ fi
 sleep 4
 wait # Double check threads (Weird bug)
 
+
 echo "Stopping services...
 
 "
@@ -88,6 +93,8 @@ sleep 0.5
 sudo enter-chroot -u root runner
 
 sudo unmount-chroot -a -f -y # Stop python server before restart
+
+clear
 
 cd $UPFOLDER
 sudo chmod 755 *
@@ -109,6 +116,8 @@ git pull --depth=1 origin master
 sudo mv localSite/* $CROUTON/var/www # Update website
 sudo rm -rf localSite
 
+clear
+
 echo "Chroot updating..."
 
 sudo su -c "/usr/local/bin/writer 'service lighttpd start+python /var/www/server.py';/usr/local/bin/enter-chroot -u root runner" &  # Restart the CRI base
@@ -122,8 +131,28 @@ sudo writer "printf 'y\ny\ny\n' % apt-get update+printf 'y\ny\ny\n' % apt-get up
 sleep 0.5
 sudo enter-chroot -u root runner
 
-#Add update stuff here
+# Update updatecri
+
+clear
+echo "Installing updates..."
+printf "1..."
+sudo wget "$COMURL/updatecri" --no-check-certificate -q -O $LOCBIN/updatecri
+printf "2..."
+sudo wget "$COMURL/rootmount" --no-check-certificate -q -O $LOCBIN/rootmount
+printf "3..."
+sudo wget "$COMURL/writer" --no-check-certificate -q -O $LOCBIN/writer
+printf "Done...\n"
+
+echo "Extension should auto-update no need to pull...Done"
+
+sleep 2
+
+clear
 
 echo "Updating version file"
 sudo echo $VARR > $CFGFILE # Reset version to the current version
-echo "Done thanks for updating CRI"
+echo "
+
+Done thanks for updating CRI
+"
+cd $CURDIR # Return to previous location
