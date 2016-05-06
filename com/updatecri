@@ -143,6 +143,11 @@ printf "3..."
 sudo wget "$COMURL/writer" --no-check-certificate -q -O $LOCBIN/writer
 printf "Done...\n"
 
+# Fix permissions 
+cd $LOCBIN
+sudo chown -R $USER:$USER ../
+sudo chmod 755 *
+
 echo "Extension should auto-update no need to pull...Done"
 
 sleep 2
