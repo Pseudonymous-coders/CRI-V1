@@ -137,19 +137,13 @@ if [ ! -d "$UPFOLDER" ]; then
 	sudo su -c "mkdir -p $UPFOLDER" 2&>/dev/null
 fi
 
+sudo chown -R $USER:$USER $UPFOLDER
+sudo chmod -R 755 $UPFOLDER
 
-if [ ! -e "$CFGFILE" ]
-then
-  echo "Version file not found!!!"
-  sleep 0.4
-  if ask "Do you still want to overwrite all current data with the new update"; then
+if [ ! -e "$CFGFILE" ]; then
     echo "Continue..."
     sudo touch $CFGFILE
     sudo echo "VERSION0.0ENDVERSION...NAMEnoneENDNAME...DATE1/1/16ENDDATE" > $CFGFILE
-  else
-    echo "Exiting..!"
-    exit 1
-  fi
 fi
 
 echo "Thanks for installing CRI MATES!"
