@@ -44,7 +44,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
         if message == "APPLIST":
             print "Sending APPLIST"
             apps = Popen('for app in /usr/share/applications/*.desktop; do echo "${app:24:-8}"; done', stdout=PIPE, shell=True, executable="/bin/bash").communicate()[0]
-            self.write_message(apps) 
+            self.write_message(apps[:-1]) 
 
         if message[:3] == "RUN":
             print "running: "+message[3:]

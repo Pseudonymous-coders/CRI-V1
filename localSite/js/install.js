@@ -8,6 +8,8 @@ $('#siteNav').affix({
     }
 })
 
+document.getElementById('items').style.visibility = "hidden";
+
 ws = new WebSocket('ws://localhost:9098/ws')
 ws.onopen = function() {
 }
@@ -46,12 +48,15 @@ ws.onmessage = function(str) {
 }
 
 function search() {
+    console.log("installing something");
     document.getElementById('items').innerHTML = "";
     toSearch = document.getElementById('text-search').value;
     if (toSearch != "") {
         ws.send("SEARCH"+toSearch);
         console.log(toSearch);
     }
+    console.log("finished install");
+    document.getElementById('items').style.visibility = "visible";
 }
 
 function install(name) {
@@ -62,11 +67,10 @@ function install(name) {
         console.log("Not installing "+name);
     }
 }
-function enterPress(keypress) {
-    // look for window.event in case event isn't passed in
-    e = e || window.event;
-    if (e.keyCode == 13)
-    {
-        document.getElementById('btn-search').click();
-    }
-}
+
+$('#text-search').keypress(function (e) {
+    var code = e.keyCode || e.which;
+    if (code === 13) {
+        search();
+    };
+});

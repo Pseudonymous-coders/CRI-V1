@@ -8,7 +8,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
-    <link href="css/run.css" rel="stylesheet">
+    <link href="css/error.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -34,8 +34,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">
+               </button>
+                <a class="navbar-brand" href="">
                 	<img src="CRI-LOGO.gif" height="32" width="80">
                 </a>
             </div>
@@ -43,7 +43,7 @@
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active">
-                        <a href="index.html">Home</a>
+                        <a href="">Home</a>
                     </li>
                     <li>
                         <a href="settings.html">Settings</a>
@@ -58,12 +58,49 @@
 
 	<!-- Header -->
     <header id="header">
-        <div id=items>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1 id="mainText">That's an error</h1>
+                <p id="subText">404 - Page not found</p>
+                <button id="up-btn">Down</button>
+            </div>
         </div>
     </header>
+
     <!-- Promos -->
+	<div id="coms" class="container-fluid">
+        <!--
+        <div class="row promo">
+        	<a id="com" href="run.html">
+				<div class="col-md-4 promo-item item-1">
+					<h3 id="run-btn">
+						Run
+					</h3>
+				</div>
+            </a>
+
+            <a id="com" href="install.html">
+				<div class="col-md-4 promo-item item-2">
+					<h3 id="ins-btn">
+						Install
+					</h3>
+				</div>
+            </a>
+			
+            <a id="com" href="remove.html">
+				<div class="col-md-4 promo-item item-3">
+					<h3 id="rem-btn">
+						Remove
+					</h3>
+				</div>
+            </a>
+        </div>-->
+    </div>
+    <div id="down"></div>
+    <!-- /.container-fluid -->
+
 	<!-- Footer -->
-    <!-- jQuery -->
+    <!-- jQuery --> 
     <script src="js/jquery-1.11.3.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
@@ -73,8 +110,7 @@
     <script src="js/jquery.easing.min.js"></script>
     
     <!-- Custom Javascript -->
-    <script src="js/run.js"></script>
+    <script src="js/custom.js"></script>
 
 </body>
-
 </html>
