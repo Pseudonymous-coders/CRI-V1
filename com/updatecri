@@ -79,8 +79,48 @@ fi
 sleep 4
 wait # Double check threads (Weird bug)
 
+echo "Stopping services...
+
+"
+
+sudo writer "service lighttpd stop"
+sleep 0.5
+sudo enter-chroot -u root runner
+
+sudo unmount-chroot -a -f -y # Stop python server before restart
+
 cd $UPFOLDER
 sudo chmod 755 *
+LOCKT=1
+echo "$(git pull 2>&1)" | grep -q 'Not a git' && LOCKT=0 || echo "Repo found!" # Check if repo already exists
+
+if [ "$LOCKT" == "0" ]; then 
+   echo "Setup..."
+   sudo git config --global user.email "pseudonymous.coders@gmail.com"
+   sudo git config --global user.name "Pseudonymous_Coders"
+   sudo git init
+   sudo git remote add -f origin "https://github.com/Pseudonymous-coders/CRI.git"
+   sudo git config core.sparseCheckout true
+   sudo chown -R $USER:$USER ../
+   sudo chmod -R 755 ../
+   sudo echo "localSite/" >> .git/info/sparse-checkout
+fi
+git pull --depth=1 origin master
+sudo mv localSite/* $CROUTON/var/www # Update website
+sudo rm -rf localSite
+
+echo "Chroot updating..."
+
+sudo su -c "/usr/local/bin/writer 'service lighttpd start+python /var/www/server.py';/usr/local/bin/enter-chroot -u root runner" &  # Restart the CRI base
+
+echo "Doubling checking essentials"
+sudo writer "printf 'y\ny\ny\n' % apt-get install dialog thunar gnome-icon-theme-extras gnome-icon-theme-full git"
+sleep 0.5 # Wait for file update
+sudo enter-chroot -u root runner # Run the above multi command
+
+sudo writer "printf 'y\ny\ny\n' % apt-get update+printf 'y\ny\ny\n' % apt-get upgrade+service lighttpd start"
+sleep 0.5
+sudo enter-chroot -u root runner
 
 #Add update stuff here
 
