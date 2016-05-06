@@ -62,7 +62,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 
         if message[:6] == "REMOVE":
             print "removing: "+message[6:]
-            os.system("echo y| sudo -S apt-get remove "+message[6:])
+            os.system("echo y | apt-get remove "+message[6:])
             print "Done removing "+message[6:]
 
     def on_close(self):
