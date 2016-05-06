@@ -1,0 +1,166 @@
+#!/bin/bash
+UPFOLDER=~/cridate
+CFGFILE=$UPFOLDER/cri.cfg
+VERSIONURL="https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/globs/cri.cfg"
+COMURL="https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/com"
+LOCBIN=/usr/local/bin
+CURVERR="0.0"
+USER=$(whoami)
+CURDIR=$(pwd)
+
+ask() {				   #This is the function we call for our yes/no situations 
+    while true; do
+        read -p "$1?[y/n] " REPLY </dev/tty
+        case "$REPLY" in
+            Y*|y*) return 0 ;;
+            N*|n*) return 1 ;;
+        esac
+    done
+}
+
+clear
+
+echo "Welcome to the CRI update suiter
+Created by: David Smerkous and Eli Smith
+
+Starting...
+"
+
+if [ ! -d "$UPFOLDER" ]; then
+	sudo su -c "mkdir -p $UPFOLDER" 2&>/dev/null
+	sleep 0.1
+	sudo su -c "mkdir -p $UPFOLDER" 2&>/dev/null
+	sleep 0.5
+	sudo chown -R $USER:$USER $UPFOLDER 2&>/dev/null
+	sudo chmod -R 755 $UPFOLDER 2&>/dev/null
+	echo "Update path found! Fixed..."
+fi
+
+if [ ! -e "$CFGFILE" ]
+then
+  echo "Version file not found!!!"
+  sleep 0.4
+  if ask "Do you still want to overwrite all current data with the new update"; then
+    echo "Continue..."
+    sudo touch $CFGFILE
+    sudo echo "VERSION0.0ENDVERSION...NAMEnoneENDNAME...DATE1/1/16ENDDATE" > $CFGFILE
+  else
+    echo "Exiting..!"
+    exit 1
+  fi
+fi
+
+echo "Checking version"
+CURVARR="$(< $CFGFILE)"
+VARR=$(wget "$VERSIONURL" --no-check-certificate -q -O -)
+VERR=$(echo "$VARR" | sed -e 's/.*VERSION\(.*\)ENDVERSION.*/\1/')
+NAMERR=$(echo "$VARR" | sed -e 's/.*NAME\(.*\)ENDNAME.*/\1/')
+DATERR=$(echo "$VARR" | sed -e 's/.*DATE\(.*\)ENDDATE.*/\1/')
+
+CURVERR=$(echo "$CURVARR" | sed -e 's/.*VERSION\(.*\)ENDVERSION.*/\1/')
+CURNAMERR=$(echo "$CURVARR" | sed -e 's/.*NAME\(.*\)ENDNAME.*/\1/')
+CURDATERR=$(echo "$CURVARR" | sed -e 's/.*DATE\(.*\)ENDDATE.*/\1/')
+
+if [ "$VERR" == "$CURVERR" ]; then
+  echo "You already have the newest version of CRI...
+Version: $CURVERR
+Release: $CURNAMERR
+Date: $CURDATERR"
+  exit 1
+else
+clear
+  echo "Found a newer version of CRI
+Current:
+  Version: $CURVERR
+  Release: $CURNAMERR
+  Date: $CURDATERR
+New:  
+  Version: $VERR
+  Release: $NAMERR
+  Date: $DATERR
+  
+Installing...
+  "
+fi
+
+sleep 4
+wait # Double check threads (Weird bug)
+
+
+echo "Stopping services...
+
+"
+
+sudo writer "service lighttpd stop"
+sleep 0.5
+sudo enter-chroot -u root runner
+
+sudo unmount-chroot -a -f -y # Stop python server before restart
+
+clear
+
+cd $UPFOLDER
+sudo chmod 755 *
+LOCKT=1
+echo "$(git pull 2>&1)" | grep -q 'Not a git' && LOCKT=0 || echo "Repo found!" # Check if repo already exists
+
+if [ "$LOCKT" == "0" ]; then 
+   echo "Setup..."
+   sudo git config --global user.email "pseudonymous.coders@gmail.com"
+   sudo git config --global user.name "Pseudonymous_Coders"
+   sudo git init
+   sudo git remote add -f origin "https://github.com/Pseudonymous-coders/CRI.git"
+   sudo git config core.sparseCheckout true
+   sudo chown -R $USER:$USER ../
+   sudo chmod -R 755 ../
+   sudo echo "localSite/" >> .git/info/sparse-checkout
+fi
+git pull --depth=1 origin master
+sudo mv localSite/* $CROUTON/var/www # Update website
+sudo rm -rf localSite
+
+clear
+
+echo "Chroot updating..."
+
+sudo su -c "/usr/local/bin/writer 'service lighttpd start+python /var/www/server.py';/usr/local/bin/enter-chroot -u root runner" &  # Restart the CRI base
+
+echo "Doubling checking essentials"
+sudo writer "printf 'y\ny\ny\n' % apt-get install dialog thunar gnome-icon-theme-extras gnome-icon-theme-full git"
+sleep 0.5 # Wait for file update
+sudo enter-chroot -u root runner # Run the above multi command
+
+sudo writer "printf 'y\ny\ny\n' % apt-get update+printf 'y\ny\ny\n' % apt-get upgrade+service lighttpd start"
+sleep 0.5
+sudo enter-chroot -u root runner
+
+# Update updatecri
+
+clear
+echo "Installing updates..."
+printf "1..."
+sudo wget "$COMURL/updatecri" --no-check-certificate -q -O $LOCBIN/updatecri
+printf "2..."
+sudo wget "$COMURL/rootmount" --no-check-certificate -q -O $LOCBIN/rootmount
+printf "3..."
+sudo wget "$COMURL/writer" --no-check-certificate -q -O $LOCBIN/writer
+printf "Done...\n"
+
+# Fix permissions 
+cd $LOCBIN
+sudo chown -R $USER:$USER ../
+sudo chmod 755 *
+
+echo "Extension should auto-update no need to pull...Done"
+
+sleep 2
+
+clear
+
+echo "Updating version file"
+sudo echo $VARR > $CFGFILE # Reset version to the current version
+echo "
+
+Done thanks for updating CRI
+"
+cd $CURDIR # Return to previous location

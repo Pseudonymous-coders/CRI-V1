@@ -28,4 +28,5 @@
 /openssl
 /crouton
 /writed
+/criupdater
 /rootmounted

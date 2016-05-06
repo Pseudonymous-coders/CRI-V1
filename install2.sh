@@ -131,5 +131,20 @@ if [[ ! -z $(grep 'cri' '/etc/hosts') ]];  then echo "cri already in host file";
 if [[ ! -z $(grep 'cri' "$CROUTON/etc/hosts") ]];  then echo "cri already in chroot host file"; else sudo su -c "sudo echo '127.0.0.1       cri' >> $CROUTON/etc/hosts"; fi
 #sudo writer 'if '+"[["+' ! -z $(grep "cri" "/etc/hosts") '+"]]"+'+  then echo "cri already in host file"+ else echo "127.0.0.1       cri" >> /etc/hosts"+ fi'
 
+echo "Adding update files..."
+
+if [ ! -d "$UPFOLDER" ]; then
+	sudo su -c "mkdir -p $UPFOLDER" 2&>/dev/null
+fi
+
+sudo chown -R $USER:$USER $UPFOLDER
+sudo chmod -R 755 $UPFOLDER
+
+if [ ! -e "$CFGFILE" ]; then
+    echo "Continue..."
+    sudo touch $CFGFILE
+    sudo echo "VERSION0.0ENDVERSION...NAMEnoneENDNAME...DATE1/1/16ENDDATE" > $CFGFILE
+fi
+
 echo "Thanks for installing CRI MATES!"
 
