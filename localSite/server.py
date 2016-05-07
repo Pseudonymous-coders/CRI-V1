@@ -12,6 +12,7 @@ import re
 import sqlite3
 import time
 from threading import Thread, Timer 
+from getApps import getApps
 
 def BGImg():
     def internet_on():
@@ -31,7 +32,7 @@ def BGImg():
         else:
             time.sleep(3600)
 def installer(self, pkg):
-    Popen("echo y | sudo apt-get install "+pkg, shell=True, executable="/bin/bash")
+    Popen("echo y | apt-get install "+pkg, shell=True, executable="/bin/bash")
     print "Done installing: "+pkg
     self.write_message("DONEINSTALL")
 
@@ -44,7 +45,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
         if message == "APPLIST":
             print "Sending APPLIST"
             apps = getApps() 
-            self.write_message(apps[:-1]) 
+            self.write_message(apps) 
 
         if message[:3] == "RUN":
             print "running: "+message[3:]
