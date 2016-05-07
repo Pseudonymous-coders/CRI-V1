@@ -7,15 +7,17 @@ def getApps():
     apps = apps.split('\n')
     apps.remove('')
     appLen = len(apps)
-    for app in apps:
-       f = open('/usr/share/applications/'+app+'.desktop') 
-       content = f.read()
-       appCom = re.findall(r'Exec=(.*?)\n', content, re.DOTALL)
-       coms.append(app)
-    coms = filter(None, coms)
-    for app in coms:
-        app.split(" ")
-        app = app[0]
-    coms = "\n".join(coms)
-    return coms
 
+    for app in apps:
+        f = open('/usr/share/applications/'+app+'.desktop') 
+        content = f.read()
+        appCom = re.findall(r'Exec=(.*?)\n', content, re.DOTALL)[0]
+        coms.append(appCom)
+    coms = filter(None, coms)
+    for i in range(len(coms)):
+        if " " in coms[i]:
+            coms[i] = coms[i][:-3]
+        if coms[i][0] == "/":
+            coms[i] = ""
+    coms = filter(None, coms)
+    return "\n".join(coms)
