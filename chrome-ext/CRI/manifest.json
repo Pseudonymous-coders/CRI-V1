@@ -1,10 +1,10 @@
 {
   "manifest_version": 2,
 
-  "name": "crouton integration",
-  "short_name": "crouton",
-  "description": "Improves integration with crouton chroots.",
-  "version": "2.5.2",
+  "name": "CRI application extension",
+  "short_name": "CRI",
+  "description": "The front end of it ALLCRI; Built off of crouton integration",
+  "version": "2.5.3",
   "icons": {
     "48": "icon-48.png",
     "128": "icon-128.png"
@@ -17,7 +17,7 @@
         "38": "disconnected-38.png"
     },
     "default_popup": "popup.html",
-    "default_title": "crouton"
+    "default_title": "CRI"
   },
   "background": {
     "page": "background.html"

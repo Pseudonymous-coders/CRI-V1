@@ -15,7 +15,7 @@
 
 set -e
 
-EXTNAME="crouton"
+EXTNAME="CRI"
 CRIAT_PEXE="$EXTNAME/kiwi.pexe"
 
 cd "`dirname "$0"`"

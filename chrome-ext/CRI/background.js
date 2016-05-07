@@ -4,10 +4,10 @@
 'use strict';
 
 /* Constants */
-var URL = "ws://localhost:30001/"; //WEBSOCKET
-var VERSION = 2;
-var MAXLOGGERLEN = 15; //MAX LOG CHAR
-var RETRY_TIMEOUT = 5; //Interval for startup
+var URL = "ws://localhost:30001/";
+var VERSION = 2; /* Note: the extension must always be backward compatible */
+var MAXLOGGERLEN = 20;
+var RETRY_TIMEOUT = 5;
 var UPDATE_CHECK_INTERVAL = 15*60; /* Check for updates every 15' at most */
 var WINDOW_UPDATE_INTERVAL = 15; /* Update window list every 15" at most */
 /* String to copy to the clipboard if it should be empty */
@@ -71,10 +71,6 @@ function setStatus(status, active) {
 
 function showHelp() {
     window.open("first.html", '_blank');
-}
-
-function showGitHub() {
-    window.open("https://github.com/Pseudonymous-coders/CRI/blob/master/", '_blank');
 }
 
 function updateAvailable(version) {
@@ -321,7 +317,6 @@ function clipboardStart() {
             function(id, data) { onRemoved(id, true); });
 
     clipboardholder_ = document.getElementById("clipboardholder");
-    view.document.getElementById("secInput").value = '5';
 
     /* Notification event handlers */
     chrome.notifications.onClosed.addListener(notificationClosed);
@@ -600,12 +595,12 @@ function websocketMessage(evt) {
             kiwi_win_[display].window = null;
 
             var win = windows_.filter(function(x){return x.display == display})[0];
-            var name = win ? win.name : "CRI application";
+            var name = win ? win.name : "crouton in a window";
             var create = chrome.windows.create;
             var data = {};
 
             if (kiwi_win_[display].isTab) {
-                name = win ? win.name : "CRI application tab";
+                name = win ? win.name : "crouton in a tab";
                 create = chrome.tabs.create;
             } else {
                 data['type'] = "popup";
@@ -647,17 +642,14 @@ function websocketClose() {
         console.log("websocketClose: null!");
         return;
     }
-    
-    var seconder = view.document.getElementById("secInput");
-    var time_OUT = parseInt(seconder.value);
 
     printLog("Connection closed", active_ ? LogLevel.INFO : LogLevel.DEBUG);
     if (enabled_) {
-        setStatus("Disconnected (retrying every " + time_OUT + "seconds");//RETRY_TIMEOUT + " seconds)",
+        setStatus("Disconnected (retrying every " + RETRY_TIMEOUT + " seconds)",
                   false);
         /* Retry in RETRY_TIMEOUT seconds */
         if (timeout_ == null) {
-            timeout_ = setTimeout(websocketConnect, time_OUT);//RETRY_TIMEOUT*1000);
+            timeout_ = setTimeout(websocketConnect, RETRY_TIMEOUT*1000);
         }
     } else {
         setStatus("Disconnected (extension disabled)", false);
@@ -766,7 +758,6 @@ chrome.runtime.onInstalled.addListener(function(details) {
     if (details.reason == "install") {
         chrome.runtime.getPlatformInfo(function(platforminfo) {
             if (platforminfo.os == 'cros') {
-                showGitHub();
                 showHelp();
             }
         });
