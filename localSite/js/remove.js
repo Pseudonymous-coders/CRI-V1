@@ -13,15 +13,19 @@ ws.onopen = function() {
 }
 
 function progClicked(id) {
-    if (confirm("Are you sure you want to uninstall "+id+"?")) {
+    if (confirm("Do you want to remove "+id+"?")){
         ws.send("REMOVE"+id);
     }
 }
 
 ws.onmessage = function(str) {
     progs = str.data;
-    nameProgs = progs.split(" ");
+    nameProgs = progs.split("\n");
     for (i=0;i<nameProgs.length;i++) {
-        document.getElementById('apps').innerHTML += "<button onclick='progClicked(this.id)' class='item' id='"+nameProgs[i]+"'>"+nameProgs[i]+"</button>";
+        if (nameProgs[i].substring(0,7) == ("gnome-" || "unity-")) {
+            continue;
+        } else {
+            document.getElementById('items').innerHTML += "<button onclick='progClicked(this.id)' class='item' id='"+nameProgs[i]+"'>"+nameProgs[i]+"</button>";
+        }
     }
 } 
