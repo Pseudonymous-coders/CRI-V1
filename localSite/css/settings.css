@@ -182,6 +182,12 @@ header{
     transition: all .35s;
 }
 
+#logo{
+    position: absolute;
+    top: 0.2%;
+    left: 5%;
+}
+
 .navbar-default .navbar-header .navbar-brand {
     color: yellowgreen;
 }
