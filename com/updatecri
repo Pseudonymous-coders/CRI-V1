@@ -91,59 +91,50 @@ echo "Stopping services...
 
 "
 
-sudo writer "service lighttpd stop"
-sleep 0.5
-sudo enter-chroot -u root runner
+sudo su -c "writer \"service lighttpd stop\";sleep 0.5;/usr/local/bin/enter-chroot -u root runner"
 
 sudo unmount-chroot -a -f -y # Stop python server before restart
 
 clear
 
 cd $UPFOLDER
-sudo chmod 755 *
+sudo chmod -R 755 *
+sudo chown -R $USER:$USER *
 LOCKT=1
 echo "$(git pull 2>&1)" | grep -q 'Not a git' && LOCKT=0 || echo "Repo found!" # Check if repo already exists
 
 if [ "$LOCKT" == "0" ]; then 
    echo "Setup..."
-   sudo git config --global user.email "pseudonymous.coders@gmail.com"
-   sudo git config --global user.name "Pseudonymous_Coders"
-   sudo git init
-   sudo git remote add -f origin "https://github.com/Pseudonymous-coders/CRI.git"
-   sudo git config core.sparseCheckout true
-   sudo chown -R $USER:$USER ../
-   sudo chmod -R 755 ../
-   sudo echo "localSite/" >> .git/info/sparse-checkout
+   sudo su -c "
+   /usr/local/bin/git config --global user.email \"pseudonymous.coders@gmail.com\"
+   /usr/local/bin/git config --global user.name \"Pseudonymous_Coders\"
+   /usr/local/bin/git init
+   /usr/local/bin/git remote add -f origin \"https://github.com/Pseudonymous-coders/CRI.git\"
+   /usr/local/bin/git config core.sparseCheckout true
+   chown -R $USER:$USER ../
+   chmod -R 755 ../
+   echo \"localSite/\" >> .git/info/sparse-checkout"
 fi
-git pull --depth=1 origin master
-sudo mv localSite/* $CROUTON/var/www # Update website
-sudo rm -rf localSite
-
+sudo su -c "/usr/local/bin/git pull --depth=1 origin master;/usr/local/bin/git fetch --all;/usr/local/bin/git reset --hard origin/master;mv localSite/* $CROUTON/var/www;rm -rf localSite"
 clear
 
 echo "Chroot updating..."
-
-sudo su -c "/usr/local/bin/writer 'service lighttpd start+python /var/www/server.py';/usr/local/bin/enter-chroot -u root runner" &  # Restart the CRI base
+sudo su -c "/usr/local/bin/writer \"service lighttpd stop+kill \$(ps -f -C python | grep server.py  | awk '{print \$2}')\";sleep 0.5;/usr/local/bin/enter-chroot -u root runner"
+sudo su -c "/usr/local/bin/writer 'service lighttpd start+cd /var/www/+python server.py';sleep 0.5;/usr/local/bin/enter-chroot -u root runner" &  # Restart the CRI base
 
 echo "Doubling checking essentials"
-sudo writer "printf 'y\ny\ny\n' % apt-get install dialog thunar gnome-icon-theme-extras gnome-icon-theme-full git"
-sleep 0.5 # Wait for file update
-sudo enter-chroot -u root runner # Run the above multi command
-
-sudo writer "printf 'y\ny\ny\n' % apt-get update+printf 'y\ny\ny\n' % apt-get upgrade+service lighttpd start"
-sleep 0.5
-sudo enter-chroot -u root runner
-
+sudo su -c "/usr/local/bin/writer \"printf 'y\ny\ny\n' % apt-get install dialog thunar gnome-icon-theme-extras gnome-icon-theme-full git\";sleep 0.5;/usr/local/bin/enter-chroot -u root runner"
+sudo su -c "/usr/local/bin/writer \"printf 'y\ny\ny\n' % apt-get update+printf 'y\ny\ny\n' % apt-get upgrade+service lighttpd start\";sleep 0.5;/usr/local/bin/enter-chroot -u root runner"
 # Update updatecri
 
 clear
 echo "Installing updates..."
 printf "1..."
-sudo wget "$COMURL/updatecri" --no-check-certificate -q -O $LOCBIN/updatecri
+sudo su -c "wget \"$COMURL/updatecri\" --no-check-certificate -q -O $LOCBIN/updatecri"
 printf "2..."
-sudo wget "$COMURL/rootmount" --no-check-certificate -q -O $LOCBIN/rootmount
+sudo su -c "wget \"$COMURL/rootmount\" --no-check-certificate -q -O $LOCBIN/rootmount"
 printf "3..."
-sudo wget "$COMURL/writer" --no-check-certificate -q -O $LOCBIN/writer
+sudo su -c "wget \"$COMURL/writer\" --no-check-certificate -q -O $LOCBIN/writer"
 printf "Done...\n"
 
 # Fix permissions 
@@ -158,7 +149,7 @@ sleep 2
 clear
 
 echo "Updating version file"
-sudo echo $VARR > $CFGFILE # Reset version to the current version
+sudo su -c "echo $VARR > $CFGFILE;chmod 755 $CFGFILE;chown $USER:$USER $CFGFILE" # Reset version to the current version
 echo "
 
 Done thanks for updating CRI
