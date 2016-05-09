@@ -142,6 +142,9 @@ cd $LOCBIN
 sudo chown -R $USER:$USER ../
 sudo chmod 755 *
 
+writer "service lighttpd start+cd /var/www/+python server.py"
+sudo su -c "/usr/local/bin/enter-chroot -u root runner" &
+
 echo "Extension should auto-update no need to pull...Done"
 
 sleep 2
