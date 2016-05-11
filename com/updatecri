@@ -1,5 +1,5 @@
 #!/bin/bash
-UPFOLDER=~/cridate
+UPFOLDER=~/Download/.tmp/cridate
 CFGFILE=$UPFOLDER/cri.cfg
 VERSIONURL="https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/globs/cri.cfg"
 COMURL="https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/com"
