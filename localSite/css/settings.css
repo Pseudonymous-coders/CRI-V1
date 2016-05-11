@@ -1,17 +1,19 @@
 header #version {
     position: absolute;
     background-color: #A3A196;
-    opacity: 0.7;
+    border-radius: 15px;
+    font-weight: bold;
     top: 10%;
     right: 2%;
     height: 40%;
     width: 30%;
 }
 
-header #text {
+header #version #text {
     position: absolute;
     top: 5%;
     left: 5%;
+    font-weight: normal;
     text-align: left;
     width: 100%;
     height: 40%;
@@ -21,16 +23,118 @@ header #text {
 header #version #update {
     position: absolute;
     background-color: #45b754;
-    opacity: 1;
+    padding: 5px 5px;
     border: none;
     color: white;
     text-align: center;
     text-size: 20pt;
     display: inline-block;
     font-size: 16px;
-    bottom: 1%;
-    right: 1%;
+    bottom: 5%;
+    right: 5%;
 }
+
+header #program {
+    position: absolute;
+    background-color: #388E3C;
+    border-radius: 15px;
+    font-weight: bold;
+    bottom: 5%;
+    left: 2%;
+    height: 40%;
+    width: 30%;
+}
+
+header #program #stopall {
+    position: absolute;
+    background-color: #45b754;
+    top: 15%;
+    left: 5%;
+    font-weight: normal;
+    border: none;
+    color: white;
+    text-align: center;
+    text-size: 20pt;
+    display: inline-block;
+    font-size: 16px;
+}
+
+header #package {
+    position: absolute;
+    background-color: #6D4C41;
+    border-radius: 15px;
+    font-weight: bold;
+    bottom: 5%;
+    right: 2%;
+    height: 40%;
+    width: 30%;
+}
+
+header #package #getPPA {
+    position: absolute;
+    height: 90%;
+    width: 100%; 
+}
+
+header form #addPPA {
+    position: absolute;
+    left: 5%;
+    background-color: #45b754;
+    font-weight: normal;
+    border: none;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+}
+
+header form #PPA {
+    position: absolute;
+    left: 25%;
+    border: none;
+    color: grey;
+    font-size: 35px;
+    width: 55%;
+    height: 10%;
+}
+
+header #danger {
+    position: absolute;
+    bottom: 5%;
+    left: 37.5%;
+    height: 30%;
+    width: 25%;
+    font-weight: bold;
+    border-radius: 15px;
+    background-color: #d50000;
+}
+
+header #danger #removeCri {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    background-color: #45b754;
+    font-weight: normal;
+    border: none;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+}
+
+header #danger #reinstallCri {
+    position: absolute;
+    top: 25%;
+    left: 5%;
+    background-color: #45b754;
+    font-weight: normal;
+    border: none;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+}
+
 
 
 @media(min-width:768px) {
