@@ -13,6 +13,7 @@ import sqlite3
 import time
 from threading import Thread, Timer 
 from getApps import getApps
+from getVer import ver
 
 def BGImg():
     def internet_on():
@@ -49,7 +50,6 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 
         if message[:3] == "RUN":
             print "running: "+message[3:]
-            #Popen("gtk-launch "+message[3:]+".desktop", shell=True, executable="/bin/bash")
             Popen("xiwi "+message[3:], shell=True, executable="/bin/bash")
         if message[:7] == "INSTALL":
             print "installing: "+message[7:]
@@ -65,7 +65,9 @@ class WSHandler(tornado.websocket.WebSocketHandler):
             print "removing: "+message[6:]
             os.system("echo y | apt-get remove "+message[6:])
             print "Done removing "+message[6:]
-
+        if message[:3] == "VER":
+            print "Sending versions"
+            self.write_message("VER"+str(ver())) 
     def on_close(self):
         print 'connection closed'
 
