@@ -18,3 +18,5 @@ export CGLOBS=$CTEMP/globs
 export CROUTON=/mnt/stateful_partition/crouton/chroots/trusty
 export URLCROUTON="https://raw.githubusercontent.com/dnschneid/crouton/master/installer/crouton"
 export EXTENSION=/home/chronos/user/Extensions/nhbmpbdladcchdhkemlojfjdknjadhmh
+export UPFOLDER=$CTEMP/cridate
+export CFGFILE=$UPFOLDER/cri.cfg
