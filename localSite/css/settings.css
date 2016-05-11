@@ -36,7 +36,7 @@ header #version #update {
 
 header #program {
     position: absolute;
-    background-color: #388E3C;
+    background-color: #A3A196;
     border-radius: 15px;
     font-weight: bold;
     bottom: 5%;
@@ -61,7 +61,7 @@ header #program #stopall {
 
 header #package {
     position: absolute;
-    background-color: #6D4C41;
+    background-color: #A3A196;
     border-radius: 15px;
     font-weight: bold;
     bottom: 5%;
