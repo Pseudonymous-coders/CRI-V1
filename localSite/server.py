@@ -43,6 +43,8 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 
     def on_message(self, message):
         print 'message received:  %s' % message
+        if message == "connecred":
+            self.write_message("connected")
         if message == "APPLIST":
             print "Sending APPLIST"
             apps = getApps() 

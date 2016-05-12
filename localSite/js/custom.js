@@ -8,8 +8,6 @@ $('#siteNav').affix({
 
 document.getElementById('up-btn').style.visibility = "hidden";
 
-var connected = 0;
-
 var coms = '<div class="row promo">' +
 '    <a id="com" onclick="cmdRun()">'+
 '	    <div class="col-md-4 promo-item item-1">'+
@@ -34,14 +32,20 @@ var coms = '<div class="row promo">' +
 '    </a>'+
 '</div>'
 
-ws = new WebSocket('ws://localhost:9098/ws');
+try {
+    ws = new WebSocket('ws://localhost:9098/ws');
+}catch(err){
+    document.getElementById('mainText').innerHTML = "CRI is down, please restart";
+    document.getElementById('subText').innerHTML = "We're sorry :(";
+    document.getElementById('coms').innerHTML = "";
+    document.getElementById('up-btn').style.visibility = "hidden";
+}
 
 ws.onopen = function() {
     document.getElementById("mainText").innerHTML = "CRI";
     document.getElementById("subText").innerHTML = "Your new best friend";
     document.getElementById('up-btn').style.visibility = "visible";
     ws.send("connected");
-    connected = 1;
     document.getElementById('coms').innerHTML = coms;
 
 }
@@ -59,7 +63,6 @@ ws.onclose = function() {
     document.getElementById('subText').innerHTML = "We're sorry :(";
     document.getElementById('coms').innerHTML = "";
     document.getElementById('up-btn').style.visibility = "hidden";
-    connected = 0;
 }
 
 
