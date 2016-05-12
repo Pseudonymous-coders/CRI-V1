@@ -3,7 +3,10 @@
 echo "Getting vars...
 "
 CGLOBS=~/Downloads/.tmp/globs
+CTEMP=~/Downloads/.tmp
 URL="https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master"
+UPFOLDER=~/Download/.tmp/cridate
+CFGFILE=$UPFOLDER/cri.cfg
 sudo mkdir -p $CGLOBS ~/Downloads/.tmp
 cd $CGLOBS
 sudo wget -q --no-check-certificate "$URL/globs/globvar" -O $CGLOBS/globvar # Update variables
@@ -129,7 +132,37 @@ sudo enter-chroot -u root runner
 # Since we want http://cri/ we need to add them to the hosts
 if [[ ! -z $(grep 'cri' '/etc/hosts') ]];  then echo "cri already in host file"; else sudo su -c "sudo echo '127.0.0.1       cri' >> /etc/hosts"; fi
 if [[ ! -z $(grep 'cri' "$CROUTON/etc/hosts") ]];  then echo "cri already in chroot host file"; else sudo su -c "sudo echo '127.0.0.1       cri' >> $CROUTON/etc/hosts"; fi
+
+echo "Double checking...
+"
+if [[ ! -z $(grep 'cri' '/etc/hosts') ]];  then echo "cri already in host file"; else sudo su -c "echo '127.0.0.1       cri' >> /etc/hosts"; fi
+if [[ ! -z $(grep 'cri' "$CROUTON/etc/hosts") ]];  then echo "cri already in chroot host file"; else sudo su -c "echo '127.0.0.1       cri' >> $CROUTON/etc/hosts"; fi
+
 #sudo writer 'if '+"[["+' ! -z $(grep "cri" "/etc/hosts") '+"]]"+'+  then echo "cri already in host file"+ else echo "127.0.0.1       cri" >> /etc/hosts"+ fi'
+
+echo "Installing themes...
+Please wait a bit
+"
+
+sudo writer "printf 'y\ny\ny\n' % apt-get install software-properties-common python3-software-properties unzip"
+sleep 0.5
+sudo enter-chroot -u root runner
+
+echo "Getting fonts"
+cd $CTEMP
+sudo writer "mkdir -p /usr/share/fonts/truetype/ttf-ubuntu+wget http://font.ubuntu.com/download/ubuntu-font-family-0.83.zip -O ~/font.zip+cd+unzip font.zip+cd ubuntu-font-family-0.83+cp -r * /usr/share/fonts/truetype/ttf-ubuntu/"
+sleep 0.5
+sudo enter-chroot -u root runner
+
+echo "Configuring i3"
+sudo writer "wget https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/chrootlib/xiwi.conf -O /etc/crouton/xiwi.conf"
+sleep 0.5
+sudo enter-chroot -u root runner
+
+echo "Please customize your theme!"
+sudo writer "printf '\n\n\n\n' % add-apt-repository ppa:moka/stable+sleep 1+printf '\n\n\n\n' % add-apt-repository ppa:numix/ppa+sleep1+printf 'y\n\n' % apt-get update+printf 'y\ny\ny\n' % apt-get install numix-icon-theme numix-icon-theme-circle moka-icon-theme lxappearance+sleep 0.5+xiwi lxappearance"
+sleep 0.5
+sudo enter-chroot -u root runner
 
 echo "Adding update files..."
 
