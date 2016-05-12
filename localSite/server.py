@@ -29,7 +29,7 @@ def BGImg():
             url = "http://bing.com"+str(data['images'][0]['url'])
             os.system('wget -q '+url+' -O /var/www/html/localSite/images/header.jpg')
             print "Got new BG Image"
-            time.sleep(3600*3)
+            time.sleep(3600*1)
         else:
             time.sleep(3600)
 def installer(self, pkg):

@@ -4,8 +4,16 @@ $('#siteNav').affix({
     }
 })
 
-ws = new WebSocket('ws://localhost:9098/ws')
+try {
+    ws = new WebSocket('ws://localhost:9098/ws');
+}catch(err){
+    document.getElementById('mainText').innerHTML = "CRI is down";
+    document.getElementById('subText').innerHTML = "We're sorry :(";
+}
+
 ws.onopen = function() {
+    document.getElementById('mainText').innerHTML = "";
+    document.getElementById('subText').innerHTML = "";
     ws.send("VER")
 }
 
@@ -26,6 +34,11 @@ ws.onmessage = function(str) {
         document.getElementById('rel').innerHTML = curRel;
         document.getElementById('dat').innerHTML = curDat;
     }
+}
+
+ws.onclose = function() {
+    document.getElementById('mainText').innerHTML = "CRI is down";
+    document.getElementById('subText').innerHTML = "We're sorry :(";
 }
 
 function stopAll() {
