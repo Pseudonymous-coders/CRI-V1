@@ -11,8 +11,20 @@ ws.onopen = function() {
 
 ws.onmessage = function(str) {
     if (str.data.substring(0,3) == "VER") {
-        var versions = str.data.substring(3)
-        console.log(versions);
+        var versions = str.data.substring(3);
+        versions = versions.split("\n");
+        current = versions[0];
+        latest = versions[2];
+        console.log(current);
+        curVer = current.match("VERSION(.*?)ENDVERSION").pop();
+        curRel = current.match("NAME(.*?)ENDNAME").pop();
+        curDat = current.match("DATE(.*?)ENDDATE").pop();
+        latVer = latest.match("VERSION(.*?)ENDVERSION").pop();
+        latRel = latest.match("NAME(.*?)ENDNAME").pop();
+        latDat = latest.match("DATE(.*?)ENDDATE").pop();
+        document.getElementById('ver').innerHTML = curVer;
+        document.getElementById('rel').innerHTML = curRel;
+        document.getElementById('dat').innerHTML = curDat;
     }
 }
 
