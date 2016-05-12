@@ -144,7 +144,7 @@ echo "Installing themes...
 Please wait a bit
 "
 
-sudo writer "printf 'y\ny\ny\n' % apt-get install software-properties-common python3-software-properties unzip"
+sudo writer "printf 'y\ny\ny\n' % apt-get install software-properties-common python3-software-properties unzip file-roller"
 sleep 0.5
 sudo enter-chroot -u root runner
 
