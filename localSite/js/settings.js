@@ -12,7 +12,19 @@ ws.onopen = function() {
 ws.onmessage = function(str) {
     if (str.data.substring(0,3) == "VER") {
         var versions = str.data.substring(3)
-        versions = JSON.parse(versions);
-        console.log(json);
+        console.log(versions);
     }
+}
+
+function stopAll() {
+    ws.send("STOPALL");
+}
+
+function update() {
+    ws.send("UPDATE");
+}
+
+function addPPA() {
+    PPA = document.getElementById('addPPA').value;
+    ws.send("ADDPPA"+PPA);
 }

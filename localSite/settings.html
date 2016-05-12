@@ -67,16 +67,16 @@
                 Current release:  <p id="rel"></p> <br>
                 Release date:     <p id="dat"></p> <br>
             </div>
-            <button id="update">Update Cri</button>
+            <button id="update" onclick="update()">Update Cri</button>
         </div>
         <div id="program">
             Program
-            <button id="stopall">Stop all programs</button>
+            <button id="stopall" onclick="stopAll()">Stop all programs</button>
         </div>
         <div id="package">
             Package
             <form id="getPPA">
-                <input type="submit" value="Add PPA" id="addPPA">
+                <input type="submit" value="Add PPA" id="addPPA" onclick="addPPA()">
                 <input type="text" id="PPA">
             </form>
         </div>

@@ -33,7 +33,7 @@ def BGImg():
         else:
             time.sleep(3600)
 def installer(self, pkg):
-    Popen("echo y | apt-get install "+pkg, shell=True, executable="/bin/bash")
+    Popen("echo y | apt-get -qq install "+pkg, shell=True, executable="/bin/bash")
     print "Done installing: "+pkg
     self.write_message("DONEINSTALL")
 
@@ -65,9 +65,21 @@ class WSHandler(tornado.websocket.WebSocketHandler):
             print "removing: "+message[6:]
             os.system("echo y | apt-get remove "+message[6:])
             print "Done removing "+message[6:]
+        
         if message[:3] == "VER":
             print "Sending versions"
             self.write_message("VER"+str(ver())) 
+        
+        if message[:7] == "STOPALL":
+            print "Stopping all apps"
+            os.system("pkill x")
+            print "Stopped all apps"
+
+        if message[:6] == "ADDPPA":
+            print "Adding PPA: "+message[6:]
+            Popen("echo \n | add-apt-repository "+message[6:])
+            print "Added PPA"
+
     def on_close(self):
         print 'connection closed'
 
