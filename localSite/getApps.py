@@ -11,8 +11,9 @@ def getApps():
     for app in apps:
         f = open('/usr/share/applications/'+app+'.desktop') 
         content = f.read()
-        appCom = re.findall(r'Exec=(.*?)\n', content, re.DOTALL)[0]
-        coms.append(appCom)
+        appCom = re.findall(r'Exec=(.*?)\n', content, re.DOTALL)
+        if len(appCom) > 0:
+            coms.append(appCom[0])
     coms = filter(None, coms)
     for i in range(len(coms)):
         if " " in coms[i]:

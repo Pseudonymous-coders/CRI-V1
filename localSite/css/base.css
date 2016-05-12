@@ -39,6 +39,10 @@ header{
     color: #fff;
 }
 
+::-webkit-scrollbar { 
+    display: none; 
+}
+
 .section-heading {
     margin-top: 0;
     margin-bottom: 20px;
