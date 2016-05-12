@@ -30,12 +30,6 @@ p {
     line-height: 1.5;
 }
 
-.CRI {
-    position: fixed;
-    left: 50%;
-    margin-left: -100px;
-    font-size: 50px;
-}
 
 header{
     position: relative;
