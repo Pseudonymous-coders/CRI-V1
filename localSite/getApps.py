@@ -1,6 +1,7 @@
 def getApps():
     from subprocess import Popen, PIPE 
     import re
+    icons = Popen("ls /var/www/html/localSite/images/icons/", stdout=PIPE, shell=True, executable="/bin/bash").communicate()[0]
     coms = [] 
     bashList = 'for app in /usr/share/applications/*.desktop; do echo "${app:24:-8}"; done' 
     apps = Popen(bashList, stdout=PIPE, shell=True, executable="/bin/bash").communicate()[0]
@@ -24,5 +25,9 @@ def getApps():
                 continue
             if app[-2] is ("%" or "$"):
                 app = app[:-3]
+            if icon+".png" not in icons:
+                icon = "defIcon" 
+            if icon is None:
+                icon = "defIcon"
             coms.append(app+" : "+name+" : "+icon)
     return coms
