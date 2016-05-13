@@ -164,6 +164,12 @@ sudo writer "printf '\n\n\n\n' % add-apt-repository ppa:moka/stable+sleep 1+prin
 sleep 0.5
 sudo enter-chroot -u root runner
 
+echo "Adding to start up script..."
+sudo writer "wget https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/chrootlib/cri -O /etc/init.d/cri+chmod 755 /etc/init.d/cri+sleep 0.1+update-rc.d -f cri remove+sleep 1+update-rc.d cri defaults"
+sleep 0.5
+sudo enter-chroot -u root runner
+echo "Added cri to the chroot startup"
+
 echo "Adding update files..."
 
 if [ ! -d "$UPFOLDER" ]; then
