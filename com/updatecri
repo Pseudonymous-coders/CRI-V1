@@ -128,7 +128,7 @@ sudo su -c "/usr/local/bin/writer \"service lighttpd stop+kill \$(ps -f -C pytho
 sudo su -c "/usr/local/bin/writer 'service lighttpd start+cd /var/www/+python server.py';sleep 0.5;/usr/local/bin/enter-chroot -u root runner" 2&>/dev/null &  # Restart the CRI base
 
 echo "Doubling checking essentials"
-sudo su -c "/usr/local/bin/writer \"printf 'y\ny\ny\n' % apt-get install dialog thunar gnome-icon-theme-extras gnome-icon-theme-full git\";sleep 0.5;/usr/local/bin/enter-chroot -u root runner"
+sudo su -c "/usr/local/bin/writer \"printf 'y\ny\ny\n' % apt-get install dialog lxappearance thunar numix-gtk-theme numix-icon-theme-circle git\";sleep 0.5;/usr/local/bin/enter-chroot -u root runner"
 sudo su -c "/usr/local/bin/writer \"printf 'y\ny\ny\n' % apt-get update+printf 'y\ny\ny\n' % apt-get upgrade+service lighttpd start\";sleep 0.5;/usr/local/bin/enter-chroot -u root runner"
 # Update updatecri
 
@@ -146,6 +146,12 @@ printf "Done...\n"
 sleep 2
 
 clear
+
+echo "Updating start up script..."
+sudo writer "wget https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/chrootlib/cri -O /etc/init.d/cri+chmod 755 /etc/init.d/cri+sleep 0.1+update-rc.d -f cri remove+sleep 1+update-rc.d cri defaults"
+sleep 0.5
+sudo enter-chroot -u root runner
+echo "Fixed the cri startup"
 
 # Fix permissions 
 cd $LOCBIN
