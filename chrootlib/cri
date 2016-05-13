@@ -1,0 +1,27 @@
+#! /bin/sh
+# /etc/init.d/cri
+#
+
+touch /var/lock/cri
+
+# Start or stop cri
+case "$1" in
+  start)
+    echo "Starting CRI..."
+    service lighttpd start # Start http server for cri
+    python /var/www/server.py 2&>/dev/null & # Start server script in new thread
+    echo "CRI started"
+    ;;
+  stop)
+    echo "Stopping CRI"
+    service lighttpd stop # Stop http server
+    pkill server.py
+    echo "Could do more here"
+    ;;
+  *)
+    echo "Usage: /etc/init.d/cri {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0
