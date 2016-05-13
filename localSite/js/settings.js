@@ -33,6 +33,8 @@ ws.onmessage = function(str) {
         document.getElementById('ver').innerHTML = curVer;
         document.getElementById('rel').innerHTML = curRel;
         document.getElementById('dat').innerHTML = curDat;
+    }else if (str.data.substring(0, 8) == "UPDATING") {
+        document.getElementById('update-stat').innerHTML = "Updating CRI, please wait";
     }
 }
 

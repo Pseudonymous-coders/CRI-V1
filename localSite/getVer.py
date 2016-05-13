@@ -1,6 +1,6 @@
 def ver():
     import re, urllib2
-    f = open("/home/eli/Downloads/.tmp/cridate/cri.cfg")
+    f = open("/root/Downloads/.tmp/cridate/cri.cfg")
     current = f.read()
     versions = current
     latest = urllib2.urlopen("https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/globs/cri.cfg").read()
