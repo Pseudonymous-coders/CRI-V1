@@ -48,11 +48,11 @@ class WSHandler(tornado.websocket.WebSocketHandler):
         if message == "APPLIST":
             print "Sending APPLIST"
             apps = getApps() 
-            self.write_message(apps) 
+            self.write_message("\n".join(apps)) 
 
         if message[:3] == "RUN":
             print "running: "+message[3:]
-            Popen("xiwi "+message[3:], shell=True, executable="/bin/bash")
+            Popen(xiwi+" "+message[3:], shell=True, executable="/bin/bash")
         if message[:7] == "INSTALL":
             print "installing: "+message[7:]
             install = Thread(target=installer, args=(self, message[7:],))
@@ -81,6 +81,11 @@ class WSHandler(tornado.websocket.WebSocketHandler):
             print "Adding PPA: "+message[6:]
             Popen("echo \n | add-apt-repository "+message[6:])
             print "Added PPA"
+
+        if message[:6] == "UPDATE":
+            print "Updating CRI"
+            # os.system("printf 'y\ny\ny\n' |  updatecri")
+            self.write_message("UPDATING")
 
     def on_close(self):
         print 'connection closed'
