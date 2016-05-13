@@ -28,6 +28,37 @@
         border-spacing: 0;
       }
 
+      a.button {
+	  -moz-box-shadow:inset 0px 1px 0px 0px #9acc85;
+	  -webkit-box-shadow:inset 0px 1px 0px 0px #9acc85;
+	  box-shadow:inset 0px 1px 0px 0px #9acc85;
+	  background-color:#44c767;
+	  -moz-border-radius:3px;
+	  -webkit-border-radius:3px;
+	  border-radius:3px;
+	  border:1px solid #18ab29;
+          margin-right:3px;
+          margin-top:5px;
+          margin-bottom:4px;
+ 	  display:inline-block;
+	  cursor:pointer;
+	  color:#ffffff;
+	  font-family:Trebuchet MS;
+	  font-size:11px;
+	  font-weight:bold;
+	  padding:5px 11px;
+	  text-decoration:none;
+        }
+
+       a.button:hover {
+	   background-color:#5cbf2a;
+        }
+       a.button:active {
+       	   position:relative;
+	   top:1px;
+        }
+
+
       td {
         font-family: "monospace";
         font-size: 12px;
@@ -64,13 +95,13 @@
       td.value.info { color: #008000; }
       td.value.error { color: #800000; }
 
-      input:disabled+label { color:#cccccc; }
+      input:disabled+label { color:#d7e4e8; }
     </style>
     <script src="popup.js" type="text/javascript"></script>
   </head>
   <body>
-    <div style="float: right;"><a href="#" id="help">Help</a>
-      <br/><a href="#" id="enable">.</a></div>
+    <div style="float: right;"><a href="#" class="button" id="help">Help</a>
+      <br/><a href="#" class="button" id="enable">.</a></div>
     <h1 style="display:inline">CRI extension</h1>
     <hr/>
     <div id="info">Loading...</div>

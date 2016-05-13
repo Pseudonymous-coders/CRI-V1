@@ -74,7 +74,7 @@ function showHelp() {
 }
 
 function updateAvailable(version) {
-    printLog("A new version of the extension is available (" + version + ")",
+    printLog("A new version of CRI is available (" + version + ")",
              LogLevel.INFO);
 
     /* Apply update immediately if the extension is not active */
@@ -147,12 +147,12 @@ function refreshUI() {
     chrome.browserAction.setIcon(
         {path: {19: icon + '-19.png', 38: icon + '-38.png'}}
     );
-    chrome.browserAction.setTitle({title: 'crouton: ' + icon});
+    chrome.browserAction.setTitle({title: 'CRI: ' + icon});
 
     chrome.browserAction.setBadgeText(
         {text: windows_.length > 1 ? '' + (windows_.length-1) : ''}
     );
-    chrome.browserAction.setBadgeBackgroundColor({color: '#2E822B'});
+    chrome.browserAction.setBadgeBackgroundColor({color: '#297326'});
 
     var views = chrome.extension.getViews({type: "popup"});
     for (var i = 0; i < views.length; views++) {
@@ -788,7 +788,7 @@ chrome.runtime.getPlatformInfo(function(platforminfo) {
     } else {
         /* Disable the icon on non-Chromium OS. */
         chrome.browserAction.setTitle(
-            {title: 'crouton is not available on this platform'}
+            {title: 'CRI based off of crouton is not available on this platform'}
         );
         chrome.browserAction.disable();
     }

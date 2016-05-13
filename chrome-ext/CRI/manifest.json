@@ -3,8 +3,8 @@
 
   "name": "CRI application extension",
   "short_name": "CRI",
-  "description": "The front end of it ALLCRI; Built off of crouton integration",
-  "version": "2.5.4",
+  "description": "An extension to support the CRI front end, based off of crouton integration",
+  "version": "2.5.5",
   "icons": {
     "48": "icon-48.png",
     "128": "icon-128.png"
