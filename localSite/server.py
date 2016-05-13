@@ -27,7 +27,7 @@ def BGImg():
             response = urllib2.urlopen('http://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-US')
             data = json.load(response)
             url = "http://bing.com"+str(data['images'][0]['url'])
-            os.system('wget -q '+url+' -O /var/www/html/localSite/images/header.jpg')
+            os.system('wget -q '+url+' -O /var/www/images/header.jpg')
             print "Got new BG Image"
             time.sleep(3600*1)
         else:
