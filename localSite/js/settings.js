@@ -48,6 +48,7 @@ function stopAll() {
 }
 
 function update() {
+    document.getElementById('cover').style.visibility = "visible";
     ws.send("UPDATE");
 }
 

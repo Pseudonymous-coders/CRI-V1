@@ -13,7 +13,9 @@ ws.onopen = function() {
 }
 
 function progClicked(id) {
-    ws.send("REMOVE"+id);
+    if(confirm("Are you sure you want to remove "+id+"?")){
+        ws.send("REMOVE"+id);
+    }
 }
 
 ws.onmessage = function(str) {
