@@ -27,7 +27,7 @@ def BGImg():
             response = urllib2.urlopen('http://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-US')
             data = json.load(response)
             url = "http://bing.com"+str(data['images'][0]['url'])
-            os.system('wget -q '+url+' -O /var/www/images/header.jpg')
+            os.system('wget -q '+url+' -O /var/www/html/localSite/images/header.jpg')
             print "Got new BG Image"
             time.sleep(3600*1)
         else:
@@ -52,7 +52,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 
         if message[:3] == "RUN":
             print "running: "+message[3:]
-            Popen("xiwi"+" "+message[3:], shell=True, executable="/bin/bash")
+            Popen(message[3:], shell=True, executable="/bin/bash")
         if message[:7] == "INSTALL":
             print "installing: "+message[7:]
             install = Thread(target=installer, args=(self, message[7:],))

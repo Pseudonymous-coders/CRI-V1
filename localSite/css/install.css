@@ -1,6 +1,7 @@
 header #btn-search {
     position: absolute;
-    background-color: #45b754; /* Green */
+    background-color: rgba(214,73,55,0.8);
+    border-radius: 15px;
     border: none;
     color: white;
     width: 7%;
@@ -15,11 +16,12 @@ header #btn-search {
 header input[type=text] {
     position: absolute;
     border: none;
+    border-radius: 15px;
     color: grey;
     width: 25%;
     height: 7%;
     top: 45%;
-    left: 40%;
+    left: 40.5%;
     font-size: 35px;
 }
 
@@ -45,7 +47,8 @@ header .item {
 }
 
 .btn-back {
-    background-color: #45b754;
+    background-color: rgba(214,73,55,0.8);
+    border-radius: 15px;
     padding: 15px 20px;
     margin 25px;
     border: none;

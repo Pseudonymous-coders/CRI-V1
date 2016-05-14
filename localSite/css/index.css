@@ -21,7 +21,8 @@ header .header-content .header-content-inner p {
 }
 
 header button {
-    background-color: #45b754; /* Green */
+    background-color: rgba(214,73,55,0.8);
+    border-radius: 15px;
     border: none;
     color: white;
     margin: 10px;

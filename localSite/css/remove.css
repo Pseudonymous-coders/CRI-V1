@@ -34,14 +34,15 @@ header #items {
 }
 
 header .item {
-    background-color: #45b754;
+    background-color: rgba(214,73,55,0.8);
     padding: 5px 5px;
+    border-radius: 15px;
     margin: 10;
     border: none;
     color: white;
     text-align: center;
     display: inline-block;
-    font-size: 16px;
+    font-size: 24px;
 }
 
 @media(min-width:768px) {
@@ -49,4 +50,3 @@ header .item {
         min-height: 100%;
     }
 }
-

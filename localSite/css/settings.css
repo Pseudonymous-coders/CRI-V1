@@ -44,7 +44,8 @@ header #version #text {
 
 header #version #update {
     position: absolute;
-    background-color: #45b754;
+    background-color: rgba(214,73,55,0.8);
+    border-radius: 15px;
     padding: 5px 5px;
     border: none;
     color: white;
@@ -69,7 +70,8 @@ header #program {
 
 header #program #stopall {
     position: absolute;
-    background-color: #45b754;
+    background-color: rgba(214,73,55,0.8);
+    border-radius: 15px;
     top: 15%;
     left: 5%;
     font-weight: normal;
@@ -101,7 +103,8 @@ header #package #getPPA {
 header form #addPPA {
     position: absolute;
     left: 5%;
-    background-color: #45b754;
+    background-color: rgba(214,73,55,0.8);
+    border-radius: 15px;
     font-weight: normal;
     border: none;
     color: white;
@@ -113,9 +116,10 @@ header form #addPPA {
 header form #PPA {
     position: absolute;
     left: 25%;
+    border-radius: 15px;
     border: none;
     color: grey;
-    font-size: 35px;
+    font-size: 17px;
     width: 55%;
     height: 10%;
 }
@@ -135,7 +139,8 @@ header #danger #removeCri {
     position: absolute;
     top: 10%;
     left: 5%;
-    background-color: #45b754;
+    background-color: rgba(214,73,55,0.8);
+    border-radius: 15px;
     font-weight: normal;
     border: none;
     color: white;
@@ -148,7 +153,8 @@ header #danger #reinstallCri {
     position: absolute;
     top: 25%;
     left: 5%;
-    background-color: #45b754;
+    background-color: rgba(214,73,55,0.8);
+    border-radius: 15px;
     font-weight: normal;
     border: none;
     color: white;

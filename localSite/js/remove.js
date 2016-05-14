@@ -13,19 +13,17 @@ ws.onopen = function() {
 }
 
 function progClicked(id) {
-    if (confirm("Do you want to remove "+id+"?")){
-        ws.send("REMOVE"+id);
-    }
+    ws.send("REMOVE"+id);
 }
 
 ws.onmessage = function(str) {
     progs = str.data;
     nameProgs = progs.split("\n");
     for (i=0;i<nameProgs.length;i++) {
-        if (nameProgs[i].substring(0,7) == ("gnome-" || "unity-")) {
-            continue;
-        } else {
-            document.getElementById('items').innerHTML += "<button onclick='progClicked(this.id)' class='item' id='"+nameProgs[i]+"'>"+nameProgs[i]+"</button>";
+        nameProgs[i] = nameProgs[i].split(" : ");
+        if (nameProgs[i][2] == (null || "")) {
+            nameProgs[i][2] = "defIcon";
         }
+        document.getElementById('items').innerHTML += "<button onclick='progClicked(this.id)' class='item' id='"+nameProgs[i][0]+"'><img height='50' width='50' src='images/icons/"+nameProgs[i][2]+".png'><br>"+nameProgs[i][1]+"</button>";
     }
 } 

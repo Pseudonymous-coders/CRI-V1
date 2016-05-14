@@ -80,8 +80,8 @@ function cmdRemove() {
 
 $('#up-btn').on('click', function(e){
         e.preventDefault();
-            var target= $(this).get(0).id == 'down' ? $('#up-btn') : $('#down');
+            var target= $(this).get(0).id == 'ins-btn' ? $('#up-btn') : $('#ins-btn');
                 $('html, body').stop().animate({
                            scrollTop: target.offset().top
-                        }, 1500);
+                        }, 500);
 });
