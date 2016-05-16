@@ -9,8 +9,8 @@
     <title>CRI application extension</title>
     <style type="text/css">
       body {
-        min-width: 600px;
-        max-width: 600px;
+        min-width: 625px;
+        max-width: 625px;
         overflow-x: hidden;
       }
 
@@ -58,7 +58,6 @@
 	   top:1px;
         }
 
-
       td {
         font-family: "monospace";
         font-size: 12px;
@@ -88,6 +87,37 @@
         color: #000000;
       }
 
+      #help {
+          -webkit-transform: scale(0.75,0.75);
+          margin-left:310px;
+          margin-right:1px;
+          margin-top:1px;
+          margin-bottom:1px;
+      }
+
+      #enable {
+          -webkit-transform: scale(0.75,0.75);
+          margin-right:1px;
+          margin-top:1px;
+          margin-bottom:1px;
+      }
+
+      #open {
+          -webkit-transform: scale(0.75,0.75);
+          margin-right:1px;
+          margin-top:1px;
+          margin-bottom:1px;
+      }
+
+      #info {
+        margin-left:0px;
+        font-size:30px;
+      }
+
+      #logbar {
+         float: bottom;
+      }
+
       td.value {
         padding: 2px 15px;
       }
@@ -97,17 +127,31 @@
 
       input:disabled+label { color:#d7e4e8; }
     </style>
-    <script src="popup.js" type="text/javascript"></script>
+   <link rel="stylesheet" href="./material.min.css">
+   <script src="./material.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+   <script src="popup.js" type="text/javascript"></script>
   </head>
   <body>
-    <div style="float: right;"><a href="#" class="button" id="help">Help</a>
-      <br/><a href="#" class="button" id="enable">.</a></div>
-    <h1 style="display:inline">CRI extension</h1>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <span href="http://cri/" class="mdl-layout-title">CRI extension</span>
+    </div>
+  </header>
+  <main class="mdl-layout__content">
+    <div id="page-contenter" class="page-content">
+    <div>
+      <a href="#" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="help">Help</a>
+      <a href="#" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="enable">wait!</a>
+      <a href="http://cri" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="open">Open CRI</a>
+    </div>
     <hr/>
-    <div id="info">Loading...</div>
+    
+    <h1 id="info">Loading...</h1>
     <div id="switcher"><table id="windowlist"><tr><td /></tr></table></div>
     <div id="scrolllogger"><table id="logger"><tr><td /></tr></table></div>
-    <div style="float:right">
+    <div id="logbar" style="float:right">
       <input type="checkbox" id="hidpicheck" />
         <label for="hidpicheck">High DPI</label>
       <input type="checkbox" id="logcheck" />
@@ -115,5 +159,8 @@
       <input type="checkbox" id="debugcheck" />
         <label for="debugcheck">Enable debugging</label>
     </div>
+     </div>
+    </main>
+  </div>
   </body>
 </html>
