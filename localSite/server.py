@@ -16,7 +16,7 @@ from getApps import getApps
 from getVer import ver
 
 
-CB = int(Popen("if $(whereis xiwi); then echo 1; else echo 0; fi 2>/dev/null", stdout=PIPE, shell=True).communicate()[0])
+CB = int(Popen("if $(whereis xiwi); then echo 1; else echo 0; fi 2&>/dev/null", stdout=PIPE, shell=True).communicate()[0])
  
 def BGImg():
     def internet_on():
