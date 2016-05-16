@@ -253,9 +253,9 @@ function refreshUI() {
                 var cell1 = row.insertCell(0);
                 var cell2 = row.insertCell(1);
                 cell1.className = "display";
-                cell1.innerHTML = windows_[i].display;
+                cell1.innerHTML = windows_[i].display.replace(":", "").replace("cros", "Win");
                 cell2.className = "name";
-                cell2.innerHTML = windows_[i].name;
+                cell2.innerHTML = windows_[i].name.replace("Chrome OS", "Name").replace("trusty/", "");
                 cell2.onclick = (function(i) { return function() {
                     if (active_) {
                         websocket_.send("C" + windows_[i].display);
@@ -302,7 +302,7 @@ function refreshUI() {
 
 /* Start the extension */
 function clipboardStart() {
-    printLog("Extension started (" + chrome.runtime.getManifest().version + ")",
+    printLog("CRI started, version: " + chrome.runtime.getManifest().version,
              LogLevel.INFO);
     setStatus("Started...", false);
 
@@ -334,7 +334,7 @@ function websocketConnect() {
     }
 
     if (!enabled_) {
-        setStatus("No connection (extension disabled)", false);
+        setStatus("CRI not enabled...", false);
         printLog("Extension is disabled", LogLevel.INFO);
         return;
     }
@@ -348,7 +348,7 @@ function websocketConnect() {
 
     printLog("Opening a web socket", LogLevel.DEBUG);
     error_ = false;
-    setStatus("Connecting...", false);
+    setStatus("Retrying...", false);
     websocket_ = new WebSocket(URL);
     websocket_.onopen = websocketOpen;
     websocket_.onmessage = websocketMessage;
@@ -358,7 +358,7 @@ function websocketConnect() {
 /* Connection was established */
 function websocketOpen() {
     printLog("Connection established", LogLevel.INFO);
-    setStatus("Connected: checking version...", false);
+    setStatus("Checking version...", false);
 }
 
 function readClipboard() {
@@ -518,12 +518,13 @@ function websocketMessage(evt) {
 
             windows_.forEach(function(k) {
                 var win = kiwi_win_[k.display];
+		var winName = (k.name.indexOf("trusty") != -1) ? k.name.substring(k.name.indexOf("trusty/")+7).replace("./", "").replace(":", " -") : k.name;
                 if (win && win.window) {
                     if (win.isTab) {
                         chrome.tabs.sendMessage(win.id,
-                                {func: 'setTitle', param: k.name});
+                                {func: 'setTitle', param: winName});
                     } else {
-                        win.window.setTitle(k.name);
+                        win.window.setTitle(winName);
                     }
                 }
             });
@@ -595,12 +596,12 @@ function websocketMessage(evt) {
             kiwi_win_[display].window = null;
 
             var win = windows_.filter(function(x){return x.display == display})[0];
-            var name = win ? win.name : "crouton in a window";
+            var name = win ? win.name : "CRI";
             var create = chrome.windows.create;
             var data = {};
 
             if (kiwi_win_[display].isTab) {
-                name = win ? win.name : "crouton in a tab";
+                name = win ? win.name : "CRI tab (Not used)";
                 create = chrome.tabs.create;
             } else {
                 data['type'] = "popup";
@@ -645,14 +646,14 @@ function websocketClose() {
 
     printLog("Connection closed", active_ ? LogLevel.INFO : LogLevel.DEBUG);
     if (enabled_) {
-        setStatus("Disconnected (retrying every " + RETRY_TIMEOUT + " seconds)",
+        setStatus("Retrying in " + RETRY_TIMEOUT + " seconds",
                   false);
         /* Retry in RETRY_TIMEOUT seconds */
         if (timeout_ == null) {
             timeout_ = setTimeout(websocketConnect, RETRY_TIMEOUT*1000);
         }
     } else {
-        setStatus("Disconnected (extension disabled)", false);
+        setStatus("CRI is disabled...", false);
     }
 
     websocket_ = null;
