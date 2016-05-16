@@ -209,7 +209,8 @@ header #danger #reinstallCri {
     transform-style: preserve-3d;
 }
 
-.cool-container .cool-btn:active {
+
+.cool-container .cool-active {
     background-color: red;
     transform: rotateY(180deg);
 }

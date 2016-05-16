@@ -56,3 +56,7 @@ function addPPA() {
     PPA = document.getElementById('addPPA').value;
     ws.send("ADDPPA"+PPA);
 }
+
+$(".cool").click(function() {
+    $(".cool").toggleClass("cool-active");
+});
