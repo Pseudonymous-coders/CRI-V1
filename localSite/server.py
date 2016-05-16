@@ -39,11 +39,11 @@ def BGImg():
             time.sleep(3600*1)
         else:
             time.sleep(3600)
-def installer(self, pkg):
+'''def installer(self, pkg):
     Popen("echo y | apt-get -qq install "+pkg, shell=True, executable="/bin/bash")
     print "Done installing: "+pkg
     self.write_message("DONEINSTALL")
-
+'''
 class WSHandler(tornado.websocket.WebSocketHandler):
     def open(self):
         print 'new connection'
@@ -62,8 +62,11 @@ class WSHandler(tornado.websocket.WebSocketHandler):
             Popen(message[3:], shell=True, executable="/bin/bash")
         if message[:7] == "INSTALL":
             print "installing: "+message[7:]
-            install = Thread(target=installer, args=(self, message[7:],))
-            install.start()
+            install = Popen("echo y | apt-get -qq install "+message[7:], executable="/bin/bash")
+            print "Done installing: "+message[7:]
+            self.write_message("DONEINSTALL")
+            # install = Thread(target=installer, args=(self, message[7:],))
+            # install.start()
 
         if message[:6] == "SEARCH":
             toSearch = 'apt-cache search '+message[6:]

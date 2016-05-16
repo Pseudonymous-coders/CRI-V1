@@ -25,6 +25,7 @@ header #version {
     background-color: #A3A196;
     border-radius: 15px;
     font-weight: bold;
+    outline: none;
     top: 10%;
     right: 2%;
     height: 40%;
@@ -47,6 +48,7 @@ header #version #update {
     background-color: rgba(214,73,55,0.8);
     border-radius: 15px;
     padding: 5px 5px;
+    outline: none;
     border: none;
     color: white;
     text-align: center;
@@ -61,6 +63,7 @@ header #program {
     position: absolute;
     background-color: #A3A196;
     border-radius: 15px;
+    outline: none;
     font-weight: bold;
     bottom: 5%;
     left: 2%;
@@ -74,6 +77,7 @@ header #program #stopall {
     border-radius: 15px;
     top: 15%;
     left: 5%;
+    outline: none;
     font-weight: normal;
     border: none;
     color: white;
@@ -87,6 +91,7 @@ header #package {
     position: absolute;
     background-color: #A3A196;
     border-radius: 15px;
+    outline: none;
     font-weight: bold;
     bottom: 5%;
     right: 2%;
@@ -106,6 +111,7 @@ header form #addPPA {
     background-color: rgba(214,73,55,0.8);
     border-radius: 15px;
     font-weight: normal;
+    outline: none;
     border: none;
     color: white;
     text-align: center;
@@ -118,6 +124,7 @@ header form #PPA {
     left: 25%;
     border-radius: 15px;
     border: none;
+    outline: none;
     color: grey;
     font-size: 17px;
     width: 55%;
@@ -130,6 +137,7 @@ header #danger {
     left: 37.5%;
     height: 30%;
     width: 25%;
+    outline: none;
     font-weight: bold;
     border-radius: 15px;
     background-color: #d50000;
@@ -139,6 +147,7 @@ header #danger #removeCri {
     position: absolute;
     top: 10%;
     left: 5%;
+    outline: none;
     background-color: rgba(214,73,55,0.8);
     border-radius: 15px;
     font-weight: normal;
@@ -153,6 +162,7 @@ header #danger #reinstallCri {
     position: absolute;
     top: 25%;
     left: 5%;
+    outline: none;
     background-color: rgba(214,73,55,0.8);
     border-radius: 15px;
     font-weight: normal;

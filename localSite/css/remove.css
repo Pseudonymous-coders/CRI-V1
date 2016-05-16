@@ -2,6 +2,7 @@ header #btn-search {
     position: absolute;
     background-color: #45b754; /* Green */
     border: none;
+    outline: none;
     color: white;
     width: 7%;
     height: 7%;
@@ -36,6 +37,7 @@ header #items {
 header .item {
     background-color: rgba(214,73,55,0.8);
     padding: 5px 5px;
+    outline: none;
     border-radius: 15px;
     margin: 10;
     border: none;

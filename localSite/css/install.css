@@ -2,6 +2,7 @@ header #btn-search {
     position: absolute;
     background-color: rgba(214,73,55,0.8);
     border-radius: 15px;
+    outline: none;
     border: none;
     color: white;
     width: 7%;
@@ -16,6 +17,7 @@ header #btn-search {
 header input[type=text] {
     position: absolute;
     border: none;
+    outline: none;
     border-radius: 15px;
     color: grey;
     width: 25%;
@@ -36,7 +38,8 @@ header #items {
 }
 
 header .item {
-    background-color: #45b754;
+    background-color: rgba(214,73,55,0.8);
+    border-radius: 15px;
     padding: 5px 5px;
     margin 25px;
     border: none;

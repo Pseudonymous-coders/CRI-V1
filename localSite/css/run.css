@@ -12,6 +12,7 @@ header .item {
     background-color: rgba(214,73,55,0.8);
     padding: 5px 5px;
     border-radius: 15px;
+    outline: none;
     margin: 10;
     border: none;
     color: white;
