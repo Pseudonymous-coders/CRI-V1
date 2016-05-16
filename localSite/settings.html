@@ -10,6 +10,7 @@
     <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
     <link href="css/base.css"     rel="stylesheet">
     <link href="css/settings.css" rel="stylesheet">
+    <link href="css/loading.css"  rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -100,7 +101,20 @@
             </div>
         </div>
     </header>
-    <div id="cover"><img id="loading" src="images/loading.gif"></div>
+    <div id="cover">
+        <div id="loading">
+            <div id="cssload-pgloading">
+                <div class="cssload-loadingwrap">
+                    <ul class="cssload-bokeh">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div> 
+        </div>
+    </div>
     <!-- Promos -->
 	<!-- Footer -->
     <!-- jQuery -->

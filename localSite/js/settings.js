@@ -4,12 +4,13 @@ $('#siteNav').affix({
     }
 })
 
-try {
-    ws = new WebSocket('ws://localhost:9098/ws');
-}catch(err){
-    document.getElementById('mainText').innerHTML = "CRI is down";
-    document.getElementById('subText').innerHTML = "We're sorry :(";
-}
+ws = new WebSocket('ws://localhost:9098/ws');
+
+setTimeout(function (){
+    if (ws.readyState == (0 || 3)) {
+        window.location = "index.html";
+    }
+}, 200)
 
 ws.onopen = function() {
     document.getElementById('mainText').innerHTML = "";

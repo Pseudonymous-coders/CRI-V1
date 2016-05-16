@@ -8,6 +8,12 @@ $('#siteNav').affix({
 })
 
 ws = new WebSocket('ws://localhost:9098/ws')
+setTimeout(function (){
+    if (ws.readyState == (0 || 3)) {
+        window.location = "index.html";
+    }
+}, 200)
+
 ws.onopen = function() {
     ws.send("APPLIST");
 }

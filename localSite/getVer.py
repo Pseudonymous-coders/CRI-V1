@@ -10,4 +10,5 @@ def ver():
     versions = current
     latest = urllib2.urlopen("https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/globs/cri.cfg").read()
     versions += "\n"+latest
+    f.close()
     return versions

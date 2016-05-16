@@ -59,6 +59,12 @@ header #version #update {
     right: 5%;
 }
 
+header #version #update-stat {
+    position: absolute;
+    bottom: 2%;
+    left: 2%;
+}
+
 header #program {
     position: absolute;
     background-color: #A3A196;
@@ -217,16 +223,11 @@ header form #PPA {
 
 #cover #loading {
     position: absolute;
-    height: 30%;
-    width: 20%;
-    top: 50%;
-    left: 50%;
-    margin-top: -50px;
-    margin-left: -100px;
+    top: 27%;
+    left: 37%;
 }
 
 @media(min-width:768px) {
     header {
         min-height: 100%;
     }
-}
