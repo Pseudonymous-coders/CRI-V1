@@ -25,6 +25,7 @@ function progClicked(id) {
 }
 
 ws.onmessage = function(str) {
+    document.getElementById('items').innerHTML = "";
     progs = str.data;
     nameProgs = progs.split("\n");
     for (i=0;i<nameProgs.length;i++) {
