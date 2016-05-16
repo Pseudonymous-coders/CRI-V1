@@ -24,7 +24,6 @@ ws.onmessage = function(str) {
         versions = versions.split("\n");
         current = versions[0];
         latest = versions[2];
-        console.log(current);
         curVer = current.match("VERSION(.*?)ENDVERSION").pop();
         curRel = current.match("NAME(.*?)ENDNAME").pop();
         curDat = current.match("DATE(.*?)ENDDATE").pop();
@@ -51,8 +50,8 @@ function stopAll() {
 function update() {
     document.getElementById('cover').style.visibility = "visible";
     document.getElementById('update-stat').style.visibility = "visible";
-    display = document.querySelector('#timer');
-    startTimer(4*60, display);
+    display = document.querySelector('.notify');
+    startTimer(0.3*60, display);
     ws.send("UPDATE");
 }
 
@@ -61,16 +60,23 @@ function addPPA() {
     ws.send("ADDPPA"+PPA);
 }
 
+function doneUpdate() {
+    document.querySelector('.notify').innerHTML = "Done Updating, please refresh";
+    document.getElementById('update-stat').style.visibility = "hidden";
+    document.getElementById('cover').style.visibility = "hidden";
+}
+
 $(".cool").click(function() {
     $(".cool").toggleClass("cool-active");
 });
+
 $(".danger").click(function() {
     $(".danger").toggleClass("danger-active");
 });
 
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
-    setInterval(function () {
+    time = setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
@@ -80,7 +86,8 @@ function startTimer(duration, display) {
         display.textContent = minutes + ":" + seconds;
 
         if (--timer < 0) {
-            timer = duration;
+            clearInterval(time);
+            doneUpdate();
         }
     }, 1000);
 }

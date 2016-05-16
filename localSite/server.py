@@ -31,9 +31,9 @@ def BGImg():
             data = json.load(response)
             url = "http://bing.com"+str(data['images'][0]['url'])
             if CB is not 1:
-                os.system('wget -q -T 10 '+url+' -O /var/www/html/localSite/images/header.jpg')
+                os.system('wget -q '+url+' -O /var/www/html/localSite/images/header.jpg')
             else:
-                os.system('wget -q -T 10 '+url+' -O /var/www/images/header.jpg')
+                os.system('wget -q '+url+' -O /var/www/images/header.jpg')
 
             print "Got new BG Image"
             time.sleep(3600*1)

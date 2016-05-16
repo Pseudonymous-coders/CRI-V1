@@ -12,6 +12,18 @@ body {
     background-size: cover;
 }
 
+.notify {
+    position: fixed;
+    text-align: center;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0.5%;
+    font-size: 35px;
+    font-weight: bold;
+    color: red;
+}
+
 a {
     color: yellowgreen;
     -webkit-transition: all .35s;
