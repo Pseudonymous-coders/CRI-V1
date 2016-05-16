@@ -61,6 +61,7 @@ header #version #update {
 
 header #version #update-stat {
     position: absolute;
+    visibility: hidden;
     bottom: 2%;
     left: 2%;
 }
