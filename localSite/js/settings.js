@@ -60,3 +60,6 @@ function addPPA() {
 $(".cool").click(function() {
     $(".cool").toggleClass("cool-active");
 });
+$(".danger").click(function() {
+    $(".danger").toggleClass("danger-active");
+});
