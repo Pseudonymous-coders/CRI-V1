@@ -1,7 +1,11 @@
 def getApps():
     from subprocess import Popen, PIPE 
     import re
-    icons = Popen("ls /var/www/html/localSite/images/icons/", stdout=PIPE, shell=True, executable="/bin/bash").communicate()[0]
+    CB = int(Popen("if $(whereis xiwi); then echo 1; else echo 0; fi 2>/dev/null", stdout=PIPE, shell=True).communicate()[0])
+    if CB is not 1:
+        icons = Popen("ls /var/www/html/localSite/images/icons/", stdout=PIPE, shell=True, executable="/bin/bash").communicate()[0]
+    else:
+        icons = Popen("ls /var/www/images/icons/", stdout=PIPE, shell=True, executable="/bin/bash").communicate()[0]
     coms = [] 
     bashList = 'for app in /usr/share/applications/*.desktop; do echo "${app:24:-8}"; done' 
     apps = Popen(bashList, stdout=PIPE, shell=True, executable="/bin/bash").communicate()[0]

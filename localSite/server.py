@@ -15,6 +15,9 @@ from threading import Thread, Timer
 from getApps import getApps
 from getVer import ver
 
+
+CB = int(Popen("if $(whereis xiwi); then echo 1; else echo 0; fi 2>/dev/null", stdout=PIPE, shell=True).communicate()[0])
+ 
 def BGImg():
     def internet_on():
         try:
@@ -27,7 +30,11 @@ def BGImg():
             response = urllib2.urlopen('http://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-US')
             data = json.load(response)
             url = "http://bing.com"+str(data['images'][0]['url'])
-            os.system('wget -q '+url+' -O /var/www/html/localSite/images/header.jpg')
+            if CB is not 1:
+                os.system('wget -q '+url+' -O /var/www/html/localSite/images/header.jpg')
+            else:
+                os.system('wget -q '+url+' -O /var/www/images/header.jpg')
+
             print "Got new BG Image"
             time.sleep(3600*1)
         else:
