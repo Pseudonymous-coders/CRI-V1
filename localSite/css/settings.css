@@ -147,23 +147,23 @@ header form #PPA {
     height: 100%;
     width: 100%;
     border-radius: 15px;
-    background-color: #5677fc;
+    background-color: #D32F2F;
     transform-style: preserve-3d;
     transition: transform 1s;
+    transform-origin: right center;
 }
 
 .danger-container #front p{
-    margin: 0;
-    display: block;
     position: absolute;
     width: 100%;
     height: 100%;
+    font-size: 60px;
+    display: block;
     backface-visibility: hidden;
 }
 
 .danger #front {
     border-radius: 15px;
-    background: red;
 }
 
 .danger #back {
@@ -201,7 +201,8 @@ header form #PPA {
 }
 
 .danger-active {
-    transform: rotateY(180deg);
+    background-color: #F44336;
+    transform: translateX(-100%) rotateY(-180deg);
 }
 
 #cover {
@@ -222,49 +223,6 @@ header form #PPA {
     left: 50%;
     margin-top: -50px;
     margin-left: -100px;
-}
-
-.cool-container {
-    position: absolute;
-    top: 10%;
-    left: 2%;
-    height: 40%;
-    width: 30%;
-    perspective: 700px;
-}
-
-.cool-container .cool {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    border-radius: 15px;
-    background-color: #5677fc;
-    transform-style: preserve-3d;
-    transition: transform 1s;
-}
-
-.cool-container p{
-    margin: 0;
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-}
-
-.cool #front {
-    border-radius: 15px;
-    background: red;
-}
-
-.cool #back {
-    border-radius: 15px;
-    background: blue;
-    transform: rotateY(180deg);
-}
-
-.cool-active {
-    transform: rotateY(180deg);
 }
 
 @media(min-width:768px) {
