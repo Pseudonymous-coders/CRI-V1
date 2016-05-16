@@ -193,6 +193,27 @@ header #danger #reinstallCri {
     margin-left: -100px;
 }
 
+.cool-container {
+    perspective: 700;
+}
+
+.cool-container .cool {
+    position: absolute;
+    top: 10%;
+    left: 2%;
+    height: 40%;
+    width: 30%;
+    border-radius: 15px;
+    background-color: #5677fc;
+    transition: all 0.6s ease;
+    transform-style: preserve-3d;
+}
+
+.cool-container .cool-btn:active {
+    background-color: red;
+    transform: rotateY(180deg);
+}
+
 @media(min-width:768px) {
     header {
         min-height: 100%;

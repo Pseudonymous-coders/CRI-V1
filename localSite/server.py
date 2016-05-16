@@ -59,7 +59,10 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 
         if message[:3] == "RUN":
             print "running: "+message[3:]
-            Popen(message[3:], shell=True, executable="/bin/bash")
+            if not CB:
+                Popen(message[3:], shell=True, executable="/bin/bash")
+            else:
+                Popen("xiwi "+message[3:], shell=True, executable="/bin/bash")
         if message[:7] == "INSTALL":
             print "installing: "+message[7:]
             install = Popen("echo y | apt-get -qq install "+message[7:], executable="/bin/bash")
