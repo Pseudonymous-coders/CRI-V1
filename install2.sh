@@ -159,6 +159,16 @@ sudo writer "wget https://raw.githubusercontent.com/Pseudonymous-coders/CRI/mast
 sleep 0.5
 sudo enter-chroot -u root runner
 
+echo "Getting nice looking terminal"
+sudo writer "printf 'y\ny\ny\n' % apt-get install gnome-terminal+gconftool-2 --set /apps/gnome-terminal/profiles/Default/use_system_font --type boolean false+gconftool-2 --set /apps/gnome-terminal/profiles/Default/font --type string \"Ubuntu Mono 14\"+gconftool-2 --set /apps/gnome-terminal/profiles/Default/title --type string CRIterm" # Add gnome terminal
+sleep 0.5
+sudo enter-chroot -u root runner
+
+echo "Updating nice lookin terminal reinit settings"
+sudo writer "gconftool-2 --set /apps/gnome-terminal/profiles/Default/title_mode --type string after"
+sleep 0.5
+sudo enter-chroot -u root runner
+
 echo "Please customize your theme!"
 sudo writer "printf '\n\n\n\n' % add-apt-repository ppa:moka/stable+sleep 1+printf '\n\n\n\n' % add-apt-repository ppa:numix/ppa+sleep1+printf 'y\n\n' % apt-get update+printf 'y\ny\ny\n' % apt-get install numix-icon-theme numix-icon-theme-circle moka-icon-theme lxappearance+sleep 0.5+xiwi lxappearance"
 sleep 0.5
