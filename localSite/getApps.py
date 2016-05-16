@@ -24,7 +24,7 @@ def getApps():
         appIcon = re.findall(r'Icon=(.*?)\n', content, re.DOTALL)
         appCom = filter(None, appCom)
         appCom.append("None")
-        if appCom in noList:
+        if app in noList:
             continue
         if appCom[0] is "None":
             continue
