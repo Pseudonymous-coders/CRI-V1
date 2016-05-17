@@ -77,9 +77,17 @@ $(".danger").click(function() {
     $(".danger").toggleClass("danger-active");
 });
 
-$(".package").click(function() {
+$(".package #front").click(function() {
     $(".package").toggleClass("package-active");
 });
+
+$(".package #back").click(function(event) {
+    event.stopPropagation();
+    if (event.target.id == "back"){
+        $(".package").toggleClass("package-active");
+    }
+});
+
 
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;

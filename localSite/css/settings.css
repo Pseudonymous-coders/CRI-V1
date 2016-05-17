@@ -114,21 +114,19 @@ header #version #update-stat {
 
 .program #back button {
     position: absolute;
+    outline: none;
+    background-color: rgba(214,73,55,0.8);
+    border-radius: 15px;
     font-weight: bold;
     border: none;
     color: white;
     text-align: center;
     display: inline-block;
-    position: absolute;
-    background-color: rgba(214,73,55,0.8);
-    border-radius: 15px;
-    border: none;
-    color: white;
-    text-size: 20pt;
+    font-size: 20px;
 }
 
 .program #back #stopall {
-    top: 15%;
+    top: 5%;
     left: 5%;
     outline: none;
 }
@@ -162,17 +160,21 @@ header #version #update-stat {
     transform-origin: right center;
 }
 
-.package-container #front p{
-    font-size: 60px;
-    display: block;
-    backface-visibility: hidden;
-}
-
 .package #front {
     position: absolute;
     width: 100%;
     height: 100%;
+    font-size: 60px; 
     border-radius: 15px;
+    backface-visibility: hidden;
+}
+
+.package #front p{
+    position: absolute;
+    font-size: 60px;
+    display: block;
+    height: 100%;
+    width: 100%;
 }
 
 .package #back {
@@ -180,80 +182,45 @@ header #version #update-stat {
     position: absolute;
     height: 100%;
     width: 100%;
+    backface-visibility: hidden;
     border-radius: 15px;
     transform: rotateY(180deg);
 }
 
 .package #back input {
-    position: absolute;
     font-weight: bold;
     border: none;
     color: white;
     display: inline-block;
-    position: absolute;
     background-color: rgba(214,73,55,0.8);
     border-radius: 15px;
     border: none;
-    color: white;
 }
 
-.program #back #PPA {
-    font-size: 20px;
-    top: 15%;
-    left: 5%;
+.package #back #PPA {
+    position: absolute;
+    font-size: 25px;
+    top: 5%;
+    left: 25%;
+    width: 60%;
+    height: 15%;
+    background-color: white;
+    color: black;
     outline: none;
 }
 
-.program #back #addPPA {
+.package #back #addPPA {
+    position: absolute;
+    top: 7%;
+    left: 2%;
+    font-size: 20px;
+    color: white;
     text-align: center;
 }
 
 .package-active {
     background-color: #F44336;
     transform: translateX(-100%) rotateY(-180deg);
-}
-header #package {
-    position: absolute;
-    background-color: #4CAF50;
-    border-radius: 15px;
-    outline: none;
-    font-weight: bold;
-    bottom: 5%;
-    right: 2%;
-    height: 40%;
-    width: 30%;
-}
-
-header #package #getPPA {
-    position: absolute;
-    height: 90%;
-    width: 100%; 
-}
-
-header form #addPPA {
-    position: absolute;
-    left: 5%;
-    background-color: rgba(214,73,55,0.8);
-    border-radius: 15px;
-    font-weight: normal;
-    outline: none;
-    border: none;
-    color: white;
-    text-align: center;
-    display: inline-block;
-    font-size: 16px;
-}
-
-header form #PPA {
-    position: absolute;
-    left: 25%;
-    border-radius: 15px;
-    border: none;
-    outline: none;
-    color: grey;
-    font-size: 17px;
-    width: 55%;
-    height: 10%;
 }
 
 .danger-container {
