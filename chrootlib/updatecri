@@ -83,7 +83,7 @@ echo "99"
 chown root:root $CFGFILE > /dev/null 2>&1
 echo "100"
 sleep 3
-echo "Done"
+echo "DONE"
 sleep 2 > /dev/null 2>&1
 service cri stop > /dev/null 2>&1
 service cri start > /dev/null 2>&1
