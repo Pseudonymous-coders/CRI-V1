@@ -72,8 +72,9 @@ echo "92"
 update-rc.d cri defaults > /dev/null 2>&1
 echo "93"
 wget "$COMURL/updatecri" --no-check-certificate -q -O /usr/bin/updatecri > /dev/null 2>&1
-chmod 755 -R /usr/bin/updatecri /var/www/ > /dev/null 2>&1
-chown root:root -R /usr/bin/updatecri /var/www/ > /dev/null 2>&1
+wget "$COMURL/debins" --no-check-certificate -q -O /usr/bin/debins > /dev/null 2>&1
+chmod 755 -R /usr/bin/* /var/www/ > /dev/null 2>&1
+chown root:root -R /usr/bin/* /var/www/ > /dev/null 2>&1
 echo "96"
 VARR=$(wget "$VERSIONURL" --no-check-certificate -q -O -)
 echo $VARR > $CFGFILE
@@ -83,7 +84,7 @@ echo "99"
 chown root:root $CFGFILE > /dev/null 2>&1
 echo "100"
 sleep 3
-echo "Done"
+echo "DONE"
 sleep 2 > /dev/null 2>&1
 service cri stop > /dev/null 2>&1
 service cri start > /dev/null 2>&1
