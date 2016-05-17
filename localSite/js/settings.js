@@ -33,8 +33,16 @@ ws.onmessage = function(str) {
         document.getElementById('ver').innerHTML = curVer;
         document.getElementById('rel').innerHTML = curRel;
         document.getElementById('dat').innerHTML = curDat;
-    }else if (str.data.substring(0, 8) == "UPDATING") {
-        console.log("updating");
+    }else if (str.data.substring(0, 4) == "PERC") {
+        perc = str.data.substring(4);
+        document.querySelector('.notify').innerHTML = "Updating... "+perc+"%";
+    } else if (str.data.substring(0, 10) == "DONEUPDATE") {
+        document.querySelector('.notify').innerHTML = "Finalizing...";
+        setTimeout(function() {
+            document.querySelector('.notify').innerHTML = "Done installing, please refresh";
+        }, 6000);
+    } else if (str.data.substring(0, 10) == "FAILUPDATE") {
+        document.querySelector('.notify').innerHTML = "Error updating...";
     }
 }
 
@@ -51,7 +59,7 @@ function update() {
     document.getElementById('cover').style.visibility = "visible";
     document.getElementById('update-stat').style.visibility = "visible";
     display = document.querySelector('.notify');
-    startTimer(0.3*60, display);
+    //startTimer(0.3*60, display);
     ws.send("UPDATE");
 }
 
@@ -88,7 +96,7 @@ $(".package #back").click(function(event) {
     }
 });
 
-
+/*
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
     time = setInterval(function () {
@@ -105,5 +113,4 @@ function startTimer(duration, display) {
             doneUpdate();
         }
     }, 1000);
-}
-
+}*/

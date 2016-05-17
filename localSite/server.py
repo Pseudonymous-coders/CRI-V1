@@ -5,7 +5,7 @@ import tornado.web
 import socket
 import os
 import sys
-from subprocess import Popen, PIPE
+from subprocess import Popen, PIPE, STDOUT
 import urllib2
 import json
 import re
@@ -102,9 +102,24 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 
         if message[:6] == "UPDATE":
             print "Updating CRI"
-            # os.system("printf 'y\ny\ny\n' |  updatecri")
-            self.write_message("UPDATING")
+            process = Popen("updatecri", shell=True, stdout=PIPE, stderr=STDOUT, executable="/bin/bash")
+            while True:
+                    nextline = process.stdout.readline()
+                    print "Line: '"+str(nextline)+"'"
+                    if nextline == '' and process.poll() is not None:
+                        self.write_message("FAILUPDATE")
+                        break
+                    if nextline == "DONE":
+                        break
+                    try:
+                        perc = int(nextline)
+                    except ValueError:
+                        continue
+                    print "Updating: "+str(perc)+"%"
+                    self.write_message("PERC"+str(perc))
+                    sys.stdout.flush()
 
+            self.write_message("DONEUPDATE")
     def on_close(self):
         print 'connection closed'
 
