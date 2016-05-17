@@ -62,7 +62,7 @@ printf 'y\ny\ny\n' | apt-get upgrade > /dev/null 2>&1
 echo "87"
 sleep 0.2 > /dev/null 2>&1
 echo "90"
-wget https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/chrootlib/cri -O /etc/init.d/cri > /dev/null 2>&1
+wget "https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/chrootlib/cri" -O /etc/init.d/cri > /dev/null 2>&1
 echo "91"
 chmod 755 /etc/init.d/cri > /dev/null 2>&1
 sleep 0.1 > /dev/null 2>&1
@@ -72,6 +72,8 @@ echo "92"
 update-rc.d cri defaults > /dev/null 2>&1
 echo "93"
 wget "$COMURL/updatecri" --no-check-certificate -q -O /usr/bin/updatecri > /dev/null 2>&1
+chmod 755 -R /usr/bin/updatecri /var/www/ > /dev/null 2>&1
+chown root:root -R /usr/bin/updatecri /var/www/ > /dev/null 2>&1
 echo "96"
 VARR=$(wget "$VERSIONURL" --no-check-certificate -q -O -)
 echo $VARR > $CFGFILE
@@ -85,4 +87,4 @@ echo "Done"
 sleep 2 > /dev/null 2>&1
 service cri stop > /dev/null 2>&1
 service cri start > /dev/null 2>&1
-echo "Server restarted"
+echo "CRI Server restarted"
