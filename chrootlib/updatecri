@@ -15,19 +15,19 @@ fi
 echo "5"
 printf "y\ny\ny\n" | apt-get install git > /dev/null 2>&1
 echo "8"
-sudo mkdir -p $UPFOLDER/tmpStore > /dev/null 2>&1
+mkdir -p $UPFOLDER/tmpStore > /dev/null 2>&1
 cd $UPFOLDER/tmpStore > /dev/null 2>&1
-sudo chmod -R 755 ../* > /dev/null 2>&1
-sudo chown -R root:root ../* > /dev/null 2>&1
-sudo rm -rf .git > /dev/null 2>&1
+chmod -R 755 ../* > /dev/null 2>&1
+chown -R root:root ../* > /dev/null 2>&1
+rm -rf .git > /dev/null 2>&1
 echo "14"
 git config --global user.email "pseudonymous.coders@gmail.com" > /dev/null 2>&1
 git config --global user.name "Pseudonymous_Coders" > /dev/null 2>&1
-sleep 1 2&>/dev/null
+sleep 1 > /dev/null 2>&1
 git init > /dev/null 2>&1
-sleep 1 2&>/dev/null
-git remote add -f origin "https://github.com/Pseudonymous-coders/CRI.git" 2&>/dev/null
-sleep 0.2 2&>/dev/null
+sleep 1 > /dev/null 2>&1
+git remote add -f origin "https://github.com/Pseudonymous-coders/CRI.git" > /dev/null 2>&1
+sleep 0.2 > /dev/null 2>&1
 git config core.sparseCheckout true > /dev/null 2>&1
 chown -R $USER:$USER ../ > /dev/null 2>&1
 chmod -R 755 ../ > /dev/null 2>&1
