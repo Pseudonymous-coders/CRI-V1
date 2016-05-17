@@ -82,6 +82,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
             print "Done removing "+message[6:]
             print "Sending Applist"
             apps = getApps() 
+            self.write_message("REMOVED")
             self.write_message("\n".join(apps)) 
 
         

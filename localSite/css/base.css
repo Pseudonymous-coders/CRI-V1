@@ -21,7 +21,8 @@ body {
     top: 0.5%;
     font-size: 35px;
     font-weight: bold;
-    color: red;
+    color: yellowgreen;
+    z-index: 999;
 }
 
 a {

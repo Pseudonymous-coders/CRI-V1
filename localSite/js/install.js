@@ -23,7 +23,10 @@ ws.onopen = function() {
 
 ws.onmessage = function(str) {
     if (str.data == "DONEINSTALL") {
-        document.getElementById('items').innerHTML = "<h2>Installed</h2>";
+        document.querySelector('.notify').innerHTML = "Installed";
+        setTimeout(function() {
+            document.querySelector('.notify').innerHTML = "<a href='index.html'>CRI</a>";
+        }, 3000);
     } else {
         if (str.data.split("\n").length > 2000){
             document.getElementById('items').innerHTML = "";
@@ -67,7 +70,7 @@ function search() {
 function install(name) {
     if (confirm("Are you sure if you want to install "+name+"?")) {
         ws.send("INSTALL"+name);
-        document.getElementById('items').innerHTML = "<h2>Installing "+name+"</h2>";
+        document.querySelector('.notify').innerHTML = "Installing "+name;
     }
 }
 

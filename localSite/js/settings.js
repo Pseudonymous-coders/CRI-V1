@@ -39,8 +39,8 @@ ws.onmessage = function(str) {
 }
 
 ws.onclose = function() {
-    document.getElementById('mainText').innerHTML = "CRI is down";
     document.getElementById('subText').innerHTML = "We're sorry :(";
+    document.querySelector('.notify').innerHTML = "CRI is down";
 }
 
 function stopAll() {
@@ -64,11 +64,15 @@ function doneUpdate() {
     document.querySelector('.notify').innerHTML = "Done Updating, please refresh";
     document.getElementById('update-stat').style.visibility = "hidden";
     document.getElementById('cover').style.visibility = "hidden";
+    setTimeout( function(){
+        document.querySelector('.notify').innerHTML = "<a href='index.html'>CRI</a>"
+    }, 3000);
 }
 
-$(".cool").click(function() {
-    $(".cool").toggleClass("cool-active");
+$(".program").click(function() {
+    $(".program").toggleClass("program-active");
 });
+
 
 $(".danger").click(function() {
     $(".danger").toggleClass("danger-active");

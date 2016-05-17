@@ -15,12 +15,15 @@ setTimeout(function (){
 }, 200)
 
 ws.onopen = function() {
-    
     ws.send("APPLIST");
 }
 
 function progClicked(id) {
+    document.querySelector('.notify').innerHTML = "Running "+id;
     ws.send("RUN"+id);
+    setTimeout(function() {
+        document.querySelector('.notify').innerHTML = "<a href='index.html'>CRI</a>";
+    }, 3000);
 }
 
 ws.onmessage = function(str) {

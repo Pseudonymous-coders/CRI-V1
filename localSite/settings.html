@@ -1,5 +1,5 @@
 <html lang="en">
-<div class="notify">CRI</div>
+<div class="notify"><a href="index.html">CRI</a></div>
  
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -81,9 +81,15 @@
             <div id="update-stat">Updating CRI, please wait</div>
             <button id="update" onclick="update()">Update Cri</button>
         </div>
-        <div id="program">
-            Program
-            <button id="stopall" onclick="stopAll()">Stop all programs</button>
+        <div class="program-container">
+            <div class="program">
+                <div id="front">
+                    <p>Program</p>
+                </div>
+                <div id="back">
+                    <button id="stopall" onclick="stopAll()">Stop all programs</button>
+                </div>
+            </div>
         </div>
         <div id="package">
             Package
