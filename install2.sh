@@ -183,7 +183,7 @@ sudo enter-chroot -u root runner
 clear
 
 echo "Please customize your theme!"
-sudo writer "printf '\n\n\n\n' % add-apt-repository ppa:moka/stable+sleep 1+chmod -R 777 /var/+printf '\n\n\n\n' % add-apt-repository ppa:numix/ppa+sleep1+printf 'y\n\n' % apt-get update+printf 'y\ny\ny\n' % apt-get install numix-icon-theme numix-icon-theme-circle moka-icon-theme lxappearance+sleep 0.5+xiwi lxappearance"
+sudo writer "printf '\n\n\n\n' % add-apt-repository ppa:moka/stable+sleep 1+chmod -R 777 /var/+printf '\n\n\n\n' % add-apt-repository ppa:numix/ppa+sleep1+printf 'y\n\n' % apt-get update+printf 'y\ny\ny\n' % apt-get install sudo apt-get install numix-gtk-theme moka-gtk-theme numix-icon-theme numix-icon-theme-circle moka-icon-theme lxappearance+sleep 0.5+xiwi lxappearance"
 sleep 0.5
 sudo enter-chroot -u root runner
 
