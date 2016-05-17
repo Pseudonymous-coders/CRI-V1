@@ -1,0 +1,12 @@
+/libssh2
+/zlibpkg
+/python
+/curl
+/perl
+/gettext
+/expat
+/git
+/crouton
+/writed
+/criupdater
+/rootmounted
