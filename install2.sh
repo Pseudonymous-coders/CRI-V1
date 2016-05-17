@@ -133,13 +133,13 @@ sudo writer "pip install --upgrade pip+pip install --upgrade virtualenv+"
 sleep 0.5
 sudo enter-chroot -u root runner
 # Since we want http://cri/ we need to add them to the hosts
-if [[ ! -z $(grep 'cri' '/etc/hosts') ]];  then echo "cri already in host file"; else sudo su -c "sudo echo '127.0.0.1       cri' >> /etc/hosts"; fi
-if [[ ! -z $(grep 'cri' "$CROUTON/etc/hosts") ]];  then echo "cri already in chroot host file"; else sudo su -c "sudo echo '127.0.0.1       cri' >> $CROUTON/etc/hosts"; fi
+if [[ ! -z $(grep ' cri' '/etc/hosts') ]];  then echo "cri already in host file"; else sudo su -c "sudo echo '127.0.0.1       cri' >> /etc/hosts"; fi
+if [[ ! -z $(grep ' cri' "$CROUTON/etc/hosts") ]];  then echo "cri already in chroot host file"; else sudo su -c "sudo echo '127.0.0.1       cri' >> $CROUTON/etc/hosts"; fi
 
 echo "Double checking...
 "
-if [[ ! -z $(grep 'cri' '/etc/hosts') ]];  then echo "cri already in host file"; else sudo su -c "echo '127.0.0.1       cri' >> /etc/hosts"; fi
-if [[ ! -z $(grep 'cri' "$CROUTON/etc/hosts") ]];  then echo "cri already in chroot host file"; else sudo su -c "echo '127.0.0.1       cri' >> $CROUTON/etc/hosts"; fi
+if [[ ! -z $(grep ' cri' '/etc/hosts') ]];  then echo "cri already in host file"; else sudo su -c "echo '127.0.0.1       cri' >> /etc/hosts"; fi
+if [[ ! -z $(grep ' cri' "$CROUTON/etc/hosts") ]];  then echo "cri already in chroot host file"; else sudo su -c "echo '127.0.0.1       cri' >> $CROUTON/etc/hosts"; fi
 
 #sudo writer 'if '+"[["+' ! -z $(grep "cri" "/etc/hosts") '+"]]"+'+  then echo "cri already in host file"+ else echo "127.0.0.1       cri" >> /etc/hosts"+ fi'
 
@@ -218,8 +218,8 @@ sudo chmod 755 $CFGFILE
 
 if [ ! -e "$CFGFILE" ]; then
     echo "Continue..."
-    sudo su -c "touch $CFGFILE"
-    sudo su -c "echo \"VERSION0.0ENDVERSION...NAMEnoneENDNAME...DATE1/1/16ENDDATE\" > $CFGFILE"
+    sudo touch $CFGFILE
+    sudo echo "VERSION0.0ENDVERSION...NAMEnoneENDNAME...DATE1/1/16ENDDATE" > $CFGFILE
 fi
 
 echo "Thanks for installing CRI MATES!"
