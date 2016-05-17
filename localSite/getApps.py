@@ -12,7 +12,7 @@ def getApps():
     apps = apps.split('\n')
     apps.remove('')
     appLen = len(apps)
-    f = open("no.list")
+    f = open("/var/www/no.list")
     noList = f.read()
     noList = noList.split("\n")
     f.close()
