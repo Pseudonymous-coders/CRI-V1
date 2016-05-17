@@ -138,10 +138,10 @@ header #version #update-stat {
     transform: translateX(-100%) rotateY(-180deg);
 }
 
-.program-container {
+.package-container {
     position: absolute;
     bottom: 5%;
-    left: 2%;
+    right: 2%;
     height: 40%;
     width: 30%;
     outline: none;
@@ -149,7 +149,7 @@ header #version #update-stat {
     perspective: 700px;
 }
 
-.program-container .program {
+.package-container .package {
     position: absolute;
     height: 100%;
     width: 100%;
@@ -163,15 +163,15 @@ header #version #update-stat {
 }
 
 .package-container #front p{
-    position: absolute;
-    width: 100%;
-    height: 100%;
     font-size: 60px;
     display: block;
     backface-visibility: hidden;
 }
 
 .package #front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
     border-radius: 15px;
 }
 
@@ -184,28 +184,31 @@ header #version #update-stat {
     transform: rotateY(180deg);
 }
 
-.package #back button {
+.package #back input {
     position: absolute;
     font-weight: bold;
     border: none;
     color: white;
-    text-align: center;
     display: inline-block;
     position: absolute;
     background-color: rgba(214,73,55,0.8);
     border-radius: 15px;
     border: none;
     color: white;
-    text-size: 20pt;
 }
 
-.program #back #stopall {
+.program #back #PPA {
+    font-size: 20px;
     top: 15%;
     left: 5%;
     outline: none;
 }
 
-.program-active {
+.program #back #addPPA {
+    text-align: center;
+}
+
+.package-active {
     background-color: #F44336;
     transform: translateX(-100%) rotateY(-180deg);
 }

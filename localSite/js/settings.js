@@ -2,7 +2,7 @@ $('#siteNav').affix({
     offset: {
         top: 100
     }
-})
+});
 
 ws = new WebSocket('ws://localhost:9098/ws');
 
@@ -73,9 +73,12 @@ $(".program").click(function() {
     $(".program").toggleClass("program-active");
 });
 
-
 $(".danger").click(function() {
     $(".danger").toggleClass("danger-active");
+});
+
+$(".package").click(function() {
+    $(".package").toggleClass("package-active");
 });
 
 function startTimer(duration, display) {
