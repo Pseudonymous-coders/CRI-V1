@@ -7,13 +7,23 @@ $('#siteNav').affix({
     }
 })
 
-ws = new WebSocket('ws://localhost:9098/ws')
+ws = new WebSocket("ws://localhost:9098/ws");
+setTimeout(function (){
+    if (ws.readyState == (0 || 3)) {
+        window.location = "index.html";
+    }
+}, 200)
+
 ws.onopen = function() {
     ws.send("APPLIST");
 }
 
 function progClicked(id) {
+    document.querySelector('.notify').innerHTML = "Running "+id;
     ws.send("RUN"+id);
+    setTimeout(function() {
+        document.querySelector('.notify').innerHTML = "<a href='index.html'>CRI</a>";
+    }, 3000);
 }
 
 ws.onmessage = function(str) {

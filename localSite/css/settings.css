@@ -59,17 +59,13 @@ header #version #update {
     right: 5%;
 }
 
-header #program {
+header #version #update-stat {
     position: absolute;
-    background-color: #A3A196;
-    border-radius: 15px;
-    outline: none;
-    font-weight: bold;
-    bottom: 5%;
+    visibility: hidden;
+    bottom: 2%;
     left: 2%;
-    height: 40%;
-    width: 30%;
 }
+
 
 header #program #stopall {
     position: absolute;
@@ -85,6 +81,78 @@ header #program #stopall {
     text-size: 20pt;
     display: inline-block;
     font-size: 16px;
+}
+
+.program-container {
+    position: absolute;
+    bottom: 5%;
+    left: 2%;
+    height: 40%;
+    width: 30%;
+    outline: none;
+    font-weight: bold;
+    perspective: 700px;
+}
+
+.program-container .program {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #4CAF50;
+    border-radius: 15px;
+    outline: none;
+    font-weight: bold;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    transform-origin: right center;
+}
+
+.program-container #front p{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-size: 60px;
+    display: block;
+    backface-visibility: hidden;
+}
+
+.program #front {
+    border-radius: 15px;
+}
+
+.program #back {
+    background-color: #388E3C;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    transform: rotateY(180deg);
+}
+
+.program #back button {
+    font-weight: bold;
+    border: none;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    position: absolute;
+    background-color: rgba(214,73,55,0.8);
+    border-radius: 15px;
+    border: none;
+    color: white;
+    text-size: 20pt;
+}
+
+.program #back #stopall {
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    outline: none;
+}
+
+.program-active {
+    background-color: #F44336;
+    transform: translateX(-100%) rotateY(-180deg);
 }
 
 header #package {
@@ -131,7 +199,7 @@ header form #PPA {
     height: 10%;
 }
 
-header #danger {
+.danger-container {
     position: absolute;
     bottom: 5%;
     left: 37.5%;
@@ -139,38 +207,71 @@ header #danger {
     width: 25%;
     outline: none;
     font-weight: bold;
-    border-radius: 15px;
-    background-color: #d50000;
+    perspective: 700px;
 }
 
-header #danger #removeCri {
+.danger-container .danger {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    background-color: #F44336;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    transform-origin: right center;
+}
+
+.danger-container #front p{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-size: 60px;
+    display: block;
+}
+
+.danger #front {
+    border-radius: 15px;
+    backface-visibility: hidden;
+}
+
+.danger #back {
+    background-color: #D32F2F;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+}
+
+.danger #back button {
+    outline: none;
+    background-color: rgba(214,73,55,0.8);
+    border-radius: 15px;
+    font-weight: bold;
+    border: none;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.danger #back #removeCri {
     position: absolute;
     top: 10%;
     left: 5%;
     outline: none;
-    background-color: rgba(214,73,55,0.8);
-    border-radius: 15px;
-    font-weight: normal;
-    border: none;
-    color: white;
-    text-align: center;
-    display: inline-block;
-    font-size: 16px;
 }
 
-header #danger #reinstallCri {
+.danger #back #reinstallCri {
     position: absolute;
     top: 25%;
     left: 5%;
     outline: none;
-    background-color: rgba(214,73,55,0.8);
-    border-radius: 15px;
-    font-weight: normal;
-    border: none;
-    color: white;
-    text-align: center;
-    display: inline-block;
-    font-size: 16px;
+}
+
+.danger-active {
+    transform: translateX(-100%) rotateY(-180deg);
 }
 
 #cover {
@@ -185,37 +286,11 @@ header #danger #reinstallCri {
 
 #cover #loading {
     position: absolute;
-    height: 30%;
-    width: 20%;
-    top: 50%;
-    left: 50%;
-    margin-top: -50px;
-    margin-left: -100px;
-}
-
-.cool-container {
-    perspective: 700;
-}
-
-.cool-container .cool {
-    position: absolute;
-    top: 10%;
-    left: 2%;
-    height: 40%;
-    width: 30%;
-    border-radius: 15px;
-    background-color: #5677fc;
-    transition: all 0.6s ease;
-    transform-style: preserve-3d;
-}
-
-.cool-container .cool-btn:active {
-    background-color: red;
-    transform: rotateY(180deg);
+    top: 27%;
+    left: 37%;
 }
 
 @media(min-width:768px) {
     header {
         min-height: 100%;
     }
-}

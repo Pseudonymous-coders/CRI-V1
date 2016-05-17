@@ -31,9 +31,9 @@ def BGImg():
             data = json.load(response)
             url = "http://bing.com"+str(data['images'][0]['url'])
             if CB is not 1:
-                os.system('wget -q -T 10 '+url+' -O /var/www/html/localSite/images/header.jpg')
+                os.system('wget -q '+url+' -O /var/www/html/localSite/images/header.jpg')
             else:
-                os.system('wget -q -T 10 '+url+' -O /var/www/images/header.jpg')
+                os.system('wget -q '+url+' -O /var/www/images/header.jpg')
 
             print "Got new BG Image"
             time.sleep(3600*1)
@@ -65,7 +65,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
                 Popen("xiwi "+message[3:], shell=True, executable="/bin/bash")
         if message[:7] == "INSTALL":
             print "installing: "+message[7:]
-            install = Popen("echo y | apt-get -qq install "+message[7:], executable="/bin/bash")
+            os.system("echo y | apt-get -qq install "+message[7:])
             print "Done installing: "+message[7:]
             self.write_message("DONEINSTALL")
             # install = Thread(target=installer, args=(self, message[7:],))
@@ -80,6 +80,11 @@ class WSHandler(tornado.websocket.WebSocketHandler):
             print "removing: "+message[6:]
             os.system("echo y | apt-get remove "+message[6:])
             print "Done removing "+message[6:]
+            print "Sending Applist"
+            apps = getApps() 
+            self.write_message("REMOVED")
+            self.write_message("\n".join(apps)) 
+
         
         if message[:3] == "VER":
             print "Sending versions"

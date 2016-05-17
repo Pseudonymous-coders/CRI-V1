@@ -12,7 +12,10 @@ def getApps():
     apps = apps.split('\n')
     apps.remove('')
     appLen = len(apps)
-
+    f = open("no.list")
+    noList = f.read()
+    noList = noList.split("\n")
+    f.close()
     for app in apps:
         f = open('/usr/share/applications/'+app+'.desktop') 
         content = f.read()
@@ -21,6 +24,8 @@ def getApps():
         appIcon = re.findall(r'Icon=(.*?)\n', content, re.DOTALL)
         appCom = filter(None, appCom)
         appCom.append("None")
+        if app in noList:
+            continue
         if appCom[0] is "None":
             continue
         appCom.remove("None")

@@ -1,12 +1,10 @@
-
-// Offset for Site Navigation
 $('#siteNav').affix({
     offset: {
         top: 100
     }
 })
 
-document.getElementById('up-btn').style.visibility = "hidden";
+document.getElementById('down-btn').style.visibility = "hidden";
 
 var coms = '<div class="row promo">' +
 '    <a id="com" onclick="cmdRun()">'+
@@ -38,13 +36,13 @@ try {
     document.getElementById('mainText').innerHTML = "CRI is down, please restart";
     document.getElementById('subText').innerHTML = "We're sorry :(";
     document.getElementById('coms').innerHTML = "";
-    document.getElementById('up-btn').style.visibility = "hidden";
+    document.getElementById('down-btn').style.visibility = "hidden";
 }
 
 ws.onopen = function() {
     document.getElementById("mainText").innerHTML = "CRI";
     document.getElementById("subText").innerHTML = "Your new best friend";
-    document.getElementById('up-btn').style.visibility = "visible";
+    document.getElementById('down-btn').style.visibility = "visible";
     ws.send("connected");
     document.getElementById('coms').innerHTML = coms;
 
@@ -62,7 +60,7 @@ ws.onclose = function() {
     document.getElementById('mainText').innerHTML = "CRI is down, please restart";
     document.getElementById('subText').innerHTML = "We're sorry :(";
     document.getElementById('coms').innerHTML = "";
-    document.getElementById('up-btn').style.visibility = "hidden";
+    document.getElementById('down-btn').style.visibility = "hidden";
 }
 
 
@@ -78,10 +76,11 @@ function cmdRemove() {
     window.location = "remove.html";
 }
 
-$('#up-btn').on('click', function(e){
-        e.preventDefault();
-            var target= $(this).get(0).id == 'ins-btn' ? $('#up-btn') : $('#ins-btn');
-                $('html, body').stop().animate({
-                           scrollTop: target.offset().top
-                        }, 500);
+$('#down-btn').on('click', function(e){
+    e.preventDefault();
+    var target= $(this).get(0).id == 'ins-btn' ? $('#down-btn') : $('#ins-btn');
+    $('html, body').stop().animate({
+        scrollTop: target.offset().top
+    }, 500);
 });
+

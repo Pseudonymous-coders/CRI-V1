@@ -1,8 +1,11 @@
 <html lang="en">
-
+<div class="notify"><a href="index.html">CRI</a></div>
+ 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CRI</title>
+    <link rel="icon" href="images/CRI-LOGO.png">
+
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -10,6 +13,7 @@
     <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
     <link href="css/base.css"     rel="stylesheet">
     <link href="css/settings.css" rel="stylesheet">
+    <link href="css/loading.css"  rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -74,12 +78,18 @@
                 Current release:  <p id="rel"></p> <br>
                 Release date:     <p id="dat"></p> <br>
             </div>
-            <p id="update-stat"></p>
+            <div id="update-stat">Updating CRI, please wait</div>
             <button id="update" onclick="update()">Update Cri</button>
         </div>
-        <div id="program">
-            Program
-            <button id="stopall" onclick="stopAll()">Stop all programs</button>
+        <div class="program-container">
+            <div class="program">
+                <div id="front">
+                    <p>Program</p>
+                </div>
+                <div id="back">
+                    <button id="stopall" onclick="stopAll()">Stop all programs</button>
+                </div>
+            </div>
         </div>
         <div id="package">
             Package
@@ -88,17 +98,32 @@
                 <input type="text" id="PPA">
             </form>
         </div>
-        <div id="danger">
-            Danger
-            <button id="removeCri">Remove CRI</button>
-            <button id="reinstallCri">Reinstall CRI</button>
+        <div class="danger-container">
+            <div class="danger">
+                <div id="front">
+                    <p>Danger</p>
+                </div>
+                <div id="back">
+                    <button id="removeCri">Remove CRI</button>
+                    <button id="reinstallCri">Reinstall CRI</button>
+                </div>
+            </div>
         </div>
-        <div class="cool-container">
-            <div class="cool"><button class="cool-btn">Coolness</button></div>
-        </div>
-
     </header>
-    <div id="cover"><img id="loading" src="images/loading.gif"></div>
+    <div id="cover">
+        <div id="loading">
+            <div id="cssload-pgloading">
+                <div class="cssload-loadingwrap">
+                    <ul class="cssload-bokeh">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div> 
+        </div>
+    </div>
     <!-- Promos -->
 	<!-- Footer -->
     <!-- jQuery -->
