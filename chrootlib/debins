@@ -1,0 +1,5 @@
+#!/bin/bash
+echo "Installing deb package with depends..."
+dpkg -i "$1" # Install the deb as usual
+apt-get install -f # Install the depends
+echo "Finished..."
