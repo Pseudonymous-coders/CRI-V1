@@ -115,12 +115,15 @@ sudo chown -R $USER:$USER ../
 sudo chmod -R 755 ../
 sudo echo "localSite/" >> .git/info/sparse-checkout
 git pull --depth=1 origin master
+sudo rm -rf .git
 sudo mv localSite/* .
 sudo rm -rf localSite
 
 echo "
 Finished setting up local server, installing webpysock Server...
 "
+
+clear
 
 sudo writer "printf 'y\ny\ny\n' % apt-get install python python-dev python-pycurl python-simplejson sqlite3 python-pip build-essential python-tornado"
 sleep 0.5
@@ -148,37 +151,51 @@ sudo writer "printf 'y\ny\ny\n' % apt-get install software-properties-common pyt
 sleep 0.5
 sudo enter-chroot -u root runner
 
+clear
+
 echo "Getting fonts"
 cd $CTEMP
 sudo writer "mkdir -p /usr/share/fonts/truetype/ttf-ubuntu+wget http://font.ubuntu.com/download/ubuntu-font-family-0.83.zip -O ~/font.zip+cd+unzip font.zip+cd ubuntu-font-family-0.83+cp -r * /usr/share/fonts/truetype/ttf-ubuntu/"
 sleep 0.5
 sudo enter-chroot -u root runner
 
+clear
+
 echo "Configuring i3"
 sudo writer "wget https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/chrootlib/xiwi.conf -O /etc/crouton/xiwi.conf"
 sleep 0.5
 sudo enter-chroot -u root runner
+
+clear
 
 echo "Getting nice looking terminal"
 sudo writer "printf 'y\ny\ny\n' % apt-get install gnome-terminal+gconftool-2 --set /apps/gnome-terminal/profiles/Default/use_system_font --type boolean false+gconftool-2 --set /apps/gnome-terminal/profiles/Default/font --type string \"Ubuntu Mono 14\"+gconftool-2 --set /apps/gnome-terminal/profiles/Default/title --type string CRIterm" # Add gnome terminal
 sleep 0.5
 sudo enter-chroot -u root runner
 
+clear
+
 echo "Updating nice lookin terminal reinit settings"
 sudo writer "gconftool-2 --set /apps/gnome-terminal/profiles/Default/title_mode --type string after"
 sleep 0.5
 sudo enter-chroot -u root runner
 
+clear
+
 echo "Please customize your theme!"
-sudo writer "printf '\n\n\n\n' % add-apt-repository ppa:moka/stable+sleep 1+printf '\n\n\n\n' % add-apt-repository ppa:numix/ppa+sleep1+printf 'y\n\n' % apt-get update+printf 'y\ny\ny\n' % apt-get install numix-icon-theme numix-icon-theme-circle moka-icon-theme lxappearance+sleep 0.5+xiwi lxappearance"
+sudo writer "printf '\n\n\n\n' % add-apt-repository ppa:moka/stable+sleep 1+chmod -R 777 /var/+printf '\n\n\n\n' % add-apt-repository ppa:numix/ppa+sleep1+printf 'y\n\n' % apt-get update+printf 'y\ny\ny\n' % apt-get install numix-icon-theme numix-icon-theme-circle moka-icon-theme lxappearance+sleep 0.5+xiwi lxappearance"
 sleep 0.5
 sudo enter-chroot -u root runner
+
+clear
 
 echo "Adding to start up script..."
 sudo writer "wget https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/chrootlib/cri -O /etc/init.d/cri+chmod 755 /etc/init.d/cri+sleep 0.1+update-rc.d -f cri remove+sleep 1+update-rc.d cri defaults+sudo echo 'PATH=\$PATH:/usr/games/' >> ~/.bashrc"
 sleep 0.5
 sudo enter-chroot -u root runner
 echo "Added cri to the chroot startup"
+
+clear
 
 echo "Adding update files..."
 
