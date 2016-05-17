@@ -5,7 +5,7 @@ echo "Getting vars...
 CGLOBS=~/Downloads/.tmp/globs
 CTEMP=~/Downloads/.tmp
 URL="https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master"
-UPFOLDER=~/Download/.tmp/cridate
+UPFOLDER=~/Downloads/.tmp/cridate
 CFGFILE=$UPFOLDER/cri.cfg
 sudo mkdir -p $CGLOBS ~/Downloads/.tmp
 cd $CGLOBS
@@ -182,17 +182,20 @@ echo "Added cri to the chroot startup"
 
 echo "Adding update files..."
 
-if [ ! -d "$UPFOLDER" ]; then
-	sudo su -c "mkdir -p $UPFOLDER" 2&>/dev/null
-fi
+if [ ! -d "$UPFOLDER" ]; then sudo mkdir -p $UPFOLDER; fi
 
 sudo chown -R $USER:$USER $UPFOLDER
 sudo chmod -R 755 $UPFOLDER
 
+sleep 1
+
+sudo chown $USER:$USER $CFGFILE
+sudo chmod 755 $CFGFILE
+
 if [ ! -e "$CFGFILE" ]; then
     echo "Continue..."
-    sudo touch $CFGFILE
-    sudo echo "VERSION0.0ENDVERSION...NAMEnoneENDNAME...DATE1/1/16ENDDATE" > $CFGFILE
+    sudo su -c "touch $CFGFILE"
+    sudo su -c "echo \"VERSION0.0ENDVERSION...NAMEnoneENDNAME...DATE1/1/16ENDDATE\" > $CFGFILE"
 fi
 
 echo "Thanks for installing CRI MATES!"
