@@ -4,7 +4,7 @@
   "name": "CRI application extension",
   "short_name": "CRI",
   "description": "An extension to support the CRI front end, based off of crouton integration",
-  "version": "2.5.5",
+  "version": "2.7.2",
   "icons": {
     "48": "icon-48.png",
     "128": "icon-128.png"
@@ -18,6 +18,9 @@
     },
     "default_popup": "popup.html",
     "default_title": "CRI"
+  },
+  "chrome_url_overrides" : {
+    "newtab": "criOpen.html"
   },
   "background": {
     "page": "background.html"

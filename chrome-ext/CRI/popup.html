@@ -10,12 +10,9 @@
     <style type="text/css">
       body {
         min-width: 625px;
+	min-height: 800px;
         max-width: 625px;
         overflow-x: hidden;
-      }
-
-      a { // Do not show focus outline
-        outline: 0;
       }
 
       #windowlist {
@@ -27,36 +24,6 @@
         border: 0px;
         border-spacing: 0;
       }
-
-      a.button {
-	  -moz-box-shadow:inset 0px 1px 0px 0px #9acc85;
-	  -webkit-box-shadow:inset 0px 1px 0px 0px #9acc85;
-	  box-shadow:inset 0px 1px 0px 0px #9acc85;
-	  background-color:#44c767;
-	  -moz-border-radius:3px;
-	  -webkit-border-radius:3px;
-	  border-radius:3px;
-	  border:1px solid #18ab29;
-          margin-right:3px;
-          margin-top:5px;
-          margin-bottom:4px;
- 	  display:inline-block;
-	  cursor:pointer;
-	  color:#ffffff;
-	  font-family:Trebuchet MS;
-	  font-size:11px;
-	  font-weight:bold;
-	  padding:5px 11px;
-	  text-decoration:none;
-        }
-
-       a.button:hover {
-	   background-color:#5cbf2a;
-        }
-       a.button:active {
-       	   position:relative;
-	   top:1px;
-        }
 
       td {
         font-family: "monospace";
@@ -109,13 +76,17 @@
           margin-bottom:1px;
       }
 
+      label {
+        display:inline;
+      }
+
       #info {
         margin-left:0px;
         font-size:30px;
       }
 
       #logbar {
-         float: bottom;
+	float: bottom;
       }
 
       td.value {
@@ -139,6 +110,13 @@
       <span href="http://cri/" class="mdl-layout-title">CRI extension</span>
     </div>
   </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">CRI</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="https://github.com/Pseudonymous-coders/CRI" target="_blank">Github</a>
+      <a class="mdl-navigation__link" href="./first.html" target="_blank">Help Page</a>
+    </nav>
+  </div>
   <main class="mdl-layout__content">
     <div id="page-contenter" class="page-content">
     <div>
@@ -152,8 +130,20 @@
     <div id="switcher"><table id="windowlist"><tr><td /></tr></table></div>
     <div id="scrolllogger"><table id="logger"><tr><td /></tr></table></div>
     <div id="logbar" style="float:right">
+	<!--<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="hidpicheck">
+  		<input type="checkbox" id="hidpicheck" class="mdl-checkbox__input" checked>
+  		<span class="mdl-checkbox__label">High DPI</span>
+	</label>
+        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="logcheck">
+                <input type="checkbox" id="logcheck" class="mdl-checkbox__input" checked>
+                <span class="mdl-checkbox__label">Show log</span>
+        </label>
+        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="debugcheck">
+                <input type="checkbox" id="debugcheck" class="mdl-checkbox__input" checked>
+                <span class="mdl-checkbox__label">Enable debugging</span>
+        </label>-->
       <input type="checkbox" id="hidpicheck" />
-        <label for="hidpicheck">High DPI</label>
+        <label for="hidpicheck">HiDPI</label>
       <input type="checkbox" id="logcheck" />
         <label for="logcheck">Show log</label>
       <input type="checkbox" id="debugcheck" />
