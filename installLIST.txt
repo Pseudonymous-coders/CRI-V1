@@ -10,3 +10,5 @@
 /writed
 /criupdater
 /rootmounted
+/cristarter
+/crifix
