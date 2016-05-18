@@ -169,7 +169,8 @@ sleep 2
 clear
 
 echo "Updating version file"
-sudo su -c "echo $VARR > $CFGFILE;chmod 755 $CFGFILE;chown $USER:$USER $CFGFILE" # Reset version to the current version
+sudo chmod $CFGFILE
+sudo echo "$(sudo wget "https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/globs/cri.cfg" --no-check-certificate -q -O -)" > ~/Downloads/.tmp/cridate/cri.cfg 
 echo "
 
 Done thanks for updating CRI

@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "Attempting to fix cri files..."
+sudo wget -q -O - https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/install2.sh | bash
+sleep
+echo "
+
+
+Done...
+
+"
+

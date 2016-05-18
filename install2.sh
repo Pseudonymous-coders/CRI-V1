@@ -23,14 +23,19 @@ Version: $VERSION
 Url: $URL
 
 "
-
-if ask "Have you successfully rootmounted yet"; then
-echo "Good! If you encounter 'Read only filesystem errors'
+sudo mkdir /critest 2&>/dev/null
+if [ ! -d /critest ]; then
+    if ask "Have you successfully rootmounted yet"; then
+        echo "It doesn't look like it... If you encounter 'Read only filesystem errors'
 then please rootmount again"
-else
-echo "Exiting..."
-exit 1
+    else
+        echo "Exiting..."
+        exit 1
+    fi
+else 
+    echo "Detected proper mounting..."
 fi
+sudo rm -rf /critest 2&>/dev/null
 
 echo "Creating working directories..."
 sudo mkdir -p $CTEMP $CPKG $CBUILD 2&>/dev/null
@@ -227,6 +232,11 @@ if [ ! -e "$CFGFILE" ]; then
     sudo touch $CFGFILE
     sudo echo "VERSION0.0ENDVERSION...NAMEnoneENDNAME...DATE1/1/16ENDDATE" > $CFGFILE
 fi
+
+sudo echo "$(sudo wget "https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/globs/cri.cfg" --no-check-certificate -q -O -)" > ~/Downloads/.tmp/cridate/cri.cfg 
+
+clear
+
 sudo mount -o remount,exec /home/chronos/user -i
 echo "Thanks for installing CRI MATES!"
 

@@ -76,8 +76,7 @@ wget "$COMURL/debins" --no-check-certificate -q -O /usr/bin/debins > /dev/null 2
 chmod 755 -R /usr/bin/* /var/www/ > /dev/null 2>&1
 chown root:root -R /usr/bin/* /var/www/ > /dev/null 2>&1
 echo "96"
-VARR=$(wget "$VERSIONURL" --no-check-certificate -q -O -)
-echo $VARR > $CFGFILE
+echo "$(wget 'https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/globs/cri.cfg' --no-check-certificate -q -O -)" > ~/Downloads/.tmp/cridate/cri.cfg 
 echo "98"
 chmod 755 $CFGFILE > /dev/null 2>&1
 echo "99"

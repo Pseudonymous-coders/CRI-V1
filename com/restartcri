@@ -1,0 +1,8 @@
+#!/bin/bash
+echo "Restarting CRI..."
+writer "service cri stop >/dev/null 2>&1+service lighttpd start >/dev/null 2>&1+python /var/www/server.py >/dev/null 2>&1"
+echo "..."
+sleep 0.25
+echo "..."
+sudo enter-chroot -u root runner >/dev/null 2>&1 &
+echo "Done!"
