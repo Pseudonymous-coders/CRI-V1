@@ -30,17 +30,32 @@ ws.onmessage = function(str) {
         latVer = latest.match("VERSION(.*?)ENDVERSION").pop();
         latRel = latest.match("NAME(.*?)ENDNAME").pop();
         latDat = latest.match("DATE(.*?)ENDDATE").pop();
-        document.getElementById('ver').innerHTML = curVer;
-        document.getElementById('rel').innerHTML = curRel;
-        document.getElementById('dat').innerHTML = curDat;
+        document.querySelector('#cur #ver').innerHTML = curVer;
+        document.querySelector('#cur #rel').innerHTML = curRel;
+        document.querySelector('#cur #dat').innerHTML = curDat;
+        document.querySelector('#lat #ver').innerHTML = latVer;
+        document.querySelector('#lat #rel').innerHTML = latRel;
+        document.querySelector('#lat #dat').innerHTML = latDat;
+
+        if (curVer != latVer) {
+            document.querySelector('#lat').style.visibility = "visible";
+            document.querySelector('#update').style.visibility = "visible";
+        }
+
     }else if (str.data.substring(0, 4) == "PERC") {
         perc = str.data.substring(4);
         document.querySelector('.notify').innerHTML = "Updating... "+perc+"%";
+
     } else if (str.data.substring(0, 10) == "DONEUPDATE") {
         document.querySelector('.notify').innerHTML = "Finalizing...";
+        document.querySelector('#cover').style.visibility = "hidden";
         setTimeout(function() {
-            document.querySelector('.notify').innerHTML = "Done installing, please refresh";
+            document.querySelector('.notify').innerHTML = "Done installing, refreshing..";
+            setTimeout(function() {
+                location.reload();
+            }, 2000);
         }, 6000);
+
     } else if (str.data.substring(0, 10) == "FAILUPDATE") {
         document.querySelector('.notify').innerHTML = "Error updating...";
     }
@@ -57,10 +72,16 @@ function stopAll() {
 
 function update() {
     document.getElementById('cover').style.visibility = "visible";
-    document.getElementById('update-stat').style.visibility = "visible";
     display = document.querySelector('.notify');
     //startTimer(0.3*60, display);
     ws.send("UPDATE");
+}
+
+function remove() {
+    console.log("removing");
+    if (confirm("Are you POSITIVE you want to remove CRI?")) {
+        ws.send("CRIMOVE");
+    }
 }
 
 function addPPA() {
@@ -70,7 +91,6 @@ function addPPA() {
 
 function doneUpdate() {
     document.querySelector('.notify').innerHTML = "Done Updating, please refresh";
-    document.getElementById('update-stat').style.visibility = "hidden";
     document.getElementById('cover').style.visibility = "hidden";
     setTimeout( function(){
         document.querySelector('.notify').innerHTML = "<a href='index.html'>CRI</a>"
@@ -80,15 +100,28 @@ function doneUpdate() {
 $(".program").click(function() {
     $(".program").toggleClass("program-active");
 });
+$(".program #back").click(function(event) {
+    event.stopPropagation();
+    if (event.target.id == "back"){
+        $(".program").toggleClass("program-active");
+    }
+});
+
 
 $(".danger").click(function() {
     $(".danger").toggleClass("danger-active");
 });
+$(".danger #back").click(function(event) {
+    event.stopPropagation();
+    if (event.target.id == "back"){
+        $(".danger").toggleClass("danger-active");
+    }
+});
+
 
 $(".package #front").click(function() {
     $(".package").toggleClass("package-active");
 });
-
 $(".package #back").click(function(event) {
     event.stopPropagation();
     if (event.target.id == "back"){

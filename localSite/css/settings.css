@@ -32,7 +32,7 @@ header #version {
     width: 30%;
 }
 
-header #version #text {
+header #version #cur {
     position: absolute;
     top: 5%;
     left: 5%;
@@ -41,6 +41,17 @@ header #version #text {
     width: 100%;
     height: 40%;
 
+}
+
+header #version #lat {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-weight: normal;
+    text-align: right;
+    width: 100%;
+    height: 40%;
+    visibility: hidden;
 }
 
 header #version #update {
@@ -52,18 +63,14 @@ header #version #update {
     border: none;
     color: white;
     text-align: center;
-    text-size: 20pt;
+    font-size: 20pt;
     display: inline-block;
     font-size: 16px;
     bottom: 5%;
-    right: 5%;
-}
-
-header #version #update-stat {
-    position: absolute;
+    float: center;
     visibility: hidden;
-    bottom: 2%;
-    left: 2%;
+    left: 50%;
+    transform: translate(-50%);
 }
 
 .program-container {

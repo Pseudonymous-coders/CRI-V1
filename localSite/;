@@ -119,15 +119,13 @@ class WSHandler(tornado.websocket.WebSocketHandler):
                     sys.stdout.flush()
 
             self.write_message("DONEUPDATE")
-
         if message[:7] == "CRIMOVE":
-           if CB:
+            if CB:
                 f = open("/root/Downloads/.tmp/REMOVE", w)
            else:
                 f = open("/home/eli/Downloads/.tmp/REMOVE", w)
            f.write("REMOVE")
            f.close()
-
     def on_close(self):
         print 'connection closed'
 

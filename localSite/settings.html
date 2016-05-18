@@ -73,12 +73,16 @@
 
         <div id="version">
             Version
-            <div id="text">
-                Current version:  <p id="ver"></p> <br>
-                Current release:  <p id="rel"></p> <br>
-                Release date:     <p id="dat"></p> <br>
+            <div id="cur">
+                Current version: <p id="ver"></p>
+                Current release: <p id="rel"></p>
+                Release date: <p id="dat"></p>
             </div>
-            <div id="update-stat">Updating CRI, please wait</div>
+            <div id="lat">
+                Latest version: <p id="ver"></p>
+                Latest release: <p id="rel"></p>
+                Relase date: <p id="dat"></p>
+            </div>
             <button id="update" onclick="update()">Update Cri</button>
         </div>
         <div class="program-container">
@@ -110,8 +114,8 @@
                     <p>Danger</p>
                 </div>
                 <div id="back">
-                    <button id="removeCri">Remove CRI</button>
-                    <button id="reinstallCri">Reinstall CRI</button>
+                    <button id="removeCri" onclick="remove()">Remove CRI</button>
+                    <button id="reinstallCri" onclick="update()">Force Update</button>
                 </div>
             </div>
         </div>
