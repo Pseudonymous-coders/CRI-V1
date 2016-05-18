@@ -97,10 +97,10 @@ function doneUpdate() {
     }, 3000);
 }
 
-$(".program").click(function() {
+$(".program #front-flip").click(function() {
     $(".program").toggleClass("program-active");
 });
-$(".program #back").click(function(event) {
+$(".program #back-flip").click(function(event) {
     event.stopPropagation();
     if (event.target.id == "back"){
         $(".program").toggleClass("program-active");
@@ -112,10 +112,7 @@ $(".danger").click(function() {
     $(".danger").toggleClass("danger-active");
 });
 $(".danger #back").click(function(event) {
-    event.stopPropagation();
-    if (event.target.id == "back"){
-        $(".danger").toggleClass("danger-active");
-    }
+    $(".danger-active").toggleClass("danger");
 });
 
 

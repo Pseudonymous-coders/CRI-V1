@@ -89,22 +89,26 @@
             <div class="program">
                 <div id="front">
                     <p>Program</p>
+                    <button id="front-flip">Flip</button>
                 </div>
                 <div id="back">
                     <button id="stopall" onclick="stopAll()">Stop all programs</button>
+                    <button id="back-flip">Flip</button>
                 </div>
             </div>
         </div>
         <div class="package-container">
             <div class="package">
-                <div id=front>
+                <div id="front">
                     <p>Package</p>
+                    <button id="front-flip">Flip</button>
                 </div>
                 <div id="back">
                     <form id="getPPA">
                         <input type="submit" value="Add PPA" id="addPPA" onclick="addPPA()">
                         <input type="text" autocomplete="off" id="PPA">
                     </form>
+                    <button id="back-flip">Flip</button>
                 </div>
             </div>
         </div>
@@ -112,10 +116,12 @@
             <div class="danger">
                 <div id="front">
                     <p>Danger</p>
+                    <button id="front-flip">Flip</button>
                 </div>
                 <div id="back">
                     <button id="removeCri" onclick="remove()">Remove CRI</button>
                     <button id="reinstallCri" onclick="update()">Force Update</button>
+                    <button id="back-flip">Flip</button>
                 </div>
             </div>
         </div>
