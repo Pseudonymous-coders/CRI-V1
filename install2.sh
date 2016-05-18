@@ -227,6 +227,11 @@ if [ ! -e "$CFGFILE" ]; then
     sudo touch $CFGFILE
     sudo echo "VERSION0.0ENDVERSION...NAMEnoneENDNAME...DATE1/1/16ENDDATE" > $CFGFILE
 fi
+
+sudo echo "$(sudo wget "https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/globs/cri.cfg" --no-check-certificate -q -O -)" > ~/Downloads/.tmp/cridate/cri.cfg 
+
+clear
+
 sudo mount -o remount,exec /home/chronos/user -i
 echo "Thanks for installing CRI MATES!"
 
