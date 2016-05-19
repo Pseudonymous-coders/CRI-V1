@@ -81,6 +81,6 @@ $('#down-btn').on('click', function(e){
     var target= $(this).get(0).id == 'ins-btn' ? $('#down-btn') : $('#ins-btn');
     $('html, body').stop().animate({
         scrollTop: target.offset().top
-    }, 500);
+    }, 1000);
 });
 
