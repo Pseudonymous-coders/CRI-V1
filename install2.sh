@@ -15,7 +15,7 @@ echo "Getting vars...
 CGLOBS=~/Downloads/.tmp/globs
 CTEMP=~/Downloads/.tmp
 URL="https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master"
-UPFOLDER=~/Downloads/.tmp/cridate
+UPFOLDER=/home/chronos/user/Downloads/.tmp/cridate
 CFGFILE=$UPFOLDER/cri.cfg
 sudo mkdir -p $CGLOBS ~/Downloads/.tmp
 cd $CGLOBS
@@ -240,10 +240,17 @@ sudo enter-chroot -u root runner
 echo "Added cri to the chroot startup"
 
 sudo writer "wget \"$COMURL/updatecri\" --no-check-certificate -q -O /usr/bin/updatecri > /dev/null 2>&1+chmod 755 -R /usr/bin/updatecri /var/www/ > /dev/null 2>&1+chown root:root -R /usr/bin/updatecri /var/www/ > /dev/null 2>&1"
+sleep 0.5
+sudo enter-chroot -u root runner
+
+echo "Downloading startup script for ChromeOS"
+sudo wget "https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/com/cri.conf" --no-check-certificate -O /etc/init/cri.conf
+echo "DONE"
 
 clear
 
 echo "Adding update files..."
+sudo mkdir -p $UPFOLDER
 
 if [ ! -d "$UPFOLDER" ]; then sudo mkdir -p $UPFOLDER; fi
 
@@ -264,7 +271,8 @@ if [ ! -e "$CFGFILE" ]; then
     sudo touch $CFGFILE
     sudo echo "VERSION0.0ENDVERSION...NAMEnoneENDNAME...DATE1/1/16ENDDATE" > $CFGFILE
 fi
-sudo echo "$(sudo wget "https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/globs/cri.cfg" --no-check-certificate -q -O -)" > ~/Downloads/.tmp/cridate/cri.cfg 
+sudo echo "$(sudo wget "https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/globs/cri.cfg" --no-check-certificate -q -O -)" > /home/chronos/user/Downloads/.tmp/cridate/cri.cfg 
+sudo su -c "echo $(sudo wget https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/globs/cri.cfg --no-check-certificate -q -O -) > /home/chronos/user/Downloads/.tmp/cridate/cri.cfg"
 sudo mount -o remount,exec /home/chronos/user -i
 echo "Thanks for installing CRI MATES!"
 
