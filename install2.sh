@@ -1,4 +1,14 @@
 #!/bin/bash
+echo "Testing internet connection..."
+TEST=0
+ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3` > /dev/null && TEST=1 || TEST=0   
+if [ "$TEST" -eq "1" ]; then 
+    echo "Connection established!"
+else
+    echo "Failed to connect to the internet
+Exiting..."
+    exit 1
+fi
 
 echo "Getting vars...
 "
@@ -23,39 +33,47 @@ Version: $VERSION
 Url: $URL
 
 "
+sleep 1
+
+printf "Checking root mount..."
 sudo mkdir /critest 2&>/dev/null
 if [ ! -d /critest ]; then
+    printf "\n\n" 
     if ask "Have you successfully rootmounted yet"; then
-        echo "It doesn't look like it... If you encounter 'Read only filesystem errors'
-then please rootmount again"
+        printf "It doesn't look like it :'(...\n\n If you encounter 'Read only filesystem errors'\nthen please rootmount again\n"
     else
+        printf "\n\n"
         echo "Exiting..."
+        sleep 2
         exit 1
     fi
 else 
-    echo "Detected proper mounting..."
+    echo "DONE (Mounted correctly)"
 fi
 sudo rm -rf /critest 2&>/dev/null
 
-echo "Creating working directories..."
+printf "Creating working directories..."
 sudo mkdir -p $CTEMP $CPKG $CBUILD 2&>/dev/null
 sudo chown $USER:$USER $CTEMP $CPKG $CBUILD 2&>/dev/null
-
-PKGURL=$URL/chrootlib
+echo "DONE"
+PKGURL="$URL/chrootlib"
 
 cd $CTEMP
-printf "\nDownloading CHROOT files\n\n..." 
-sudo wget -q --no-check-certificate "$URL/install.sh" -O $CTEMP/install.sh
+printf "\nDownloading CHROOT files..." 
+{ sudo wget -q --no-check-certificate "$URL/install.sh" -O $CTEMP/install.sh
 sudo chmod 755 install.sh
 sudo mount -o remount,exec /home/chronos/user -i
 sudo wget -q --no-check-certificate "$URL/chrootLIST.txt" -O $CTEMP/chrootLIST.txt #This is to download list of files needed
-sudo chmod 755 chrootLIST.txt #Makes the commands file have every permisson so that anyone can use it 
+sudo chmod 755 chrootLIST.txt 
+} >/dev/null 2>&1 #Makes the commands file have every permisson so that anyone can use it 
+echo "DONE"
+
 NAMES="$(< chrootLIST.txt)" #names from names.txt file
 LINES=$(chrootCount)
 NUMBERS=1
 
 cd $CPKG
-LOCKATION=$CROUTON/usr/bin
+LOCKATION=$CROUTON/usr/bin/ # Feed location
 
 for NAME in $NAMES; do #Downloads all nessisary files from github to /usr/local/bin
     clear
@@ -67,8 +85,8 @@ for NAME in $NAMES; do #Downloads all nessisary files from github to /usr/local/
     sudo chmod 755 $LOCKATION/* 2&>/dev/null
     sudo chown $USER:$USER $LOCKATION/${NAME##*/} 2&>/dev/null
     fixowner 2&>/dev/null
-    echo "Done"
-    sleep 0.5
+    printf "\n\nDONE\n"
+    sleep 2
 done
 
 clear
@@ -134,6 +152,9 @@ sudo writer "printf 'y\ny\ny\n' % apt-get install python python-dev python-pycur
 sleep 0.5
 sudo enter-chroot -u root runner
 sleep 0.5
+
+clear
+
 sudo writer "pip install --upgrade pip+pip install --upgrade virtualenv+"
 sleep 0.5
 sudo enter-chroot -u root runner
@@ -141,8 +162,12 @@ sudo enter-chroot -u root runner
 if [[ ! -z $(grep ' cri' '/etc/hosts') ]];  then echo "cri already in host file"; else sudo su -c "sudo echo '127.0.0.1       cri' >> /etc/hosts"; fi
 if [[ ! -z $(grep ' cri' "$CROUTON/etc/hosts") ]];  then echo "cri already in chroot host file"; else sudo su -c "sudo echo '127.0.0.1       cri' >> $CROUTON/etc/hosts"; fi
 
+clear
+
 echo "Double checking...
 "
+sleep 1
+
 if [[ ! -z $(grep ' cri' '/etc/hosts') ]];  then echo "cri already in host file"; else sudo su -c "echo '127.0.0.1       cri' >> /etc/hosts"; fi
 if [[ ! -z $(grep ' cri' "$CROUTON/etc/hosts") ]];  then echo "cri already in chroot host file"; else sudo su -c "echo '127.0.0.1       cri' >> $CROUTON/etc/hosts"; fi
 
@@ -239,11 +264,7 @@ if [ ! -e "$CFGFILE" ]; then
     sudo touch $CFGFILE
     sudo echo "VERSION0.0ENDVERSION...NAMEnoneENDNAME...DATE1/1/16ENDDATE" > $CFGFILE
 fi
-
 sudo echo "$(sudo wget "https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/globs/cri.cfg" --no-check-certificate -q -O -)" > ~/Downloads/.tmp/cridate/cri.cfg 
-
-clear
-
 sudo mount -o remount,exec /home/chronos/user -i
 echo "Thanks for installing CRI MATES!"
 
