@@ -39,12 +39,6 @@ button {
     right: 5%;
 }
 
-#back-flip {
-    position: absolute;
-    bottom: 5%;
-    right: 5%;
-}
-
 header #version {
     background-color: #4CAF50;
     position: absolute;

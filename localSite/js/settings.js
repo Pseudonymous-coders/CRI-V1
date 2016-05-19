@@ -100,30 +100,13 @@ function doneUpdate() {
 $(".program #front-flip").click(function() {
     $(".program").toggleClass("program-active");
 });
-$(".program #back-flip").click(function(event) {
-    event.stopPropagation();
-    if (event.target.id == "back"){
-        $(".program").toggleClass("program-active");
-    }
-});
 
-
-$(".danger").click(function() {
+$(".danger #front-flip").click(function() {
     $(".danger").toggleClass("danger-active");
 });
-$(".danger #back").click(function(event) {
-    $(".danger-active").toggleClass("danger");
-});
 
-
-$(".package #front").click(function() {
+$(".package #front-flip").click(function() {
     $(".package").toggleClass("package-active");
-});
-$(".package #back").click(function(event) {
-    event.stopPropagation();
-    if (event.target.id == "back"){
-        $(".package").toggleClass("package-active");
-    }
 });
 
 /*
