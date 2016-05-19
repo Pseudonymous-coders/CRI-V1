@@ -44,20 +44,26 @@ ws.onmessage = function(str) {
 
     }else if (str.data.substring(0, 4) == "PERC") {
         perc = str.data.substring(4);
-        document.querySelector('.notify').innerHTML = "Updating... "+perc+"%";
+        notify("Updating... "+perc+"%");
 
     } else if (str.data.substring(0, 10) == "DONEUPDATE") {
-        document.querySelector('.notify').innerHTML = "Finalizing...";
+        notify("Finalizing...");
         document.querySelector('#cover').style.visibility = "hidden";
         setTimeout(function() {
-            document.querySelector('.notify').innerHTML = "Done installing, refreshing..";
+            notify("Done installing, refreshing..");
             setTimeout(function() {
                 location.reload();
-            }, 2000);
+            }, 1000);
         }, 6000);
 
     } else if (str.data.substring(0, 10) == "FAILUPDATE") {
-        document.querySelector('.notify').innerHTML = "Error updating...";
+        notify("Error updating...");
+    } else if (str.data.substring(0, 7) == "PPADONE") {
+        notify("Added PPA");
+        reset();
+    } else if (str.data.substring(0, 7) == "DEBDONE") {
+        notify("Installed Deb");
+        reset();
     }
 }
 
@@ -66,6 +72,15 @@ ws.onclose = function() {
     document.querySelector('.notify').innerHTML = "CRI is down";
 }
 
+function notify(notifier){
+    document.querySelector('.notify').innerHTML = notifier;
+}
+
+function reset() {
+    setTimeout(function() {
+        document.querySelector('.notify').innerHTML = "CRI";
+    }, 6000);
+}
 function stopAll() {
     ws.send("STOPALL");
 }
@@ -85,8 +100,13 @@ function remove() {
 }
 
 function addPPA() {
-    PPA = document.getElementById('addPPA').value;
+    PPA = document.getElementById('PPA').value;
     ws.send("ADDPPA"+PPA);
+}
+
+function addDeb() {
+    PPA = document.getElementById('Deb').value;
+    ws.send("ADDDEB"+PPA);
 }
 
 function doneUpdate() {

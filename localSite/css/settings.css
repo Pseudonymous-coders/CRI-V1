@@ -235,6 +235,27 @@ header #version #lat {
     text-align: center;
 }
 
+.package #back #deb {
+    position: absolute;
+    font-size: 25px;
+    top: 30%;
+    left: 25%;
+    width: 60%;
+    height: 15%;
+    background-color: white;
+    color: black;
+    outline: none;
+}
+
+.package #back #addDeb {
+    position: absolute;
+    top: 32.5%;
+    left: 2%;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+}
+
 .package-active {
     background-color: #F44336;
     transform: translateX(-100%) rotateY(-180deg);

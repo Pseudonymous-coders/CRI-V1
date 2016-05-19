@@ -99,6 +99,13 @@ class WSHandler(tornado.websocket.WebSocketHandler):
             print "Adding PPA: "+message[6:]
             Popen("echo \n | add-apt-repository "+message[6:])
             print "Added PPA"
+            self.write_message("PPADONE")
+
+        if message[:6] == "ADDDEB":
+            print "Installing Deb: "+message[6:]
+            os.system("debins ")+message[6:]
+            print "Installed Deb"
+            self.write_messsage("DEBDONE")
 
         if message[:6] == "UPDATE":
             print "Updating CRI"
