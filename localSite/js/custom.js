@@ -52,7 +52,11 @@ ws.onmessage = function(str) {
     if (str.data.substring(0,3) == "URL"){
         var BGImage = console.log(str.data.substring(3));
         document.getElementById('header').style.backgroundImage="url('"+BGImage+"')";
-
+    } else if (str.data.substring(0, 6) == "NOROOT"){
+        document.getElementById("mainText").innerHTML = "No Root Access";
+        document.getElementById("subText").innerHTML = "Please Reboot";
+        document.getElementById('down-btn').style.visibility = "hidden";
+        document.getElementById('coms').innerHTML = "";
     }
 }
 

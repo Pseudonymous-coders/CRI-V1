@@ -45,6 +45,8 @@ ws.onmessage = function(str) {
             document.querySelector('#update').style.visibility = "visible";
         }
 
+    }else if (str.data == "NOROOT") {
+        window.location = "index.html";
     }else if (str.data.substring(0, 4) == "PERC") {
         perc = str.data.substring(4);
         notify("Updating... "+perc+"%");

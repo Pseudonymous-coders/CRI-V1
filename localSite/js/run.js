@@ -27,13 +27,17 @@ function progClicked(id) {
 }
 
 ws.onmessage = function(str) {
-    progs = str.data;
-    nameProgs = progs.split("\n");
-    for (i=0;i<nameProgs.length;i++) {
-        nameProgs[i] = nameProgs[i].split(" : ");
-        if (nameProgs[i][2] == (null || "")) {
-            nameProgs[i][2] = "defIcon";
+    if (str.data =="NOROOT") {
+        window.location = "index.html";
+    } else {
+        progs = str.data;
+        nameProgs = progs.split("\n");
+        for (i=0;i<nameProgs.length;i++) {
+            nameProgs[i] = nameProgs[i].split(" : ");
+            if (nameProgs[i][2] == (null || "")) {
+                nameProgs[i][2] = "defIcon";
+            }
+            document.getElementById('items').innerHTML += "<button onclick='progClicked(this.id)' class='item' id='"+nameProgs[i][0]+"'><img height='50' width='50' src='images/icons/"+nameProgs[i][2]+".png'><br>"+nameProgs[i][1]+"</button>";
         }
-        document.getElementById('items').innerHTML += "<button onclick='progClicked(this.id)' class='item' id='"+nameProgs[i][0]+"'><img height='50' width='50' src='images/icons/"+nameProgs[i][2]+".png'><br>"+nameProgs[i][1]+"</button>";
     }
 } 

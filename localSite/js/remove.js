@@ -26,7 +26,9 @@ function progClicked(id) {
 }
 
 ws.onmessage = function(str) {
-    if (str.data == "REMOVED") {
+    if (str.data == "NOROOT") {
+        window.location = "index.html";
+    } else if (str.data == "REMOVED") {
         document.querySelector('.notify').innerHTML = "Removed package";
         setTimeout(function(){
             document.querySelector('.notify').innerHTML = "<a href='index.html'>CRI</a>";

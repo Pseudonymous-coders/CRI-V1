@@ -19,10 +19,13 @@ setTimeout(function (){
 }, 200)
 
 ws.onopen = function() {
+    ws.send("CONNECTED");
 }
 
 ws.onmessage = function(str) {
-    if (str.data == "DONEINSTALL") {
+    if (str.data == "NOROOT") {
+        window.location = "index.html";
+    } else if (str.data == "DONEINSTALL") {
         document.querySelector('.notify').innerHTML = "Installed";
         setTimeout(function() {
             document.querySelector('.notify').innerHTML = "<a href='index.html'>CRI</a>";

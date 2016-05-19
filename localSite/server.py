@@ -18,7 +18,11 @@ from getVer import ver
 
 CB = int(Popen("if [ -s /usr/local/bin/xiwi ]; then echo 1; else echo 0; fi", stdout=PIPE, shell=True).communicate()[0]) 
 
-NOROOT = os.system("[ ! -e /root/Downloads/.tmp/NOROOT ]; echo $?")
+if CB:
+    NOROOT = os.path.isfile("/root/Downloads/.tmp/NOROOT")
+else:
+    NOROOT = os.path.isfile("/home/eli/Downloads/.tmp/NOROOT")
+
 
 def BGImg():
     def internet_on():
@@ -54,14 +58,18 @@ class WSHandler(tornado.websocket.WebSocketHandler):
         print 'message received:  %s' % message
         if NOROOT:
             self.write_message("NOROOT")
+            print "NO ROOT!!! Sending message..."
 
         if message == "connecred":
             self.write_message("connected")
 
         if message == "APPLIST":
-            print "Sending APPLIST"
-            apps = getApps() 
-            self.write_message("\n".join(apps)) 
+            if NOROOT:
+                self.write_message("NOROOT")
+            else:
+                print "Sending APPLIST"
+                apps = getApps() 
+                self.write_message("\n".join(apps)) 
 
         if message[:3] == "RUN":
             print "running: "+message[3:]
