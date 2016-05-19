@@ -12,7 +12,11 @@ def getApps():
     apps = apps.split('\n')
     apps.remove('')
     appLen = len(apps)
-    f = open("/var/www/no.list")
+    if CB:
+        f = open("/var/www/no.list")
+    else:
+        f = open("/var/www/html/localSite/no.list")
+
     noList = f.read()
     noList = noList.split("\n")
     f.close()

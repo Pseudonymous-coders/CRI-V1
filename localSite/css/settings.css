@@ -321,16 +321,32 @@ header #version #lat {
     font-size: 20px;
 }*/
 
-.danger #back #removeCri {
-    top: 10%;
+
+/*.danger #back */#forceCri {
+    position: absolute;
+    top: 5%;
+    margin: 5px !important;
     left: 5%;
     outline: none;
+    backface-visibility: hidden;
 }
 
-.danger #back #reinstallCri {
+/*.danger #back */#reinstallCri {
+    position: absolute;
     top: 35%;
     left: 5%;
+    margin: 5px !important;
     outline: none;
+    backface-visibility: hidden;
+}
+
+/*.danger #back */#removeCri {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    margin: 5px !important;
+    outline: none;
+    backface-visibility: hidden;
 }
 
 .danger-active {

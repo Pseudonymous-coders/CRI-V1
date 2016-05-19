@@ -6,6 +6,8 @@ $('#siteNav').affix({
 
 ws = new WebSocket('ws://localhost:9098/ws');
 
+document.querySelector('#version #versions').style.visibility = "hidden";
+
 setTimeout(function (){
     if (ws.readyState == (0 || 3)) {
         window.location = "index.html";
@@ -20,6 +22,7 @@ ws.onopen = function() {
 
 ws.onmessage = function(str) {
     if (str.data.substring(0,3) == "VER") {
+        document.querySelector('#version #versions').style.visibility = "visible";
         var versions = str.data.substring(3);
         versions = versions.split("\n");
         current = versions[0];
@@ -68,6 +71,7 @@ ws.onmessage = function(str) {
 }
 
 ws.onclose = function() {
+    window.location = "index.html";
     document.getElementById('subText').innerHTML = "We're sorry :(";
     document.querySelector('.notify').innerHTML = "CRI is down";
 }
@@ -93,9 +97,36 @@ function update() {
 }
 
 function remove() {
-    console.log("removing");
     if (confirm("Are you POSITIVE you want to remove CRI?")) {
         ws.send("CRIMOVE");
+        if (confirm("Reboot is needed for the removal of CRI to happen, reboot now?")) {
+            notify("Rebooting...");
+            setTimeout(function(){
+                ws.send("REBOOT");
+            }, 2000);
+        } else {
+            notify("Please reboot to remove CRI");
+        }
+    } else {
+        notify("Not removing CRI");
+        setTimeout(function(){
+            notify("Phew! Close one huh?");
+        }, 2000);
+        reset();
+    }
+}
+
+function reinstall() {
+    if (confirm("Are you POSITIVE you want to reinstall CRI?")) {
+        ws.send("CRINSTALL");
+        if(confirm("Reboot is needed for the reinstall to take effect, reboot now?")) {
+            notify("Rebooting...");
+            setTimeout(function(){
+                ws.send("REBOOT");
+            }, 2000);
+        } else {
+            notify("Please reboot to reinstall CRI");
+        }
     }
 }
 

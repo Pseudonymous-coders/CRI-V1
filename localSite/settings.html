@@ -73,15 +73,17 @@
 
         <div id="version">
             Version
-            <div id="cur">
-                Current version: <p id="ver"></p><br>
-                Current release: <p id="rel"></p><br>
-                Release date: <p id="dat"></p><br>
-            </div>
-            <div id="lat">
-                Latest version: <p id="ver"></p><br>
-                Latest release: <p id="rel"></p><br>
-                Relase date: <p id="dat"></p><br>
+            <div id="versions">
+                <div id="cur">
+                    Current version: <p id="ver"></p><br>
+                    Current release: <p id="rel"></p><br>
+                    Release date: <p id="dat"></p><br>
+                </div>
+                <div id="lat">
+                    Latest version: <p id="ver"></p><br>
+                    Latest release: <p id="rel"></p><br>
+                    Relase date: <p id="dat"></p><br>
+                </div>
             </div>
             <button id="update" onclick="update()">Update Cri</button>
         </div>
@@ -121,8 +123,9 @@
                     <button id="front-flip">Flip</button>
                 </div>
                 <div id="back">
+                    <button id="forceCri" onclick="update()">Force Update</button>
+                    <button id="reinstallCri" onclick="reinstall()">Reinstall CRI</button>
                     <button id="removeCri" onclick="remove()">Remove CRI</button>
-                    <button id="reinstallCri" onclick="update()">Force Update</button>
                 </div>
             </div>
         </div>

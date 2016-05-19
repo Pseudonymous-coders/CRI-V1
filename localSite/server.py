@@ -17,7 +17,9 @@ from getVer import ver
 
 
 CB = int(Popen("if [ -s /usr/local/bin/xiwi ]; then echo 1; else echo 0; fi", stdout=PIPE, shell=True).communicate()[0]) 
- 
+
+NOROOT = os.system("[ ! -e /root/Downloads/.tmp/NOROOT ]; echo $?")
+
 def BGImg():
     def internet_on():
         try:
@@ -50,8 +52,12 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 
     def on_message(self, message):
         print 'message received:  %s' % message
+        if NOROOT:
+            self.write_message("NOROOT")
+
         if message == "connecred":
             self.write_message("connected")
+
         if message == "APPLIST":
             print "Sending APPLIST"
             apps = getApps() 
@@ -103,7 +109,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 
         if message[:6] == "ADDDEB":
             print "Installing Deb: "+message[6:]
-            os.system("debins ")+message[6:]
+            os.system("debins /root/Downloads/")+message[6:]
             print "Installed Deb"
             self.write_messsage("DEBDONE")
 
@@ -129,11 +135,20 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 
         if message[:7] == "CRIMOVE":
            if CB:
-                f = open("/root/Downloads/.tmp/REMOVE", w)
+                f = open("/root/Downloads/.tmp/REMOVE", "w")
            else:
-                f = open("/home/eli/Downloads/.tmp/REMOVE", w)
+                f = open("/home/eli/Downloads/.tmp/REMOVE", "w")
            f.write("REMOVE")
            f.close()
+
+        if message[:9] == "CRINSTALL":
+            if CB:
+                f = open("/root/Downloads/.tmp/REINSTALL", "w")
+            else:
+                f = open("/home/eli/Downloads/.tmp/REINSTALL", "w")
+            f.write("REINSTALL")
+            f.close()
+
 
     def on_close(self):
         print 'connection closed'
