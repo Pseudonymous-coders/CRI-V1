@@ -37,7 +37,9 @@ ws.onmessage = function(str) {
             if (nameProgs[i][2] == (null || "")) {
                 nameProgs[i][2] = "defIcon";
             }
-            document.getElementById('items').innerHTML += "<button onclick='progClicked(this.id)' class='item' id='"+nameProgs[i][0]+"'><img height='50' width='50' src='images/icons/"+nameProgs[i][2]+".png'><br>"+nameProgs[i][1]+"</button>";
+            var buttonToBe = "<button onclick='progClicked(this.id)' class='item' id='"+nameProgs[i][0]+"'><img height='50' width='50' src='images/icons/"+nameProgs[i][2]+".png'><br>"+nameProgs[i][1]+"</button>\n\t";
+            console.log(buttonToBe);
+            document.getElementById('items').innerHTML += buttonToBe;
         }
     }
 } 
