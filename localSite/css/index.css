@@ -35,6 +35,16 @@ header button {
     
 }
 
+#googleIt #gQuery{
+    visibility: hidden;
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    height: 5%;
+    width: 30%;
+    transform: translate(-50%);
+}
+
 @media(min-width:768px) {
     header {
         min-height: 100%;
@@ -87,7 +97,7 @@ header button {
 
 .promo-item:hover {
     //background-size: 110%; 
-    box-shadow: inset 0 0 0 20px #df0900;
+    box-shadow: inset 0 0 0 20px rgba(214,73,55,0.8);
     line-height: 160px;
 }
 
