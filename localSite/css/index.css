@@ -44,15 +44,15 @@ header .header-content .header-content-inner p {
     border-radius: 15px;
     border-style: solid;
     border-width: 3px;
-    border-color: rgb(76,175,80);
+    border-color: grey;
     background-image: linear-gradient(to right, 
-      #008744,
-      #008744 25%,
-      #0057e7 25%,
-      #0057e7 50%,
-      #d62d20 50%,
-      #d62d20 75%,
-      #ffa700 75%);
+      rgba(0,135,68,0.8),
+      rgba(0,135,68,0.8) 25%,
+      rgba(0,87,231,0.8) 25%,
+      rgba(0,87,231,0.8) 50%,
+      rgba(214,45,32,0.8) 50%,
+      rgba(214,45,32,0.8) 75%,
+      rgba(255,167,0,0.8) 75%);
     font-size: 26px;
     outline: none;
     transform: translate(-50%);
