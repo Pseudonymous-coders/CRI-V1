@@ -15,14 +15,12 @@ body {
 .notify {
     position: fixed;
     text-align: center;
-    margin: auto;
-    left: 0;
-    right: 0;
+    left: 50%;
+    transform: translate(-50%,0%);
     top: 0.5%;
     font-size: 35px;
     font-weight: bold;
     color: yellowgreen;
-    z-index: 999;
 }
 
 a {
@@ -161,8 +159,8 @@ header{
 
 @media(min-width:768px) {
     .navbar-default {
-        border-color: rgba(255,255,255,.3);
-        background-color: rgba(0,87,229, 0.3);
+        border: none;
+        background-color: #455A64;
         height: 8%;
     }
 
@@ -187,8 +185,8 @@ header{
     }
 
     .navbar-default.affix {
-        border-color: #fff;
-        background-color: #fff;
+        border: none;
+        background-color: #607D8B;
         box-shadow: 0px 7px 20px 0px rgba(0,0,0,0.1);
     }
 
