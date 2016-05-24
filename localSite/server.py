@@ -121,7 +121,14 @@ class WSHandler(tornado.websocket.WebSocketHandler):
             print "Installed Deb"
             self.write_messsage("DEBDONE")
 
-        if message[:6] == "UPDATE":
+        if message == "UPDATEAPPS":
+            print "Updating apps"
+            os.system("apt-get update")
+            os.system("echo y | apt-get upgrade")
+            self.write_message("DONEUPAPP")
+            print "Done updating apps"
+
+        if message == "UPDATECRI":
             print "Updating CRI"
             process = Popen("updatecri", shell=True, stdout=PIPE, stderr=STDOUT, executable="/bin/bash")
             while True:

@@ -69,6 +69,9 @@ ws.onmessage = function(str) {
     } else if (str.data.substring(0, 7) == "DEBDONE") {
         notify("Installed Deb");
         reset();
+    } else if (str.data.substring(0,9) == "DONEUPAPP") {
+        notify("Updated applications");
+        reset();
     }
 }
 
@@ -93,9 +96,13 @@ function stopAll() {
 
 function update() {
     document.getElementById('cover').style.visibility = "visible";
-    display = document.querySelector('.notify');
-    //startTimer(0.3*60, display);
     ws.send("UPDATE");
+}
+
+function updateApps() {
+    notify("Updating apps...");
+    ws.send("UPDATEAPPS");
+
 }
 
 function remove() {
