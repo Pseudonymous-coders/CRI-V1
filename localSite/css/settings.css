@@ -19,20 +19,6 @@ header .header-content .header-content-inner p {
     color: rgba(255,255,255,.7);
 }
 
-button {
-    position: absolute;
-    background-color: rgba(214,73,55,0.8);
-    border-radius: 15px;
-    padding: 5px 5px;
-    outline: none;
-    border: none;
-    color: white;
-    text-align: center;
-    font-size: 20pt;
-    display: inline-block;
-    float: center;
-}
-
 #front-flip {
     position: absolute;
     bottom: 5%;
@@ -40,7 +26,7 @@ button {
 }
 
 header #version {
-    background-color: #4CAF50;
+    background-color: #455a64;
     position: absolute;
     border-radius: 15px;
     font-weight: bold;
@@ -96,7 +82,7 @@ header #version #lat {
     position: absolute;
     height: 100%;
     width: 100%;
-    background-color: #4CAF50;
+    background-color: #607D8B;
     border-radius: 15px;
     outline: none;
     font-weight: bold;
@@ -120,7 +106,7 @@ header #version #lat {
 }
 
 .program #back {
-    background-color: #388E3C;
+    background-color: #607D8B;
     backface-visibility: hidden;
     position: absolute;
     height: 100%;
@@ -128,19 +114,6 @@ header #version #lat {
     border-radius: 15px;
     transform: rotateY(180deg);
 }
-
-/*.program #back button {
-    position: absolute;
-    outline: none;
-    background-color: rgba(214,73,55,0.8);
-    border-radius: 15px;
-    font-weight: bold;
-    border: none;
-    color: white;
-    text-align: center;
-    display: inline-block;
-    font-size: 20px;
-}*/
 
 .program #back #stopall {
     top: 5%;
@@ -168,7 +141,7 @@ header #version #lat {
     position: absolute;
     height: 100%;
     width: 100%;
-    background-color: #4CAF50;
+    background-color: #607D8B;
     border-radius: 15px;
     outline: none;
     font-weight: bold;
@@ -195,7 +168,7 @@ header #version #lat {
 }
 
 .package #back {
-    background-color: #388E3C;
+    background-color: #607D8B;
     position: absolute;
     height: 100%;
     width: 100%;
@@ -204,60 +177,60 @@ header #version #lat {
     transform: rotateY(180deg);
 }
 
-.package #back input {
-    font-weight: bold;
-    border: none;
-    color: white;
-    display: inline-block;
-    background-color: rgba(214,73,55,0.8);
-    border-radius: 15px;
-    border: none;
-}
-
 .package #back #PPA {
     position: absolute;
     font-size: 25px;
-    top: 5%;
-    left: 25%;
+    top: 10.5%;
+    left: 30%;
     width: 60%;
     height: 15%;
+    border-radius: 15px;
+    border: none;
     background-color: white;
     color: black;
     outline: none;
+    z-index: 999;
 }
 
 .package #back #addPPA {
     position: absolute;
     top: 7%;
     left: 2%;
+    padding: 5px;
     font-size: 20px;
     color: white;
     text-align: center;
+    z-index: 999;
 }
 
 .package #back #deb {
     position: absolute;
     font-size: 25px;
     top: 30%;
-    left: 25%;
+    left: 30%;
     width: 60%;
     height: 15%;
+    border-radius: 15px;
+    border: none;
     background-color: white;
     color: black;
     outline: none;
+    z-index: 999;
 }
 
 .package #back #addDeb {
     position: absolute;
-    top: 32.5%;
+    top: 27%;
     left: 2%;
     font-size: 20px;
+    padding: 5px;
     color: white;
     text-align: center;
+    z-index: 999;
 }
 
 .package-active {
-    background-color: #F44336;
+    background-color: #607D8B;
     transform: translateX(-100%) rotateY(-180deg);
 }
 
@@ -277,7 +250,7 @@ header #version #lat {
     height: 100%;
     width: 100%;
     border-radius: 15px;
-    background-color: #F44336;
+    background-color: #9E9E9E;
     outline: none;
     transform-style: preserve-3d;
     transition: transform 1s;
@@ -342,7 +315,7 @@ header #version #lat {
 
 /*.danger #back */#removeCri {
     position: absolute;
-    bottom: 5%;
+    bottom: 3%;
     left: 5%;
     margin: 5px !important;
     outline: none;

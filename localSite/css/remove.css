@@ -1,29 +1,3 @@
-header #btn-search {
-    position: absolute;
-    background-color: #45b754; /* Green */
-    border: none;
-    outline: none;
-    color: white;
-    width: 7%;
-    height: 7%;
-    text-align: center;
-    display: inline-block;
-    font-size: 16px;
-    left: 33%;
-    top: 45%;
-}
-
-header input[type=text] {
-    position: absolute;
-    border: none;
-    color: grey;
-    width: 25%;
-    height: 7%;
-    top: 45%;
-    left: 40%;
-    font-size: 40px;
-}
-
 header #items {
     position: absolute;
     top: 8%;
@@ -35,15 +9,8 @@ header #items {
 }
 
 header .item {
-    background-color: rgba(214,73,55,0.8);
     padding: 5px 5px;
-    outline: none;
-    border-radius: 15px;
     margin: 10;
-    border: none;
-    color: white;
-    text-align: center;
-    display: inline-block;
     font-size: 24px;
 }
 

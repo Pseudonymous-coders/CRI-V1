@@ -1,17 +1,10 @@
 header #btn-search {
     position: absolute;
-    background-color: rgba(214,73,55,0.8);
-    border-radius: 15px;
-    outline: none;
-    border: none;
-    color: white;
     width: 7%;
     height: 7%;
-    text-align: center;
-    display: inline-block;
-    font-size: 16px;
-    left: 33%;
-    top: 45%;
+    left: 32%;
+    top: 43.5%;
+    padding: 15px 15px;
 }
 
 header input[type=text] {
@@ -29,8 +22,8 @@ header input[type=text] {
 
 header #items {
     position: absolute;
-    top: 25%;
-    bottom: 2%;
+    top: 20%;
+    bottom: 0%;
     left: 0%;
     right: 0%;
     overflow: auto;
@@ -38,32 +31,16 @@ header #items {
 }
 
 header .item {
-    background-color: rgba(214,73,55,0.8);
-    border-radius: 15px;
     padding: 5px 5px;
-    margin 25px;
-    outline: none;
-    border: none;
-    color: white;
-    text-align: center;
-    display: inline-block;
-    font-size: 16px;
+    margin: 2px;
 }
 
 .btn-back {
-    background-color: rgba(214,73,55,0.8);
-    border-radius: 15px;
+    position: absolute; 
     padding: 15px 20px;
-    margin 25px;
-    border: none;
-    color: white;
-    text-align: center;
-    display: inline-block;
     font-size: 25px;
     bottom: 2%;
     left: 1%;
-    position: absolute; 
-    outline: none;
 }
 
 @media(min-width:768px) {

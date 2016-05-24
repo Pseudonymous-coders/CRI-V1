@@ -32,10 +32,11 @@ ws.onmessage = function(str) {
         }, 3000);
     } else {
         if (str.data.split("\n").length > 2000){
+            document.getElementById('items').style.bottom = "60%";
             document.getElementById('items').innerHTML = "";
             document.getElementById('items').innerHTML += "<h2>Please be more specific, too many results</h2>";
         } else {
-        
+            document.getElementById('items').style.bottom = "0%";
             var results = str.data;
             var results = results.split("\n");
             items = [];
@@ -49,10 +50,10 @@ ws.onmessage = function(str) {
             }
             var button = document.getElementById('btn-search');
             var txtIn = document.getElementById('text-search');
-            button.style.top = "10%";
-            button.style.left = "5%";
-            txtIn.style.top = "10%";
-            txtIn.style.left = "12%";
+            button.style.top = "9%";
+            button.style.left = "0.25%";
+            txtIn.style.top = "10.5%";
+            txtIn.style.left = "8.25%";
             for (item in items) {
                 document.getElementById('items').innerHTML += "<button onclick='install(this.id)' class='item' id='"+item+"'>"+item+" -- "+items[item]+"</button><br><br>";
             }
