@@ -35,14 +35,37 @@ header button {
     
 }
 
-#googleIt #gQuery{
-    visibility: hidden;
-    position: absolute;
-    top: 2%;
+#gQuery {
+    position: fixed;
+    top: 0.5%;
     left: 50%;
-    height: 5%;
-    width: 30%;
+    height: 7%;
+    width: 10%;
+    border-radius: 15px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #b1a5a9;
+    background-image: linear-gradient(to right, 
+      #008744,
+      #008744 25%,
+      #0057e7 25%,
+      #0057e7 50%,
+      #d62d20 50%,
+      #d62d20 75%,
+      #ffa700 75%);
+    font-size: 26px;
+    outline: none;
     transform: translate(-50%);
+    transition: all 0.3s ease 0s;
+}
+::-webkit-input-placeholder { 
+    text-align:center;
+}
+
+#gQuery:focus {
+    background-image: none;
+    background-color: white;
+    width: 30%;
 }
 
 @media(min-width:768px) {

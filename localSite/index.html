@@ -1,7 +1,4 @@
 <html lang="en">
-<form id="googleIt">
-    <input id="gQuery" type="text"> 
-</form>
  
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -45,6 +42,7 @@
                </button>
             </div>
             <!-- Navbar links -->
+            <input id="gQuery" autocomplete="off" onkeypress="handle(event)" type="text" placeholder="Google"> 
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active">
@@ -60,7 +58,7 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container -->
     </nav>
-
+    
 	<!-- Header -->
     <header id="header">
         <div class="header-content">

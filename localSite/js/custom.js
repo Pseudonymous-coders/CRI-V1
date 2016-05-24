@@ -80,6 +80,21 @@ function cmdRemove() {
     window.location = "remove.html";
 }
 
+function googleIt(){
+    var toGoogle = document.querySelector("#gQuery").value;
+    var url = "http://www.google.com/?safe=active&ssui=on#safe=strict&q="+encodeURIComponent(toGoogle.toString());
+    window.location = url;
+    return false;
+}
+
+function handle(e){
+    if(e.keyCode === 13){
+        googleIt();
+    }
+
+    return false;
+}
+
 $('#down-btn').on('click', function(e){
     e.preventDefault();
     var target= $(this).get(0).id == 'ins-btn' ? $('#down-btn') : $('#ins-btn');
