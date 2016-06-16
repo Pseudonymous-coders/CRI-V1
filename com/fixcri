@@ -1,7 +1,13 @@
 #!/bin/bash
 echo "Attempting to fix cri files..."
 sudo wget -q -O - https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/install2.sh | bash
-sleep
+if [-e /usr/local/bin/fixcri]; then
+  echo "Success!"
+else
+  echo "failed retrying as root"
+  sudo su -c "wget -q -O - https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/install2.sh | bash"
+fi
+sleep 1
 echo "
 
 
