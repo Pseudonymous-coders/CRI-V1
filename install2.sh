@@ -5,7 +5,7 @@ ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3` > /dev/null && TEST=1 
 if [ "$TEST" -eq "1" ]; then 
     echo "Connection established!"
 else
-    echo "Failed to connect to the internet
+    echo "Failed to connect to the internet!
 Exiting..."
     exit 1
 fi
@@ -27,7 +27,7 @@ clear
 source globvar
 source globfun
 
-echo "Welcome to PART 2 of the CRI installer
+echo "Welcome to PART 2 of the CRI installer!
 Created By: $AUTHORS
 Version: $VERSION
 Url: $URL
@@ -39,7 +39,7 @@ printf "Checking root mount..."
 sudo mkdir /critest 2&>/dev/null
 if [ ! -d /critest ]; then
     printf "\n\n" 
-    if ask "Have you successfully rootmounted yet"; then
+    if ask "Have you successfully rootmounted yet?"; then
         printf "It doesn't look like it :'(...\n\n If you encounter 'Read only filesystem errors'\nthen please rootmount again\n"
     else
         printf "\n\n"
@@ -48,7 +48,7 @@ if [ ! -d /critest ]; then
         exit 1
     fi
 else 
-    echo "DONE (Mounted correctly)"
+    echo "DONE (mounted correctly)"
 fi
 sudo rm -rf /critest 2&>/dev/null
 
@@ -77,7 +77,7 @@ LOCKATION=$CROUTON/usr/bin/ # Feed location
 
 for NAME in $NAMES; do #Downloads all nessisary files from github to /usr/local/bin
     clear
-    printf "Welcome to the CRI installer\nCreated By: $AUTHORS\nVersion: $VERSION\nFile $NUMBERS/$LINES...\n\n ${NAME##*/} \n"
+    printf "Welcome to the CRI installer!\nCreated By: $AUTHORS\nVersion: $VERSION\nFile $NUMBERS/$LINES...\n\n ${NAME##*/} \n"
     let "NUMBERS += 1"
     echo "Installing ${NAME##*/} 
     "
@@ -148,7 +148,7 @@ Finished setting up local server, installing webpysock Server...
 
 clear
 
-sudo writer "printf 'y\ny\ny\n' % apt-get install python python-dev python-pycurl python-simplejson sqlite3 python-pip build-essential python-tornado"
+sudo writer "printf 'y\ny\ny\n' % apt-get install python python-dev python-pycurl python-simplejson sqlite3 python-pip build-essential python-tornado % sudo rm -rf *"
 sleep 0.5
 sudo enter-chroot -u root runner
 sleep 0.5
@@ -159,7 +159,7 @@ sudo writer "pip install --upgrade pip+pip install --upgrade virtualenv+"
 sleep 0.5
 sudo enter-chroot -u root runner
 # Since we want http://cri/ we need to add them to the hosts
-if [[ ! -z $(grep ' cri' '/etc/hosts') ]];  then echo "cri already in host file"; else sudo su -c "sudo echo '127.0.0.1       cri' >> /etc/hosts"; fi
+if [[ ! -z $(grep ' cri' '/etc/hosts') ]];  then echo "Cri already in host file"; else sudo su -c "sudo echo '127.0.0.1       cri' >> /etc/hosts"; fi
 if [[ ! -z $(grep ' cri' "$CROUTON/etc/hosts") ]];  then echo "cri already in chroot host file"; else sudo su -c "sudo echo '127.0.0.1       cri' >> $CROUTON/etc/hosts"; fi
 
 clear
@@ -205,7 +205,7 @@ sudo enter-chroot -u root runner
 
 clear
 
-echo "Updating nice lookin terminal reinit settings"
+echo "Updating nice lookin' terminal reinit settings"
 sudo writer "gconftool-2 --set /apps/gnome-terminal/profiles/Default/title_mode --type string after"
 sleep 0.5
 sudo enter-chroot -u root runner
@@ -237,13 +237,13 @@ echo "Adding to start up script..."
 sudo writer "wget https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/chrootlib/cri -O /etc/init.d/cri+chmod 755 /etc/init.d/cri+sleep 0.1+update-rc.d -f cri remove+sleep 1+update-rc.d cri defaults+sudo echo 'PATH=\$PATH:/usr/games/' >> ~/.bashrc"
 sleep 0.5
 sudo enter-chroot -u root runner
-echo "Added cri to the chroot startup"
+echo "Added cri to the chroot startup!"
 
 sudo writer "wget \"$COMURL/updatecri\" --no-check-certificate -q -O /usr/bin/updatecri > /dev/null 2>&1+chmod 755 -R /usr/bin/updatecri /var/www/ > /dev/null 2>&1+chown root:root -R /usr/bin/updatecri /var/www/ > /dev/null 2>&1"
 sleep 0.5
 sudo enter-chroot -u root runner
 
-echo "Downloading startup script for ChromeOS"
+echo "Downloading startup script for ChromeOS..."
 sudo wget "https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/com/cri.conf" --no-check-certificate -O /etc/init/cri.conf
 echo "DONE"
 
