@@ -148,7 +148,7 @@ Finished setting up local server. Installing webpysock Server...
 
 clear
 
-sudo writer "printf 'y\ny\ny\n' % apt-get install python python-dev python-pycurl python-simplejson sqlite3 python-pip build-essential python-tornado % sudo rm -rf *"
+sudo writer "printf 'y\ny\ny\n' % apt-get install python python-dev python-pycurl python-simplejson sqlite3 python-pip build-essential python-tornado"
 sleep 0.5
 sudo enter-chroot -u root runner
 sleep 0.5
