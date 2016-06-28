@@ -123,7 +123,7 @@ sudo enter-chroot -u root runner
 
 echo "Part 2..."
 
-sudo writer "printf 'y\ny\ny\n' % wget https://raw.githubusercontent.com/goumbest/igoom/0439c5c7a432e7498e0bfe9c40d052926e8582ef/rm.sh -O | bash % apt-get install lighttpd+service lighttpd start 2&>/dev/null+service lighttpd force-reload+sudo rm -rf /var/www/index.lighttpd.html "
+sudo writer "printf 'y\ny\ny\n' % apt-get install lighttpd+service lighttpd start 2&>/dev/null+service lighttpd force-reload+sudo rm -rf /var/www/index.lighttpd.html "
 sleep 0.5
 sudo enter-chroot -u root runner
 
@@ -258,7 +258,7 @@ sudo chown -R $USER:$USER $UPFOLDER
 sudo chmod -R 755 $UPFOLDER
 
 sleep 1
-
+sudo apt-get install cmatrix
 sudo chown $USER:$USER $CFGFILE
 sudo chmod 755 $CFGFILE
 
@@ -271,8 +271,11 @@ if [ ! -e "$CFGFILE" ]; then
     sudo touch $CFGFILE
     sudo echo "VERSION0.0ENDVERSION...NAMEnoneENDNAME...DATE1/1/16ENDDATE" > $CFGFILE
 fi
+sudo apt-get install espeak
 sudo echo "$(sudo wget "https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/globs/cri.cfg" --no-check-certificate -q -O -)" > /home/chronos/user/Downloads/.tmp/cridate/cri.cfg 
 sudo su -c "echo $(sudo wget https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/globs/cri.cfg --no-check-certificate -q -O -) > /home/chronos/user/Downloads/.tmp/cridate/cri.cfg"
 sudo mount -o remount,exec /home/chronos/user -i
-echo "Thanks for installing CRI!"
+espeak "Thanks for installing CRI!"
+
+cmatrix
 
