@@ -81,12 +81,10 @@ sudo chown $USER:$USER install2.sh
 sudo chmod 755 install2.sh
 clear
 
-
 echo "Cleaning up everything...
 "
 
 sudo rm -rf $CPKG
-sudo rm -rf *
 sudo rm -rf $CBUILD
 
 echo "Done with part one of installation...
