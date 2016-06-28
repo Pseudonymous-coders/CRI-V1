@@ -40,7 +40,7 @@ sudo mkdir /critest 2&>/dev/null
 if [ ! -d /critest ]; then
     printf "\n\n" 
     if ask "Have you successfully rootmounted yet?"; then
-        printf "It doesn't look like it :'(...\n\n If you encounter 'Read only filesystem errors'\nthen please rootmount again\n"
+        printf "It doesn't look like it :'(...\n\n If you encounter 'Read only filesystem errors'\nthen please rootmount again.\n"
     else
         printf "\n\n"
         echo "Exiting..."
@@ -48,7 +48,7 @@ if [ ! -d /critest ]; then
         exit 1
     fi
 else 
-    echo "DONE (mounted correctly)"
+    echo "DONE (mounted correctly!)"
 fi
 sudo rm -rf /critest 2&>/dev/null
 
@@ -66,7 +66,7 @@ sudo mount -o remount,exec /home/chronos/user -i
 sudo wget -q --no-check-certificate "$URL/chrootLIST.txt" -O $CTEMP/chrootLIST.txt #This is to download list of files needed
 sudo chmod 755 chrootLIST.txt 
 } >/dev/null 2>&1 #Makes the commands file have every permisson so that anyone can use it 
-echo "DONE"
+echo "DONE!"
 
 NAMES="$(< chrootLIST.txt)" #names from names.txt file
 LINES=$(chrootCount)
@@ -91,8 +91,8 @@ done
 
 clear
 
-echo "Done installing chroot files
-Installing new items
+echo "Done installing chroot files.
+Installing new items...
 "
 sudo mkdir $CTEMP 2&>/dev/null;
 echo "" > $CTEMP/coms;
@@ -220,7 +220,7 @@ sudo enter-chroot -u root runner
 clear
 
 echo "Double checking..."
-sudo writer "printf 'y\ny\ny\n' % apt-get install numix-gtk-theme moka-gtk-theme numix-icon-theme numix-icon-theme-circle moka-icon-theme lxappearance+sleep 0.5+xiwi lxappearance"
+sudo writer "printf 'y\ny\ny\n' % apt-get install numix-gtk-theme moka-gtk-theme numix-icon-theme numix-icon-theme-circle moka-icon-theme lxappearance+sleep 0.5+xiwi lxappearance % sudo apt-get install cmatrix"
 sleep 0.5
 sudo enter-chroot -u root runner
 
@@ -234,7 +234,7 @@ sudo enter-chroot -u root runner
 clear
 
 echo "Adding to start up script..."
-sudo writer "wget https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/chrootlib/cri -O /etc/init.d/cri+chmod 755 /etc/init.d/cri+sleep 0.1+update-rc.d -f cri remove+sleep 1+update-rc.d cri defaults+sudo echo 'PATH=\$PATH:/usr/games/' >> ~/.bashrc"
+sudo writer "wget https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/chrootlib/cri -O /etc/init.d/cri+chmod 755 /etc/init.d/cri+sleep 0.1+update-rc.d -f cri remove+sleep 1+update-rc.d cri defaults+sudo echo 'PATH=\$PATH:/usr/games/' >> ~/.bashrc % sudo apt-get install espeak"
 sleep 0.5
 sudo enter-chroot -u root runner
 echo "Added cri to the chroot startup!"
@@ -258,7 +258,6 @@ sudo chown -R $USER:$USER $UPFOLDER
 sudo chmod -R 755 $UPFOLDER
 
 sleep 1
-sudo apt-get install cmatrix
 sudo chown $USER:$USER $CFGFILE
 sudo chmod 755 $CFGFILE
 
@@ -271,11 +270,10 @@ if [ ! -e "$CFGFILE" ]; then
     sudo touch $CFGFILE
     sudo echo "VERSION0.0ENDVERSION...NAMEnoneENDNAME...DATE1/1/16ENDDATE" > $CFGFILE
 fi
-sudo apt-get install espeak
 sudo echo "$(sudo wget "https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/globs/cri.cfg" --no-check-certificate -q -O -)" > /home/chronos/user/Downloads/.tmp/cridate/cri.cfg 
 sudo su -c "echo $(sudo wget https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/globs/cri.cfg --no-check-certificate -q -O -) > /home/chronos/user/Downloads/.tmp/cridate/cri.cfg"
 sudo mount -o remount,exec /home/chronos/user -i
-espeak "Thanks for installing CRI!"
+espeak "Thanks for installing CRI! Now lets commence hacking!"
 
 cmatrix
 
