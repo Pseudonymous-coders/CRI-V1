@@ -220,7 +220,7 @@ sudo enter-chroot -u root runner
 clear
 
 echo "Double checking..."
-sudo writer "printf 'y\ny\ny\n' % apt-get install numix-gtk-theme moka-gtk-theme numix-icon-theme numix-icon-theme-circle moka-icon-theme lxappearance+sleep 0.5+xiwi lxappearance % sudo apt-get install cmatrix"
+sudo writer "printf 'y\ny\ny\n' % apt-get install numix-gtk-theme moka-gtk-theme numix-icon-theme numix-icon-theme-circle moka-icon-theme lxappearance+sleep 0.5+xiwi lxappearance "
 sleep 0.5
 sudo enter-chroot -u root runner
 
@@ -234,7 +234,7 @@ sudo enter-chroot -u root runner
 clear
 
 echo "Adding to start up script..."
-sudo writer "wget https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/chrootlib/cri -O /etc/init.d/cri+chmod 755 /etc/init.d/cri+sleep 0.1+update-rc.d -f cri remove+sleep 1+update-rc.d cri defaults+sudo echo 'PATH=\$PATH:/usr/games/' >> ~/.bashrc % sudo apt-get install espeak"
+sudo writer "wget https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/chrootlib/cri -O /etc/init.d/cri+chmod 755 /etc/init.d/cri+sleep 0.1+update-rc.d -f cri remove+sleep 1+update-rc.d cri defaults+sudo echo 'PATH=\$PATH:/usr/games/' >> ~/.bashrc"
 sleep 0.5
 sudo enter-chroot -u root runner
 echo "Added cri to the chroot startup!"
@@ -273,7 +273,5 @@ fi
 sudo echo "$(sudo wget "https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/globs/cri.cfg" --no-check-certificate -q -O -)" > /home/chronos/user/Downloads/.tmp/cridate/cri.cfg 
 sudo su -c "echo $(sudo wget https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/globs/cri.cfg --no-check-certificate -q -O -) > /home/chronos/user/Downloads/.tmp/cridate/cri.cfg"
 sudo mount -o remount,exec /home/chronos/user -i
-espeak "Thanks for installing CRI! Now lets commence hacking!"
-
-cmatrix
+espeak "Thanks for installing CRI!"
 
