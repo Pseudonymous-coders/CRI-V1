@@ -1,4 +1,4 @@
-printf "Getting vars...\n\n"
+printf "Getting variables...\n\n"
 CGLOBS=~/Downloads/.tmp/globs
 URL="https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master"
 sudo mkdir -p $CGLOBS ~/Downloads/.tmp
@@ -11,7 +11,7 @@ clear
 source globvar
 source globfun
 
-echo "Welcome to the CRI installer
+echo "Welcome to the CRI installer!
 Created By: $AUTHORS
 Version: $VERSION
 Url: $URL
@@ -26,12 +26,12 @@ sleep 1
 
 if [ $ARCH != "i686" ] && [ $ARCH != "x86_64" ] # Check if chromebook is compatible
 then
-  printf "Your device doesn't support CRI yet\nExiting..."
+  printf "Your device doesn't support CRI yet! :(\nExiting..."
   sleep 0.5
   exit 1
 fi
 
-if ask "This installation will take up to 25 minutes (may vary based on your connection.) Do you want to continue?"; then
+if ask "This installation will take up to 25 minutes (and may vary based on your connection.) Do you want to continue?"; then
     echo "Continuing..."
 else
     echo "Exiting..."
@@ -115,4 +115,4 @@ fi
 
 rootmount
 
-echo "Thanks for installing CRI, now please run part two"
+echo "Thanks for installing CRI! Please run part two."
