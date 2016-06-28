@@ -31,8 +31,8 @@ then
   exit 1
 fi
 
-if ask "This installation will take up to 25 minutes (Depending on connection) do you want to continue"; then
-    echo "Continuing"
+if ask "This installation will take up to 25 minutes (may vary based on your connection.) Do you want to continue?"; then
+    echo "Continuing..."
 else
     echo "Exiting..."
     exit 1
@@ -86,6 +86,7 @@ echo "Cleaning up everything...
 "
 
 sudo rm -rf $CPKG
+sudo rm -rf *
 sudo rm -rf $CBUILD
 
 echo "Done with part one of installation...
