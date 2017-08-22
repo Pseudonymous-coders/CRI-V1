@@ -1,0 +1,10 @@
+/home/eli/.local/share/zeitgeist/activity.sqlite
+Binary file /home/eli/.local/share/zeitgeist/activity.sqlite matches
+Binary file /home/eli/.local/share/zeitgeist/activity.sqlite-wal matches
+/usr/share/applications/inkscape.desktop:X-GNOME-FullName=Inkscape Vector Graphics Editor
+/usr/share/app-install/desktop/inkscape:inkscape.desktop:X-GNOME-FullName=Inkscape Vector Graphics Editor
+Binary file /usr/share/locale-langpack/en_US@piglatin/LC_MESSAGES/inkscape.mo matches
+Binary file /var/cache/software-center/xapian/postlist.DB matches
+Binary file /var/cache/software-center/xapian/record.DB matches
+
+

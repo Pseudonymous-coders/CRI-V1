@@ -1,4 +1,0 @@
-#!/bin/bash
-cd ~/Downloads/.tmp/
-sudo chmod 755 coms
-sudo bash coms "$@"

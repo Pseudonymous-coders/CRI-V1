@@ -1,0 +1,9 @@
+/////// LINKER OPTIONS //////
+/usr/lib/x86_64-linux-gnu/libboost_system.so
+/usr/lib/x86_64-linux-gnu/libboost_chrono.so
+/usr/lib/x86_64-linux-gnu/libboost_thread.so
+/usr/lib/x86_64-linux-gnu/libpthread.so
+
+////// INCLUDE DIRS //////
+/usr/include/boost
+/usr/local/include

@@ -1,0 +1,162 @@
+<html lang="en">
+ 
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CRI</title>
+    <link rel="icon" href="images/CRI-LOGO.png">
+
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
+    <link href="css/base.css"     rel="stylesheet">
+    <link href="css/settings.css" rel="stylesheet">
+    <link href="css/loading.css"  rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom Fonts from Google -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav id="siteNav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Logo and responsive toggle -->
+            <div class="navbar-header">
+                <a id="logo" href="index.html">
+                    <img src="images/CRI-LOGO.png" height="50" width="50">
+                </a>
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- Navbar links -->
+            <div class="notify"><a href="index.html">CRI</a></div>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active">
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="settings.html">Settings</a>
+                    </li>
+                    <li>
+                        <a href="http://pseudonymous-cri.weebly.com/support.html">Contact</a>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container -->
+    </nav>
+
+	<!-- Header -->
+    <header id="header">
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1 id="mainText"></h1>
+                <p id="subText"></p>
+            </div>
+        </div>
+
+        <div id="version">
+            Version
+            <div id="versions">
+                <div id="cur">
+                    Current version: <p id="ver"></p><br>
+                    Current release: <p id="rel"></p><br>
+                    Release date: <p id="dat"></p><br>
+                </div>
+                <div id="lat">
+                    Latest version: <p id="ver"></p><br>
+                    Latest release: <p id="rel"></p><br>
+                    Relase date: <p id="dat"></p><br>
+                </div>
+            </div>
+            <button id="update" onclick="update()">Update Cri</button>
+        </div>
+        <div class="program-container">
+            <div class="program">
+                <div id="front">
+                    <p>Program</p>
+                    <button id="front-flip">Flip</button>
+                </div>
+                <div id="back">
+                    <button id="stopall" onclick="stopAll()">Stop all programs</button>
+                </div>
+            </div>
+        </div>
+        <div class="package-container">
+            <div class="package">
+                <div id="front">
+                    <p>Package</p>
+                    <button id="front-flip">Flip</button>
+                </div>
+                <div id="back">
+                    <form id="getPPA">
+                        <input type="submit" value="Add PPA" id="addPPA" onclick="addPPA()">
+                        <input type="text" autocomplete="off" id="PPA">
+                    </form>
+                    <form id="getDeb">
+                        <input type="submit" value="Add Deb" id="addDeb">
+                        <input type="text" autocomplete="off" id="Deb">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="danger-container">
+            <div class="danger">
+                <div id="front">
+                    <p>Danger</p>
+                    <button id="front-flip">Flip</button>
+                </div>
+                <div id="back">
+                    <button id="forceCri" onclick="update()">Force Update</button>
+                    <button id="reinstallCri" onclick="reinstall()">Reinstall CRI</button>
+                    <button id="removeCri" onclick="remove()">Remove CRI</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div id="cover">
+        <div id="loading">
+            <div id="cssload-pgloading">
+                <div class="cssload-loadingwrap">
+                    <ul class="cssload-bokeh">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div> 
+        </div>
+    </div>
+    <!-- Promos -->
+	<!-- Footer -->
+    <!-- jQuery -->
+    <script src="js/jquery-1.11.3.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    
+    <!-- Custom Javascript -->
+    <script src="js/settings.js"></script>
+
+</body>
+</html>

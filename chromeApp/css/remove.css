@@ -1,0 +1,21 @@
+header #items {
+    position: absolute;
+    top: 8%;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+    overflow: auto;
+    max-height: 90%;
+}
+
+header .item {
+    padding: 5px 5px;
+    margin: 10;
+    font-size: 24px;
+}
+
+@media(min-width:768px) {
+    header {
+        min-height: 100%;
+    }
+}
