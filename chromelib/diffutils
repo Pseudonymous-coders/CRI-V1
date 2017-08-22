@@ -1,0 +1,21 @@
+#!/bin/bash
+
+echo "I'm busy...."
+exit 0
+
+CGLOBS=~/Downloads/.tmp/globs
+source $CGLOBS/globvar
+source $CGLOBS/globfun
+echo "
+Installing diffutils..."
+cd $CPKG
+installer "ftp://ftp.gnu.org/gnu/diffutils/diffutils-3.3.tar.xz" $CPKG/diffutils.tar.gz
+unpacker "diffutils.tar.gz" $CBUILD
+cd "$CBUILD/diffutils-3.3"
+sed -i -e '/gets is a/d' lib/stdio.in.h
+sed -i 's:= @mkdir_p@:= /bin/mkdir -p:' po/Makefile.in.in
+./configure --prefix=/usr/local
+make
+make install
+cleaner $CBUILD # Clean up files
+echo "Done"

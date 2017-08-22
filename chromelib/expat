@@ -1,0 +1,19 @@
+#!/bin/bash
+CGLOBS=~/Downloads/.tmp/globs
+source $CGLOBS/globvar
+source $CGLOBS/globfun
+echo "
+Installing expat..."
+cd $CPKG
+if [[ "$ARCH" == "i686" ]];then
+    installer "https://dl.dropboxusercontent.com/s/jh5uw42elm40t9a/expat-2.1.0-chromeos-i686.tar.gz?token_hash=AAGYckE0KoTPsydZGG85KTkpr7Nt5U1OUs0egJ1K0iJ1mg&dl=1" $CPKG/expat.tar.gz
+elif [[ "$ARCH" == "x86_64" ]];then 
+    installer "https://dl.dropboxusercontent.com/s/k89o1x1a3fwoamu/expat-2.1.0-chromeos-x86_64.tar.gz?token_hash=AAGBLOil45Zg7G2RlFlfDUxKfeDyTP3uUWjfBvGQrOjAYA&dl=1" $CPKG/expat.tar.gz
+fi
+
+unpacker "expat.tar.gz" $CBUILD
+
+cd $CBUILD
+sudo cp -r usr/local/ /usr/  # Move all of the files
+cleaner $CBUILD # Clean up files
+echo "Done"

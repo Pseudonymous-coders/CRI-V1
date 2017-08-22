@@ -1,0 +1,149 @@
+header .header-content {
+    position: relative;
+    width: 100%;
+    padding: 100px 15px 70px;
+    text-align: center;
+}
+
+header .header-content .header-content-inner h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 50px;
+    font-weight: bold;
+
+}
+
+header .header-content .header-content-inner p {
+    margin-bottom: 50px;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgba(255,255,255,.7);
+}
+
+/*header button {
+    background-color: rgba(214,73,55,0.8);
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    color: white;
+    margin: 10px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    
+}*/
+
+#gQuery {
+    position: fixed;
+    top: 0.5%;
+    left: 50%;
+    height: 7%;
+    width: 6.5%;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: grey;
+    background-image: linear-gradient(to right, 
+      rgba(0,135,68,0.8),
+      rgba(0,135,68,0.8) 25%,
+      rgba(0,87,231,0.8) 25%,
+      rgba(0,87,231,0.8) 50%,
+      rgba(214,45,32,0.8) 50%,
+      rgba(214,45,32,0.8) 75%,
+      rgba(255,167,0,0.8) 75%);
+    font-size: 26px;
+    outline: none;
+    transform: translate(-50%);
+    transition: all 0.3s ease 0s;
+}
+/*::-webkit-input-placeholder { 
+    text-align:center;
+}*/
+
+#gQuery:focus {
+    background-image: none;
+    background: white;
+    width: 30%;
+}
+
+@media(min-width:768px) {
+    header {
+        min-height: 100%;
+    }
+
+    header .header-content {
+        position: absolute;
+        top: 50%;
+        padding: 0 50px;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    header .header-content .header-content-inner {
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 1000px;
+    }
+
+	header .header-content .header-content-inner h1 {
+    	font-size: 100px;
+		}
+
+    header .header-content .header-content-inner p {
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 80%;
+        font-size: 18px;
+    }
+}
+
+.promo,
+.promo h3,
+.promo a:link,
+.promo a:visited,
+.promo a:hover,
+.promo a:active {
+    color: white;
+	text-shadow: 0px 0px 40px black;
+    text-decoration: none;
+}
+
+.promo-item {
+    transition: all 0.3s ease 0s;
+    height: 200px;
+    line-height: 180px;
+    text-align: center;
+}
+
+.promo-item:hover {
+    box-shadow: inset 0 0 0 20px rgba(76,175,80,0.8);
+    line-height: 160px;
+}
+
+.promo-item h3 {
+    font-size: 40px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.item-1 {
+	background: url('../images/Run.jpg');
+}
+	
+.item-2 {
+	background: url('../images/Install.jpg');
+}
+	
+.item-3 {
+	background: url('../images/Remove.jpg');
+}
+		
+.item-1,
+.item-2,
+.item-3 {
+	background-size: cover;
+	background-position: 50% 50%;
+}

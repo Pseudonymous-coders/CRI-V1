@@ -1,0 +1,22 @@
+#!/bin/bash
+CGLOBS=~/Downloads/.tmp/globs
+source $CGLOBS/globvar
+source $CGLOBS/globfun
+echo "
+Installing json UTILS..."
+cd $CPKG
+fixowner
+echo "Getting Mozilla JavaScript Engine..."
+installer "https://people.mozilla.org/~sstangl/mozjs-38.2.1.rc0.tar.bz2" $CPKG/jscript.tar.bz2
+sudo tar xf "jscript.tar.bz2" --checkpoint=.
+sudo chown -R $USER:$USER mozjs-38.2.1.rc0
+fixowner
+cd "mozjs-38.0.0"
+sudo chmod -R 755 * 
+cd "js/src"
+./configure --host=$ARCH
+
+sudo curl -L http://github.com/micha/jsawk/raw/master/jsawk > jsawk
+sudo chmod 755 jsawk
+sudo mv jsawk /usr/local/bin/
+echo "Done"

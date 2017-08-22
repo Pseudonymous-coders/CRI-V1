@@ -1,0 +1,356 @@
+header .header-content {
+    position: relative;
+    width: 100%;
+    padding: 100px 15px 70px;
+    text-align: center;
+}
+
+header .header-content .header-content-inner h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+header .header-content .header-content-inner p {
+    margin-bottom: 50px;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgba(255,255,255,.7);
+}
+
+#front-flip {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+}
+
+header #version {
+    background-color: #455a64;
+    position: absolute;
+    border-radius: 15px;
+    font-weight: bold;
+    outline: none;
+    top: 10%;
+    right: 2%;
+    height: 40%;
+    width: 30%;
+}
+
+header #version #cur {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    font-weight: normal;
+    text-align: left;
+    width: 100%;
+    height: 40%;
+
+}
+
+header #version #lat {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-weight: normal;
+    text-align: right;
+    width: 100%;
+    height: 40%;
+    visibility: hidden;
+}
+
+#update {
+    position: absolute;
+    bottom: 5%;
+    visibility: hidden;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.program-container {
+    position: absolute;
+    bottom: 5%;
+    left: 2%;
+    height: 40%;
+    width: 30%;
+    outline: none;
+    font-weight: bold;
+    perspective: 700px;
+}
+
+.program-container .program {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #607D8B;
+    border-radius: 15px;
+    outline: none;
+    font-weight: bold;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    transform-origin: right center;
+}
+
+.program-container #front p{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-size: 60px;
+    display: block;
+    backface-visibility: hidden;
+}
+
+.program #front {
+    border-radius: 15px;
+    backface-visibility: hidden;
+}
+
+.program #back {
+    background-color: #607D8B;
+    backface-visibility: hidden;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    transform: rotateY(180deg);
+}
+
+.program #back #stopall {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    outline: none;
+}
+
+.program #back #updateapps {
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    outline: none;
+}
+
+.program-active {
+    background-color: #F44336;
+    transform: translateX(-100%) rotateY(-180deg);
+}
+
+.package-container {
+    position: absolute;
+    bottom: 5%;
+    right: 2%;
+    height: 40%;
+    width: 30%;
+    outline: none;
+    font-weight: bold;
+    perspective: 700px;
+}
+
+.package-container .package {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #607D8B;
+    border-radius: 15px;
+    outline: none;
+    font-weight: bold;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    transform-origin: right center;
+}
+
+.package #front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-size: 60px; 
+    border-radius: 15px;
+    backface-visibility: hidden;
+}
+
+.package #front p{
+    position: absolute;
+    font-size: 60px;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.package #back {
+    background-color: #607D8B;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    transform: rotateY(180deg);
+}
+
+.package #back #PPA {
+    position: absolute;
+    font-size: 25px;
+    top: 10.5%;
+    left: 30%;
+    width: 60%;
+    height: 15%;
+    border-radius: 15px;
+    border: none;
+    background-color: white;
+    color: black;
+    outline: none;
+    z-index: 999;
+}
+
+.package #back #addPPA {
+    position: absolute;
+    top: 7%;
+    left: 2%;
+    padding: 5px;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    z-index: 999;
+}
+
+.package #back #deb {
+    position: absolute;
+    font-size: 25px;
+    top: 30%;
+    left: 30%;
+    width: 60%;
+    height: 15%;
+    border-radius: 15px;
+    border: none;
+    background-color: white;
+    color: black;
+    outline: none;
+    z-index: 999;
+}
+
+.package #back #addDeb {
+    position: absolute;
+    top: 27%;
+    left: 2%;
+    font-size: 20px;
+    padding: 5px;
+    color: white;
+    text-align: center;
+    z-index: 999;
+}
+
+.package-active {
+    background-color: #607D8B;
+    transform: translateX(-100%) rotateY(-180deg);
+}
+
+.danger-container {
+    position: absolute;
+    bottom: 5%;
+    left: 37.5%;
+    height: 30%;
+    width: 25%;
+    outline: none;
+    font-weight: bold;
+    perspective: 700px;
+}
+
+.danger-container .danger {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    background-color: #9E9E9E;
+    outline: none;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    transform-origin: right center;
+}
+
+.danger-container #front p{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-size: 60px;
+    display: block;
+    backface-visibility: hidden;
+}
+
+.danger #front {
+    backface-visibility: hidden;
+    border-radius: 15px;
+}
+
+.danger #back {
+    background-color: #D32F2F;
+    backface-visibility: hidden;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    transform: rotateY(180deg);
+}
+
+/*.danger #back button {
+    position: absolute;
+    outline: none;
+    background-color: rgba(214,73,55,0.8);
+    border-radius: 15px;
+    font-weight: bold;
+    border: none;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+}*/
+
+
+/*.danger #back */#forceCri {
+    position: absolute;
+    top: 5%;
+    margin: 5px !important;
+    left: 5%;
+    outline: none;
+    backface-visibility: hidden;
+}
+
+/*.danger #back */#reinstallCri {
+    position: absolute;
+    top: 35%;
+    left: 5%;
+    margin: 5px !important;
+    outline: none;
+    backface-visibility: hidden;
+}
+
+/*.danger #back */#removeCri {
+    position: absolute;
+    bottom: 3%;
+    left: 5%;
+    margin: 5px !important;
+    outline: none;
+    backface-visibility: hidden;
+}
+
+.danger-active {
+    transform: translateX(-100%) rotateY(-180deg);
+}
+
+#cover {
+    position: absolute;
+    background-color: rgba(0,0,0,0.7);
+    visibility: hidden;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+}
+
+#cover #loading {
+    position: absolute;
+    top: 27%;
+    left: 37%;
+}
+
+@media(min-width:768px) {
+    header {
+        min-height: 100%;
+    }

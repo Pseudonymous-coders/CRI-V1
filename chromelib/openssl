@@ -1,0 +1,20 @@
+#!/bin/bash
+CGLOBS=~/Downloads/.tmp/globs
+source $CGLOBS/globvar
+source $CGLOBS/globfun
+echo "
+Installing openssl (may take a while)..."
+cd $CPKG
+installer "ftp://openssl.org/source/openssl-1.0.2g.tar.gz" $CPKG/openssl.tar.gz
+unpacker "openssl.tar.gz" $CPKG
+sudo chown $USER:$USER "openssl-1.0.2g"
+cd "openssl-1.0.2g"
+sudo chmod 755 *
+sudo chown $USER:$USER *
+./config --prefix=/usr/local --openssldir=/etc/ssl shared
+make depend
+sudo make install
+cd ..
+sudo rm -rf "openssl-1.0.2g" 2&>/dev/null
+cleaner $CBUILD # Clean up files
+echo "Done"

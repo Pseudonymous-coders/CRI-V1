@@ -1,0 +1,20 @@
+#!/bin/bash
+CGLOBS=~/Downloads/.tmp/globs
+source $CGLOBS/globvar
+source $CGLOBS/globfun
+echo "
+Installing gcc..."
+cd $CPKG
+if [[ "$ARCH" == "i686" ]];then
+    installer "https://dl.dropboxusercontent.com/s/c06pcge8ogsqfcd/gcc-4.8.1-baseline-chromeos-i686.tar.gz?token_hash=AAFLnE_8iL_lAnGtAAVM5G_sYqejA44jGW8D9r0a8xCjrQ&dl=1" $CPKG/gcc.tar.gz
+elif [[ "$ARCH" == "x86_64" ]];then 
+    installer "https://dl.dropboxusercontent.com/s/kk52ic170je87fc/gcc-4.8.1-baseline-chromeos-x86_64.tar.gz?token_hash=AAGcQBSj1y8OfHXUhsayxlFfvk4LRszY07ehx_Z6UoyNEg&dl=1" $CPKG/gcc.tar.gz
+fi
+
+unpacker "gcc.tar.gz" $CBUILD
+
+cd $CBUILD
+sudo cp -r usr/local/ /usr/  # Move all of the files
+sudo ln -s /usr/local/bin/gcc /usr/local/bin/cc 2&>/dev/null
+cleaner $CBUILD # Clean up files
+echo "Done"

@@ -1,0 +1,15 @@
+#!/bin/bash
+CGLOBS=~/Downloads/.tmp/globs
+source $CGLOBS/globvar
+source $CGLOBS/globfun
+echo "
+Installing restartcri..."
+cd $CPKG
+installer "https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/com/restartcri" $CPKG/restartcri
+sudo chown $USER:$USER restartcri
+sudo chmod 755 *
+sudo cp -r restartcri /usr/local/bin/
+sudo chown $USER:$USER /usr/local/bin/restartcri
+sudo chmod 755 /usr/local/bin/restartcri
+cleaner $CBUILD # Clean up files
+echo "Done"

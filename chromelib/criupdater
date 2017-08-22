@@ -1,0 +1,16 @@
+
+#!/bin/bash
+CGLOBS=~/Downloads/.tmp/globs
+source $CGLOBS/globvar
+source $CGLOBS/globfun
+echo "
+Installing updatecri..."
+cd $CPKG
+installer "https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/com/updatecri" $CPKG/updatecri
+sudo chown $USER:$USER updatecri
+sudo chmod 755 *
+sudo cp -r updatecri /usr/local/bin/
+sudo chown $USER:$USER /usr/local/bin/updatecri
+sudo chmod 755 /usr/local/bin/updatecri
+cleaner $CBUILD # Clean up files
+echo "Done"

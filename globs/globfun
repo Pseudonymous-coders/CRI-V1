@@ -1,0 +1,85 @@
+USER=$(whoami)
+lineCount() #Same function called earlier in the previous script to use in the counting of lines in commands.txt
+{
+    wc -l < installLIST.txt	
+}
+
+chrootCount() #Same function called earlier in the previous script to use in the counting of lines in commands.txt
+{
+    wc -l < chrootLIST.txt	
+}
+
+ask() {				   #This is the function we call for our yes/no situations 
+    while true; do
+        read -p "$1?[y/n] " REPLY </dev/tty
+        case "$REPLY" in
+            Y*|y*) return 0 ;;
+            N*|n*) return 1 ;;
+        esac
+    done
+}
+
+
+fixowner()
+{
+sudo chown $USER:$USER /usr/local/lib /usr/local/bin /usr/local/lib64 /usr/local/ /usr/local/* /usr/local/include /usr/local/lib/pkgconfig/ /usr/local/share/man/man1/ 2&>/dev/null
+sudo chown -R $USER:$USER /usr/local 2&>/dev/null
+sudo chown -R $USER:$USER $CTEMP 2&>/dev/null
+sudo chmod -R 755 $CTEMP 2&>/dev/null
+sudo chmod 755 /usr/local/* /usr/local/bin/* /usr/local/lib/* /usr/local/lib64/* 2&>/dev/null
+}
+
+installer() 
+{
+sudo wget --progress=bar:force "$1" -O "$2" 2>&1 | progressfilt
+}
+
+unpacker() 
+{
+#echo "|----------------------------------------------------------------------------|"
+sudo tar -zxf "$1" -C "$2" --checkpoint=.150 #$($(tar -tzf "$1" | wc -l) / (78))
+#echo ""
+#sudo tar -zxf "$1" -C "$2" | pv -s `du -sb . | grep -o '[0-9]\+'` -N tar 
+}
+
+cleaner()
+{
+sudo rm -rf $1/*
+}
+
+clean() 
+{
+    tput cuu 1 && tput el
+}
+
+progressfilt ()
+{
+    local flag=false c count cr=$'\r' nl=$'\n'
+    while IFS='' read -d '' -rn 1 c
+    do
+        if $flag
+        then
+            printf '%c' "$c"
+        else
+            if [[ $c != $cr && $c != $nl ]]
+            then
+                count=0
+            else
+                ((count++))
+                if ((count > 1))
+                then
+                    flag=true
+                fi
+            fi
+        fi
+    done
+}
+
+export -f clean
+export -f fixowner
+export -f cleaner
+export -f progressfilt
+export -f lineCount
+export -f installer
+export -f unpacker
+export -f ask

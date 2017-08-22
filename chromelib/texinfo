@@ -1,0 +1,18 @@
+#!/bin/bash
+CGLOBS=~/Downloads/.tmp/globs
+source $CGLOBS/globvar
+source $CGLOBS/globfun
+echo "
+Installing texinfo (May take a while)..."
+cd $CPKG
+installer "http://ftp.gnu.org/gnu/texinfo/texinfo-6.1.tar.gz" $CPKG/texinfo.tar.gz
+unpacker "texinfo.tar.gz" $CPKG
+sudo chown $USER:$USER "texinfo-6.1"
+cd "texinfo-6.1"
+./configure --prefix=/usr/local --host=$ARCH
+make
+make install
+cd ..
+sudo rm -rf "texinfo-6.1" 2&>/dev/null
+cleaner $CBUILD # Clean up files
+echo "Done"
