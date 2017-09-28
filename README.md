@@ -1,6 +1,6 @@
 # CRI
 
-DEVELOPERS ONLY: wget -q -O - https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/install.sh | bash
+### DEVELOPERS ONLY: wget -q -O - https://raw.githubusercontent.com/Pseudonymous-coders/CRI/master/install.sh | bash
 
 For a simple preview, check out <a href="http://pseudonymous.tk/projects/cri">this link</a>!
 
